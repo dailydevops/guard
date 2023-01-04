@@ -29,11 +29,11 @@ jobs:
 
     - name: Setup .NET
       uses: actions/setup-dotnet@v3
-      id: setup-dotnet
       with:
         dotnet-version: ${{ env.dotnet-version }}
 
     - uses: actions/cache@v3
+      id: nuget-cache
       with:
         path: ~/.nuget/packages
         # Look to see if there is a cache hit for the corresponding requirements file
@@ -42,6 +42,7 @@ jobs:
           ${{ runner.os }}-nuget
 
     - name: Restore dependencies
+      if: steps.nuget-cache.outputs.cache-hit != 'true'
       run: dotnet restore
 
     - name: Build
