@@ -21,4 +21,8 @@ public readonly ref struct SecureContext<T>
     /// <param name="context">The argument whose value to return.</param>
     /// <returns><see cref="Value" />.</returns>
     public static implicit operator T(SecureContext<T> context) => context.Value;
+
+    /// <summary>Gets the value of an argument.</summary>
+    /// <returns><see cref="Value" />.</returns>
+    public T ToT() => Value;
 }
