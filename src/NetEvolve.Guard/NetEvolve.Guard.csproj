@@ -13,7 +13,7 @@
     <CopyrightYearStart>2022</CopyrightYearStart>
     
     <PackageProjectUrl>https://github.com/NetEvolve/guard</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/NetEvolve/guard</RepositoryUrl>
+    <RepositoryUrl>https://github.com/NetEvolve/guard.git</RepositoryUrl>
   </PropertyGroup>
   
 </Project>
