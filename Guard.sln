@@ -4,22 +4,45 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0834CE2C-9AAD-49FF-8E86-3F55DFCB8B63}"
+	ProjectSection(SolutionItems) = preProject
+		src\Directory.Build.props = src\Directory.Build.props
+		src\Directory.Build.targets = src\Directory.Build.targets
+		src\Directory.Packages.props = src\Directory.Packages.props
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetEvolve.Guard", "src\NetEvolve.Guard\NetEvolve.Guard.csproj", "{ECD483A7-9D74-428D-BD35-4048923B5490}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetEvolve.Guard", "src\NetEvolve.Guard\NetEvolve.Guard.csproj", "{ECD483A7-9D74-428D-BD35-4048923B5490}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{0F9685A3-1214-4234-B672-050E089869E6}"
+	ProjectSection(SolutionItems) = preProject
+		tests\Directory.Build.props = tests\Directory.Build.props
+		tests\Directory.Build.targets = tests\Directory.Build.targets
+		tests\Directory.Packages.props = tests\Directory.Packages.props
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetEvolve.Guard.Tests.Unit", "tests\NetEvolve.Guard.Tests.Unit\NetEvolve.Guard.Tests.Unit.csproj", "{94E3F6A8-6329-41ED-B4FD-083D69E74FE4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetEvolve.Guard.Tests.Unit", "tests\NetEvolve.Guard.Tests.Unit\NetEvolve.Guard.Tests.Unit.csproj", "{94E3F6A8-6329-41ED-B4FD-083D69E74FE4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NetEvolve.Guard.Tests.Integration", "tests\NetEvolve.Guard.Tests.Integration\NetEvolve.Guard.Tests.Integration.csproj", "{6D5431F4-0DD8-4368-9577-9ADD6D58CC72}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6C77C842-EBD9-47AA-AAEF-9C9D819A1D72}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+		.filenesting.json = .filenesting.json
+		.gitignore = .gitignore
+		.gitmodules = .gitmodules
+		Directory.Build.props = Directory.Build.props
+		Directory.Build.targets = Directory.Build.targets
+		Directory.Packages.props = Directory.Packages.props
+		Directory.Solution.props = Directory.Solution.props
+		GitVersion.yml = GitVersion.yml
+		LICENSE = LICENSE
+		new-project.ps1 = new-project.ps1
+		nuget.config = nuget.config
+		README.md = README.md
+		update-solution.ps1 = update-solution.ps1
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{ECD483A7-9D74-428D-BD35-4048923B5490}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -30,14 +53,12 @@ Global
 		{94E3F6A8-6329-41ED-B4FD-083D69E74FE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{94E3F6A8-6329-41ED-B4FD-083D69E74FE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{94E3F6A8-6329-41ED-B4FD-083D69E74FE4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6D5431F4-0DD8-4368-9577-9ADD6D58CC72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6D5431F4-0DD8-4368-9577-9ADD6D58CC72}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6D5431F4-0DD8-4368-9577-9ADD6D58CC72}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6D5431F4-0DD8-4368-9577-9ADD6D58CC72}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{ECD483A7-9D74-428D-BD35-4048923B5490} = {0834CE2C-9AAD-49FF-8E86-3F55DFCB8B63}
 		{94E3F6A8-6329-41ED-B4FD-083D69E74FE4} = {0F9685A3-1214-4234-B672-050E089869E6}
-		{6D5431F4-0DD8-4368-9577-9ADD6D58CC72} = {0F9685A3-1214-4234-B672-050E089869E6}
 	EndGlobalSection
 EndGlobal
