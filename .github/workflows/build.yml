@@ -78,7 +78,7 @@ jobs:
         path: packages
         
     - name: Push packages to GitHub.com/NetEvolve
-      run: dotnet nuget push packages/**/*.nupkg -k ${{ secrets.GITHUB_TOKEN }} -s https://nuget.pkg.github.com/NetEvolve/index.json --skip-duplicate
+      run: dotnet nuget push packages/**/*.nupkg -k ${{ secrets.PACKAGES_TOKEN }} -s https://nuget.pkg.github.com/NetEvolve/index.json --skip-duplicate
       
   nuget:
     name: "Publish to NuGet.org"
