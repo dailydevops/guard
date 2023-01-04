@@ -44,7 +44,7 @@ jobs:
       run: dotnet restore
 
     - name: Create temporary global.json
-      run: echo '{"sdk":{"version": "${{ steps.setup-dotnet.outputs.dotnet-version }}"}}' > ./global.json
+      run: echo '{"sdk":{"version":"${{ steps.setup-dotnet.outputs.dotnet-version }}"} }' > ./global.json
 
     - name: Build
       run: dotnet build --configuration Release --no-restore
