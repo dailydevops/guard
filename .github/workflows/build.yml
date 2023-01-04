@@ -55,3 +55,26 @@ jobs:
       with:
         token: ${{ secrets.CODECOV_TOKEN }}
         fail_ci_if_error: true
+
+    - name: Upload NuGet packages
+      uses: actions/upload-artifact@3
+      with:
+        name: release-packages
+        path: |
+          **/*.nupkg
+          **/*.snupkg
+          
+  github:
+    name: "Publish to GitHub Packages"
+    runs-on: ubuntu-latest
+    needs: [ build ]
+
+    steps:
+    - name: Download Artifacts
+      uses: actions/download-artifact@v2
+      with:
+        name: release-packages
+        path: packages
+        
+    - name: Push packages to GitHub.com/NetEvolve
+      run: dotnet nuget push packages/**/*.nupkg -k ${{ secrets.GITHUB_TOKEN }} -s https://nuget.pkg.github.com/NetEvolve/index.json --skip-duplicate
