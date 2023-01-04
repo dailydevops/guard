@@ -43,7 +43,7 @@ public class EnsureStructTests
             var result = _ = Ensure.That(value).IsNotNull();
 
             _ = Assert.IsType<int>(result);
-            Assert.Equal(value!.Value, result);
+            Assert.Equal<int>(value!.Value, result);
         }
     }
 
@@ -65,7 +65,7 @@ public class EnsureStructTests
             var result = _ = Ensure.That(value).IsNotNullOrDefault();
 
             _ = Assert.IsType<int>(result);
-            Assert.Equal(value!.Value, result);
+            Assert.Equal<int>(value!.Value, result);
         }
     }
 }

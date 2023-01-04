@@ -17,7 +17,7 @@ public partial class SecureContextExtensions
         in this SecureContext<float> value
     )
     {
-        if (float.IsPositiveInfinity(value))
+        if (float.IsPositiveInfinity(value.Value))
         {
             throw new ArgumentException(null, value.ParameterName);
         }
