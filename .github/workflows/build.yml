@@ -57,7 +57,7 @@ jobs:
         fail_ci_if_error: true
 
     - name: Upload NuGet packages
-      uses: actions/upload-artifact@3
+      uses: actions/upload-artifact@v3
       with:
         name: release-packages
         path: |
