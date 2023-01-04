@@ -10,10 +10,17 @@
 
   <PropertyGroup>
     <Title>NetEvolve.Guard</Title>
+    <Description>
+      Basic input validation via the `Ensure`-class throws an `ArgumentException`, `ArgumentNullException` or other Exception types, if the conditions are not met.
+      The second parameter `parameterName` from `Ensure.That(T value, string? parameterName = default!)` is optional and is automatically populated by .NET, based
+      on the `CallerArgumentExpressionAttribute` functionality.
+    </Description>
     <CopyrightYearStart>2022</CopyrightYearStart>
     
     <PackageProjectUrl>https://github.com/NetEvolve/guard</PackageProjectUrl>
     <RepositoryUrl>https://github.com/NetEvolve/guard.git</RepositoryUrl>
+    
+    <PackageTags>argument;inputvalidation;parameter;guard;ensure;validation;contract;assert;assertion;exceptions</PackageTags>
   </PropertyGroup>
   
 </Project>
