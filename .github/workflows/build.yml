@@ -72,7 +72,7 @@ jobs:
 
     steps:
     - name: Download Artifacts
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v3
       with:
         name: release-packages
         path: packages
@@ -88,7 +88,7 @@ jobs:
 
     steps:
     - name: Download Artifacts
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v3
       with:
         name: release-packages
         path: packages
