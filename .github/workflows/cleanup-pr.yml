@@ -70,5 +70,5 @@ jobs:
       run: dotnet tool install --global nuget-clear --version 1.0.0-preview1
 
     - name: Delete Packages
-      enable: false
+      if: ${{ false }}
       run: nuclear delete ${{ env.package-id }} 2.0.0-* -k ${{ secrets.PACKAGES_TOKEN }} -s https://nuget.pkg.github.com/NetEvolve/index.json
