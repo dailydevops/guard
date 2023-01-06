@@ -36,11 +36,6 @@ jobs:
 
     - name: Install nuclear
       run: dotnet tool install --global nuget-clear --version 1.0.0-preview1
-      
-    - name: Echo Version
-      run: |
-        echo "${{ steps.gitversion.outputs.majorMinorPatch }}-${{ steps.gitversion.outputs.preReleaseLabel }}.*"
 
     - name: Delete Packages
-      if: ${{ false }}
-      run: nuclear delete ${{ env.package-id }} 2.0.0-* -k ${{ secrets.PACKAGES_TOKEN }} -s https://nuget.pkg.github.com/NetEvolve/index.json
+      run: nuclear delete ${{ env.package-id }} "${{ steps.gitversion.outputs.majorMinorPatch }}-${{ steps.gitversion.outputs.preReleaseLabel }}.*" -k ${{ secrets.PACKAGES_TOKEN }} -s https://nuget.pkg.github.com/NetEvolve/index.json
