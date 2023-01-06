@@ -43,4 +43,5 @@ jobs:
       run: dotnet tool install --global nuget-clear --version 1.0.0-preview1
 
     - name: Delete Packages
-      run: nuclear delete ${{ env.package-id }} ${{ steps.gitversion.outputs.majorMinorPatch }}-${{ steps.gitversion.outputs.preReleaseLabel }}.* -k ${{ secrets.PACKAGES_TOKEN }} -s https://nuget.pkg.github.com/NetEvolve/index.json
+      # run: nuclear delete ${{ env.package-id }} ${{ steps.gitversion.outputs.majorMinorPatch }}-${{ steps.gitversion.outputs.preReleaseLabel }}.* -k ${{ secrets.PACKAGES_TOKEN }} -s https://nuget.pkg.github.com/NetEvolve/index.json
+      run: dotnet nuget delete ${{ env.package-id }} ${{ steps.gitversion.outputs.majorMinorPatch }}-${{ steps.gitversion.outputs.preReleaseLabel }}.* -k ${{ secrets.PACKAGES_TOKEN }} -s https://nuget.pkg.github.com/NetEvolve/index.json --non-interactive
