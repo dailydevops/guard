@@ -1,5 +1,7 @@
 ﻿namespace NetEvolve.Guard;
 
+using System.ComponentModel;
+
 public readonly ref struct EnsureContext<T>
 {
     internal T Value { get; }
@@ -24,5 +26,7 @@ public readonly ref struct EnsureContext<T>
 
     /// <summary>Gets the value of an argument.</summary>
     /// <returns><see cref="Value" />.</returns>
+    [Browsable(false)]
+    [EditorBrowsable(EditorBrowsableState.Never)]
     public T ToT() => Value;
 }
