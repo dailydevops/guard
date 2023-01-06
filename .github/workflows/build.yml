@@ -64,7 +64,7 @@ jobs:
         path: |
           **/*.nupkg
           **/*.snupkg
-          
+
   github:
     name: "Publish to GitHub Packages"
     runs-on: ubuntu-latest
@@ -76,10 +76,10 @@ jobs:
       with:
         name: release-packages
         path: packages
-        
+
     - name: Push packages to GitHub.com/NetEvolve
       run: dotnet nuget push packages/**/*.nupkg -k ${{ secrets.PACKAGES_TOKEN }} -s https://nuget.pkg.github.com/NetEvolve/index.json --skip-duplicate
-      
+
   nuget:
     name: "Publish to NuGet.org"
     if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
@@ -92,6 +92,6 @@ jobs:
       with:
         name: release-packages
         path: packages
-        
+
     - name: Push packages to GitHub.com/NetEvolve
       run: dotnet nuget push packages/**/*.nupkg -k ${{ secrets.NUGET_TOKEN }} -s https://api.nuget.org/v3/index.json --skip-duplicate
