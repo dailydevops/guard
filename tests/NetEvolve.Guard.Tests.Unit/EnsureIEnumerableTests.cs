@@ -37,6 +37,28 @@ public class EnsureIEnumerableTests
         }
     }
 
+    [Fact]
+    public void NotNullOrEmpty_Array_ArgumentException()
+    {
+        var values = Array.Empty<string>();
+
+        _ = Assert.Throws<ArgumentException>(
+            nameof(values),
+            () => _ = Ensure.That(values).IsNotNullOrEmpty<string[], string>()
+        );
+    }
+
+    [Fact]
+    public void NotNullOrEmpty_List_ArgumentException()
+    {
+        var values = new List<string>();
+
+        _ = Assert.Throws<ArgumentException>(
+            nameof(values),
+            () => _ = Ensure.That(values).IsNotNullOrEmpty<List<string>, string>()
+        );
+    }
+
     public static TheoryData GetNotNullOrEmptyData =>
         new TheoryData<bool, IEnumerable<string?>>
         {
