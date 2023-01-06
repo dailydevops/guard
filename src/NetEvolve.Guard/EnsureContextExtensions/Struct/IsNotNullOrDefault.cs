@@ -18,14 +18,7 @@ public partial class EnsureContextExtensions
     public static EnsureContext<T> IsNotNullOrDefault<T>(in this EnsureContext<T?> value)
         where T : struct
     {
-#if NET6_0_OR_GREATER
-        ArgumentNullException.ThrowIfNull(value.Value, value.ParameterName);
-#else
-        if (value.Value is null)
-        {
-            throw new ArgumentNullException(value.ParameterName);
-        }
-#endif
+        Parameter.NotNull(value.Value, value.ParameterName);
 
         if (value.Value.Equals(default(T)))
         {

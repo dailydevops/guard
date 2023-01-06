@@ -14,14 +14,7 @@ public partial class EnsureContextExtensions
     [StackTraceHidden]
     public static EnsureContext<Guid> IsNotNullOrEmpty(in this EnsureContext<Guid?> value)
     {
-#if NET6_0_OR_GREATER
-        ArgumentNullException.ThrowIfNull(value.Value, value.ParameterName);
-#else
-        if (value.Value is null)
-        {
-            throw new ArgumentNullException(value.ParameterName);
-        }
-#endif
+        Parameter.NotNull(value.Value, value.ParameterName);
 
         if (value.Value.Value == Guid.Empty)
         {

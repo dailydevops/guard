@@ -13,14 +13,7 @@ public partial class EnsureContextExtensions
         in this EnsureContext<IEnumerable<T>?> value
     )
     {
-#if NET6_0_OR_GREATER
-        ArgumentNullException.ThrowIfNull(value.Value, value.ParameterName);
-#else
-        if (value.Value is null)
-        {
-            throw new ArgumentNullException(value.ParameterName);
-        }
-#endif
+        Parameter.NotNull(value.Value, value.ParameterName);
 
         if (!value.Value.Any())
         {

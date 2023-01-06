@@ -22,18 +22,8 @@ public static class Ensure
         [CallerArgumentExpression(nameof(value))] string? parameterName = default!
     ) where T : class
     {
-#if NET7_0_OR_GREATER
-        ArgumentException.ThrowIfNullOrEmpty(parameterName);
-#else
-        if (parameterName is null)
-        {
-            throw new ArgumentNullException(nameof(parameterName));
-        }
-        if (string.IsNullOrEmpty(parameterName))
-        {
-            throw new ArgumentException(null, nameof(parameterName));
-        }
-#endif
+        Parameter.NotNullOrEmpty(parameterName);
+
         return new EnsureContext<T?>(value, parameterName!);
     }
 
@@ -53,18 +43,7 @@ public static class Ensure
         [CallerArgumentExpression(nameof(value))] string? parameterName = default!
     ) where T : struct
     {
-#if NET7_0_OR_GREATER
-        ArgumentException.ThrowIfNullOrEmpty(parameterName);
-#else
-        if (parameterName is null)
-        {
-            throw new ArgumentNullException(nameof(parameterName));
-        }
-        if (string.IsNullOrEmpty(parameterName))
-        {
-            throw new ArgumentException(null, nameof(parameterName));
-        }
-#endif
+        Parameter.NotNullOrEmpty(parameterName);
 
         return new EnsureContext<T>(in value, parameterName!);
     }
@@ -85,18 +64,7 @@ public static class Ensure
         [CallerArgumentExpression(nameof(value))] string? parameterName = default!
     ) where T : struct
     {
-#if NET7_0_OR_GREATER
-        ArgumentException.ThrowIfNullOrEmpty(parameterName);
-#else
-        if (parameterName is null)
-        {
-            throw new ArgumentNullException(nameof(parameterName));
-        }
-        if (string.IsNullOrEmpty(parameterName))
-        {
-            throw new ArgumentException(null, nameof(parameterName));
-        }
-#endif
+        Parameter.NotNullOrEmpty(parameterName);
 
         return new EnsureContext<T?>(in value, parameterName!);
     }

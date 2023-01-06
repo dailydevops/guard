@@ -25,14 +25,7 @@ public partial class EnsureContextExtensions
         [CallerArgumentExpression(nameof(condition))] string conditionAsString = default!
     )
     {
-#if NET6_0_OR_GREATER
-        ArgumentNullException.ThrowIfNull(condition);
-#else
-        if (condition is null)
-        {
-            throw new ArgumentNullException(nameof(condition));
-        }
-#endif
+        Parameter.NotNull(condition);
 
         if (!condition.Invoke(value.Value))
         {
