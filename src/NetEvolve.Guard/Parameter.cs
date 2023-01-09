@@ -10,6 +10,11 @@ internal static class Parameter
     [DebuggerStepThrough]
     [StackTraceHidden]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    [SuppressMessage(
+        "Style",
+        "IDE0022:Use expression body for methods",
+        Justification = "False Positive, because of preprocessor directives"
+    )]
     public static void NotNull<T>(
         [NotNull] this T value,
         [CallerArgumentExpression(nameof(value))] string? parameterName = null
@@ -28,6 +33,11 @@ internal static class Parameter
     [DebuggerStepThrough]
     [StackTraceHidden]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+    [SuppressMessage(
+        "Style",
+        "IDE0022:Use expression body for methods",
+        Justification = "False Positive, because of preprocessor directives"
+    )]
     public static void NotNullOrEmpty(
         [NotNull] this string? value,
         [CallerArgumentExpression(nameof(value))] string? parameterName = null
