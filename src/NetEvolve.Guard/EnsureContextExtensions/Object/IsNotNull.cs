@@ -18,6 +18,6 @@ public partial class EnsureContextExtensions
     {
         Parameter.NotNull(value.Value, value.ParameterName);
 
-        return new EnsureContext<T>(value.Value!, value.ParameterName);
+        return new EnsureContext<T>(value.Value, value.ParameterName);
     }
 }
