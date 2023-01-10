@@ -4,6 +4,9 @@ using System;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 
+/// <summary>
+/// Allows the validation of arguments and parameters
+/// </summary>
 public static class Ensure
 {
     /// <summary>

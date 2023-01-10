@@ -2,6 +2,10 @@
 
 using System.ComponentModel;
 
+/// <summary>
+/// Wrapper for normalization and testing
+/// </summary>
+/// <typeparam name="T">Unrestricted type</typeparam>
 public readonly ref struct EnsureContext<T>
 {
     internal T Value { get; }
