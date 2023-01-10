@@ -39,7 +39,10 @@ public class EnsureIEnumerableTests
 
     [Theory]
     [MemberData(nameof(GetNotNullOrEmptyData))]
-    public void NotNullOrEmpty_TEnumerableTheory_Expected(bool throwException, IEnumerable<string?> values)
+    public void NotNullOrEmpty_TEnumerableTheory_Expected(
+        bool throwException,
+        IEnumerable<string?> values
+    )
     {
         if (throwException)
         {
