@@ -1,5 +1,9 @@
 ﻿namespace NetEvolve.Guard;
 
+/// <summary>
+/// Wrapper for normalization and testing
+/// </summary>
+/// <typeparam name="T">Unrestricted type</typeparam>
 public readonly ref struct SecureContext<T>
 {
     internal T Value { get; }
