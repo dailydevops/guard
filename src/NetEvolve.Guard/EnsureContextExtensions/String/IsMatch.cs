@@ -49,14 +49,7 @@ public partial class EnsureContextExtensions
         RegexOptions options
     )
     {
-#if NET6_0_OR_GREATER
-        ArgumentNullException.ThrowIfNull(pattern);
-#else
-        if (pattern is null)
-        {
-            throw new ArgumentNullException(nameof(pattern));
-        }
-#endif
+        Parameter.NotNull(value.Value, value.ParameterName);
 
         if (!Regex.IsMatch(value.Value, pattern, options))
         {

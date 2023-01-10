@@ -16,14 +16,8 @@ public partial class EnsureContextExtensions
     [StackTraceHidden]
     public static EnsureContext<string> IsNotNullOrWhiteSpace(in this EnsureContext<string?> value)
     {
-#if NET6_0_OR_GREATER
-        ArgumentNullException.ThrowIfNull(value.Value, value.ParameterName);
-#else
-        if (value.Value is null)
-        {
-            throw new ArgumentNullException(value.ParameterName);
-        }
-#endif
+        Parameter.NotNull(value.Value, value.ParameterName);
+
         if (IsWhiteSpace(value.Value))
         {
             throw new ArgumentException(null, value.ParameterName);

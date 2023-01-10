@@ -16,18 +16,7 @@ public partial class EnsureContextExtensions
     [StackTraceHidden]
     public static EnsureContext<string> IsNotNullOrEmpty(in this EnsureContext<string?> value)
     {
-#if NET7_0_OR_GREATER
-        ArgumentException.ThrowIfNullOrEmpty(value.Value, value.ParameterName);
-#else
-        if (value.Value is null)
-        {
-            throw new ArgumentNullException(value.ParameterName);
-        }
-        if (0u == (uint)value.Value.Length)
-        {
-            throw new ArgumentException(null, value.ParameterName);
-        }
-#endif
+        Parameter.NotNullOrEmpty(value.Value, value.ParameterName);
 
         return new EnsureContext<string>(value.Value, value.ParameterName);
     }
