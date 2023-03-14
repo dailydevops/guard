@@ -14,7 +14,8 @@ public partial class EnsureContextExtensions
     /// <exception cref="ArgumentNullException">When <paramref name="value"/> is <see langword="null"/>.</exception>
     [DebuggerStepThrough]
     [StackTraceHidden]
-    public static EnsureContext<T> IsNotNull<T>(in this EnsureContext<T?> value) where T : struct
+    public static EnsureContext<T> IsNotNull<T>(in this EnsureContext<T?> value)
+        where T : struct
     {
         Parameter.NotNull(value.Value, value.ParameterName);
 

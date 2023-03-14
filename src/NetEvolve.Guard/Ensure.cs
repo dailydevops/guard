@@ -23,7 +23,8 @@ public static class Ensure
     public static EnsureContext<T?> That<T>(
         T? value,
         [CallerArgumentExpression(nameof(value))] string? parameterName = default!
-    ) where T : class
+    )
+        where T : class
     {
         Parameter.NotNullOrEmpty(parameterName);
 
@@ -44,7 +45,8 @@ public static class Ensure
     public static EnsureContext<T> That<T>(
         in T value,
         [CallerArgumentExpression(nameof(value))] string? parameterName = default!
-    ) where T : struct
+    )
+        where T : struct
     {
         Parameter.NotNullOrEmpty(parameterName);
 
@@ -65,7 +67,8 @@ public static class Ensure
     public static EnsureContext<T?> That<T>(
         in T? value,
         [CallerArgumentExpression(nameof(value))] string? parameterName = default!
-    ) where T : struct
+    )
+        where T : struct
     {
         Parameter.NotNullOrEmpty(parameterName);
 

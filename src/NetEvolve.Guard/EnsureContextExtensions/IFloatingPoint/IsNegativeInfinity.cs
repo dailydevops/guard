@@ -17,7 +17,8 @@ public partial class EnsureContextExtensions
     [StackTraceHidden]
     public static ref readonly EnsureContext<T> IsNotNegativeInfinity<T>(
         in this EnsureContext<T> value
-    ) where T : IFloatingPoint<T>
+    )
+        where T : IFloatingPoint<T>
     {
         if (T.IsNegativeInfinity(value.Value))
         {

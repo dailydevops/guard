@@ -23,7 +23,8 @@ public partial class EnsureContextExtensions
         in this EnsureContext<T> value,
         T minValue,
         T maxValue
-    ) where T : IComparisonOperators<T, T, bool>
+    )
+        where T : IComparisonOperators<T, T, bool>
     {
         if ((minValue <= value.Value) != (value.Value <= maxValue))
         {

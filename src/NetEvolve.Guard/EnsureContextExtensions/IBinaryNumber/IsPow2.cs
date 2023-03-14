@@ -19,7 +19,8 @@ public partial class EnsureContextExtensions
     [StackTraceHidden]
     public static ref readonly EnsureContext<TBinaryNumber> IsPow2<TBinaryNumber>(
         in this EnsureContext<TBinaryNumber> value
-    ) where TBinaryNumber : IBinaryNumber<TBinaryNumber>
+    )
+        where TBinaryNumber : IBinaryNumber<TBinaryNumber>
     {
         if (!TBinaryNumber.IsPow2(value.Value))
         {

@@ -44,7 +44,8 @@ public partial class EnsureContextExtensions
     [StackTraceHidden]
     public static EnsureContext<TEnumerable> IsNotNullOrEmpty<TEnumerable, TValue>(
         in this EnsureContext<TEnumerable?> value
-    ) where TEnumerable : IEnumerable<TValue>
+    )
+        where TEnumerable : IEnumerable<TValue>
     {
         Parameter.NotNull(value.Value, value.ParameterName);
 
