@@ -1,10 +1,12 @@
 ﻿namespace NetEvolve.Guard.Tests.Unit;
 
+using NetEvolve.Extensions.XUnit;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using Xunit;
 
 [ExcludeFromCodeCoverage]
+[UnitTest]
 public class EnsureDirectoryInfoTests
 {
     [Theory]

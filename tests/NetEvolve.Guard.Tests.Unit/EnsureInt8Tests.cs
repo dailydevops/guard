@@ -1,13 +1,13 @@
-﻿using NetEvolve.Guard;
+﻿namespace NetEvolve.Guard.Tests.Unit;
 
-namespace NetEvolve.Guard.Tests.Unit;
-
+using NetEvolve.Extensions.XUnit;
 using NetEvolve.Guard;
 using System;
 using System.Diagnostics.CodeAnalysis;
 using Xunit;
 
 [ExcludeFromCodeCoverage]
+[UnitTest]
 public sealed class EnsureInt8Tests
 {
     private static sbyte BaseValue { get; }
