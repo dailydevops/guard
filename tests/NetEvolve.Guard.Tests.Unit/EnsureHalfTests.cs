@@ -199,12 +199,7 @@ public sealed class EnsureHalfTests
       // Known Issue for .NET 5 - https://github.com/dotnet/runtime/issues/49983
       { false, MinValue, MinValue, MaxValue },
 #endif
-            {
-                false,
-                MaxValue,
-                MinValue,
-                MaxValue
-            },
+            { false, MaxValue, MinValue, MaxValue },
             { false, BaseValue, MinValue, MaxValue },
             { false, BaseValue, MaxValue, MinValue }
         };

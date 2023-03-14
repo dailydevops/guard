@@ -32,10 +32,7 @@ public class EnsureFileInfoTests
 #if NET5_0_OR_GREATER
             { false, typeof(EnsureFileInfoTests).Assembly.Location }
 #else
-            {
-                false,
-                new System.Uri(typeof(EnsureFileInfoTests).Assembly.CodeBase!).LocalPath
-            }
+            { false, new System.Uri(typeof(EnsureFileInfoTests).Assembly.CodeBase!).LocalPath }
 #endif
         };
 }

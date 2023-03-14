@@ -21,7 +21,8 @@ public partial class EnsureContextExtensions
     public static ref readonly EnsureContext<T> IsGreaterThan<T>(
         in this EnsureContext<T> value,
         T compareValue
-    ) where T : IComparisonOperators<T, T, bool>
+    )
+        where T : IComparisonOperators<T, T, bool>
     {
         if (value.Value <= compareValue)
         {
