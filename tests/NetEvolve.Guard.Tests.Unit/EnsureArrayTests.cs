@@ -1,11 +1,12 @@
 ﻿namespace NetEvolve.Guard.Tests.Unit;
 
+using NetEvolve.Extensions.XUnit;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using Xunit;
 
 [ExcludeFromCodeCoverage]
+[UnitTest]
 public class EnsureArrayTests
 {
     [Fact]

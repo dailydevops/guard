@@ -1,12 +1,14 @@
 ﻿#if NET6_0_OR_GREATER
 namespace NetEvolve.Guard.Tests.Unit;
 
+using NetEvolve.Extensions.XUnit;
 using NetEvolve.Guard;
 using System;
 using System.Diagnostics.CodeAnalysis;
 using Xunit;
 
 [ExcludeFromCodeCoverage]
+[UnitTest]
 public sealed class EnsureDateOnlyTests
 {
     private static DateOnly BaseValue { get; } = DateOnly.FromDateTime(DateTime.UtcNow);

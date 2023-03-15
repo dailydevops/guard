@@ -1,11 +1,13 @@
 ﻿namespace NetEvolve.Guard.Tests.Unit;
 
+using NetEvolve.Extensions.XUnit;
 using NetEvolve.Guard;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using Xunit;
 
 [ExcludeFromCodeCoverage]
+[UnitTest]
 public class EnsureFileInfoTests
 {
     [Theory]

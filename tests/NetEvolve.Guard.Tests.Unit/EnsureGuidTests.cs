@@ -1,10 +1,12 @@
 ﻿namespace NetEvolve.Guard.Tests.Unit;
 
+using NetEvolve.Extensions.XUnit;
 using System;
 using System.Diagnostics.CodeAnalysis;
 using Xunit;
 
 [ExcludeFromCodeCoverage]
+[UnitTest]
 public class EnsureGuidTests
 {
     [Theory]

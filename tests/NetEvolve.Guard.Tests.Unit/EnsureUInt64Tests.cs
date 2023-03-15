@@ -1,11 +1,13 @@
 ﻿namespace NetEvolve.Guard.Tests.Unit;
 
+using NetEvolve.Extensions.XUnit;
 using NetEvolve.Guard;
 using System;
 using System.Diagnostics.CodeAnalysis;
 using Xunit;
 
 [ExcludeFromCodeCoverage]
+[UnitTest]
 public sealed class EnsureUInt64Tests
 {
     private static ulong BaseValue { get; } = 1;
