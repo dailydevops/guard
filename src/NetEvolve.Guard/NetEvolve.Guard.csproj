@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;net6.0;net7.0</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;net5.0;net6.0;net7.0</TargetFrameworks>
 
     <CompatibilityCallerArgumentExpression>true</CompatibilityCallerArgumentExpression>
     <CompatibilityStackTraceHidden>true</CompatibilityStackTraceHidden>
@@ -16,11 +16,11 @@
       on the `CallerArgumentExpressionAttribute` functionality.
     </Description>
     <CopyrightYearStart>2022</CopyrightYearStart>
-    
-    <PackageProjectUrl>https://github.com/NetEvolve/guard</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/NetEvolve/guard.git</RepositoryUrl>
-    
+
+    <PackageProjectUrl>https://github.com/dailydevops/guard</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/dailydevops/guard.git</RepositoryUrl>
+
     <PackageTags>argument;inputvalidation;parameter;guard;ensure;validation;contract;assert;assertion;exceptions</PackageTags>
   </PropertyGroup>
-  
+
 </Project>

@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+    inputs:
+      dotnet-logging:
+        required: true
+        type: choice
+        default: minimal
+        options:
+          - quiet
+          - minimal
+          - normal
+          - detailed
+          - diagnostic
+
+jobs:
+  all:
+    name: Build & Tests
+    uses: dailydevops/pipelines/.github/workflows/cicd-dotnet.yml@main
+    with:
+      dotnet-logging: ${{ inputs.dotnet-logging }}
+      dotnet-version: |
+        3.1.x
+        5.x
+        6.x
+        7.x
+      solution: ./Guard.sln
+    secrets: inherit
