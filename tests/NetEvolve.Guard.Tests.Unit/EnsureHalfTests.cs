@@ -198,8 +198,8 @@ public sealed class EnsureHalfTests
             { true, MinValue, BaseValue, MaxValue },
             { true, MaxValue, BaseValue, MinValue },
 #if NET6_0_OR_GREATER
-      // Known Issue for .NET 5 - https://github.com/dotnet/runtime/issues/49983
-      { false, MinValue, MinValue, MaxValue },
+            // Known Issue for .NET 5 - https://github.com/dotnet/runtime/issues/49983
+            { false, MinValue, MinValue, MaxValue },
 #endif
             { false, MaxValue, MinValue, MaxValue },
             { false, BaseValue, MinValue, MaxValue },
