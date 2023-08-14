@@ -19,10 +19,18 @@ public partial class EnsureContextExtensions
         DateTime compareValue
     )
     {
+#if NET8_0_OR_GREATER
+        ArgumentOutOfRangeException.ThrowIfGreaterThan(
+            value.Value,
+            compareValue,
+            value.ParameterName
+        );
+#else
         if (value.Value > compareValue)
         {
             throw new ArgumentOutOfRangeException(value.ParameterName, value.Value, null);
         }
+#endif
 
         return ref value;
     }

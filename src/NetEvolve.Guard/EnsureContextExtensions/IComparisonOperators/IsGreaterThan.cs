@@ -22,12 +22,20 @@ public partial class EnsureContextExtensions
         in this EnsureContext<T> value,
         T compareValue
     )
-        where T : IComparisonOperators<T, T, bool>
+        where T : IComparisonOperators<T, T, bool>, IComparable<T>
     {
+#if NET8_0_OR_GREATER
+        ArgumentOutOfRangeException.ThrowIfLessThanOrEqual(
+            value.Value,
+            compareValue,
+            value.ParameterName
+        );
+#else
         if (value.Value <= compareValue)
         {
             throw new ArgumentOutOfRangeException(value.ParameterName, value.Value, null);
         }
+#endif
 
         return ref value;
     }
