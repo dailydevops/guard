@@ -5,8 +5,6 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0834CE2C-9AAD-49FF-8E86-3F55DFCB8B63}"
 	ProjectSection(SolutionItems) = preProject
-		src\Directory.Build.props = src\Directory.Build.props
-		src\Directory.Build.targets = src\Directory.Build.targets
 		src\Directory.Packages.props = src\Directory.Packages.props
 	EndProjectSection
 EndProject
@@ -14,8 +12,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NetEvolve.Guard", "src\NetE
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{0F9685A3-1214-4234-B672-050E089869E6}"
 	ProjectSection(SolutionItems) = preProject
-		tests\Directory.Build.props = tests\Directory.Build.props
-		tests\Directory.Build.targets = tests\Directory.Build.targets
 		tests\Directory.Packages.props = tests\Directory.Packages.props
 	EndProjectSection
 EndProject
