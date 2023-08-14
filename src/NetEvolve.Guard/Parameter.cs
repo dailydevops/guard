@@ -33,11 +33,13 @@ internal static class Parameter
     [DebuggerStepThrough]
     [StackTraceHidden]
     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+#if NET7_0_OR_GREATER
     [SuppressMessage(
         "Style",
         "IDE0022:Use expression body for methods",
         Justification = "False Positive, because of preprocessor directives"
     )]
+#endif
     public static void NotNullOrEmpty(
         [NotNull] this string? value,
         [CallerArgumentExpression(nameof(value))] string? parameterName = null
