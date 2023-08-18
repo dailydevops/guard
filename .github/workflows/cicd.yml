@@ -21,16 +21,17 @@ on:
 jobs:
   all:
     name: Build & Tests
-    uses: dailydevops/pipelines/.github/workflows/cicd-dotnet.yml@main
+    uses: dailydevops/pipelines/.github/workflows/cicd-dotnet.yml@feature/matrix-testing
     with:
       enableSonarQube: true
       dotnet-logging: ${{ inputs.dotnet-logging }}
+      dotnet-quality: preview
+      dotnet-testfilter: "'UnitTest'"
       dotnet-version: |
         3.1.x
         5.x
         6.x
         7.x
         8.x
-      dotnet-quality: preview
       solution: ./Guard.sln
     secrets: inherit
