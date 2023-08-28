@@ -26,7 +26,6 @@ jobs:
       enableSonarQube: true
       dotnet-logging: ${{ inputs.dotnet-logging }}
       dotnet-quality: preview
-      dotnet-testfilter: "'UnitTest'"
       dotnet-version: |
         3.1.x
         5.x
