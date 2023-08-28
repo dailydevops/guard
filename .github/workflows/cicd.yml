@@ -21,12 +21,11 @@ on:
 jobs:
   all:
     name: Build & Tests
-    uses: dailydevops/pipelines/.github/workflows/cicd-dotnet.yml@fix/no-testfilters
+    uses: dailydevops/pipelines/.github/workflows/cicd-dotnet.yml@main
     with:
       enableSonarQube: true
       dotnet-logging: ${{ inputs.dotnet-logging }}
       dotnet-quality: preview
-      dotnet-testfilter: ''
       dotnet-version: |
         3.1.x
         5.x
