@@ -1,5 +1,6 @@
 ﻿namespace NetEvolve.Guard;
 
+using NetEvolve.Arguments;
 using System;
 using System.Diagnostics;
 
@@ -16,7 +17,7 @@ public partial class EnsureContextExtensions
     [StackTraceHidden]
     public static EnsureContext<string> IsNotNullOrWhiteSpace(in this EnsureContext<string?> value)
     {
-        Parameter.NotNull(value.Value, value.ParameterName);
+        Argument.ThrowIfNull(value.Value, value.ParameterName);
 
         if (IsWhiteSpace(value.Value))
         {

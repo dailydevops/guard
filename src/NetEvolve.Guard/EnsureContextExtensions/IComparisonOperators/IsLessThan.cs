@@ -2,6 +2,7 @@
 
 namespace NetEvolve.Guard;
 
+using NetEvolve.Arguments;
 using System;
 using System.Diagnostics;
 using System.Numerics;
@@ -24,18 +25,7 @@ public partial class EnsureContextExtensions
     )
         where T : IComparisonOperators<T, T, bool>, IComparable<T>
     {
-#if NET8_0_OR_GREATER
-        ArgumentOutOfRangeException.ThrowIfGreaterThanOrEqual(
-            value.Value,
-            compareValue,
-            value.ParameterName
-        );
-#else
-        if (value.Value >= compareValue)
-        {
-            throw new ArgumentOutOfRangeException(value.ParameterName, value.Value, null);
-        }
-#endif
+        Argument.ThrowIfGreaterThanOrEqual(value.Value, compareValue, value.ParameterName);
 
         return ref value;
     }

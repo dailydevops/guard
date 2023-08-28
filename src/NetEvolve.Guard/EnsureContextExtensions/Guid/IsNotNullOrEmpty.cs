@@ -1,5 +1,6 @@
 ﻿namespace NetEvolve.Guard;
 
+using NetEvolve.Arguments;
 using System;
 using System.Diagnostics;
 
@@ -14,7 +15,7 @@ public partial class EnsureContextExtensions
     [StackTraceHidden]
     public static EnsureContext<Guid> IsNotNullOrEmpty(in this EnsureContext<Guid?> value)
     {
-        Parameter.NotNull(value.Value, value.ParameterName);
+        Argument.ThrowIfNull(value.Value, value.ParameterName);
 
         if (value.Value.Value == Guid.Empty)
         {

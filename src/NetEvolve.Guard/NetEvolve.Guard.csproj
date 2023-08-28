@@ -23,4 +23,8 @@
     <PackageTags>argument;inputvalidation;parameter;guard;ensure;validation;contract;assert;assertion;exceptions</PackageTags>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="NetEvolve.Arguments" />
+  </ItemGroup>
+
 </Project>

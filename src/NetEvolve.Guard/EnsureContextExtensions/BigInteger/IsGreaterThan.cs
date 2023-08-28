@@ -2,6 +2,7 @@
 
 namespace NetEvolve.Guard;
 
+using NetEvolve.Arguments;
 using System;
 using System.Diagnostics;
 using System.Numerics;
@@ -22,10 +23,7 @@ public partial class EnsureContextExtensions
         BigInteger compareValue
     )
     {
-        if (value.Value <= compareValue)
-        {
-            throw new ArgumentOutOfRangeException(value.ParameterName, value.Value, null);
-        }
+        Argument.ThrowIfLessThanOrEqual(value.Value, compareValue, value.ParameterName);
 
         return ref value;
     }

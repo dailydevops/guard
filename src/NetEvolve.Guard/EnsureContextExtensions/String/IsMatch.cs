@@ -1,5 +1,6 @@
 ﻿namespace NetEvolve.Guard;
 
+using NetEvolve.Arguments;
 using System;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
@@ -22,7 +23,7 @@ public partial class EnsureContextExtensions
         [StringSyntax(StringSyntaxAttribute.Regex)] string pattern
     )
     {
-        Parameter.NotNull(pattern);
+        Argument.ThrowIfNull(pattern);
 
         if (!Regex.IsMatch(value.Value, pattern))
         {
@@ -49,7 +50,7 @@ public partial class EnsureContextExtensions
         RegexOptions options
     )
     {
-        Parameter.NotNull(value.Value, value.ParameterName);
+        Argument.ThrowIfNull(value.Value, value.ParameterName);
 
         if (!Regex.IsMatch(value.Value, pattern, options))
         {

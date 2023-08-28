@@ -1,5 +1,6 @@
 ﻿namespace NetEvolve.Guard;
 
+using NetEvolve.Arguments;
 using System;
 using System.Diagnostics;
 
@@ -19,18 +20,7 @@ public partial class EnsureContextExtensions
         TimeSpan compareValue
     )
     {
-#if NET8_0_OR_GREATER
-        ArgumentOutOfRangeException.ThrowIfGreaterThanOrEqual(
-            value.Value,
-            compareValue,
-            value.ParameterName
-        );
-#else
-        if (value.Value >= compareValue)
-        {
-            throw new ArgumentOutOfRangeException(value.ParameterName, value.Value, null);
-        }
-#endif
+        Argument.ThrowIfGreaterThanOrEqual(value.Value, compareValue, value.ParameterName);
 
         return ref value;
     }

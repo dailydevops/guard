@@ -1,5 +1,6 @@
 ﻿namespace NetEvolve.Guard;
 
+using NetEvolve.Arguments;
 using System;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
@@ -25,7 +26,7 @@ public partial class EnsureContextExtensions
         [CallerArgumentExpression(nameof(condition))] string conditionAsString = default!
     )
     {
-        Parameter.NotNull(condition);
+        Argument.ThrowIfNull(condition);
 
         if (!condition.Invoke(value.Value))
         {

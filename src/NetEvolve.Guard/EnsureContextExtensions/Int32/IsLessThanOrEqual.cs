@@ -2,6 +2,7 @@
 
 namespace NetEvolve.Guard;
 
+using NetEvolve.Arguments;
 using System;
 using System.Diagnostics;
 
@@ -21,10 +22,7 @@ public partial class EnsureContextExtensions
         int compareValue
     )
     {
-        if (value.Value > compareValue)
-        {
-            throw new ArgumentOutOfRangeException(value.ParameterName, value.Value, null);
-        }
+        Argument.ThrowIfGreaterThan(value.Value, compareValue, value.ParameterName);
 
         return ref value;
     }

@@ -1,5 +1,6 @@
 ﻿namespace NetEvolve.Guard;
 
+using NetEvolve.Arguments;
 using System;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
@@ -26,7 +27,7 @@ public static class Ensure
     )
         where T : class
     {
-        Parameter.NotNullOrEmpty(parameterName);
+        Argument.ThrowIfNullOrWhiteSpace(parameterName);
 
         return new EnsureContext<T?>(value, parameterName);
     }
@@ -48,7 +49,7 @@ public static class Ensure
     )
         where T : struct
     {
-        Parameter.NotNullOrEmpty(parameterName);
+        Argument.ThrowIfNullOrWhiteSpace(parameterName);
 
         return new EnsureContext<T>(in value, parameterName);
     }
@@ -70,7 +71,7 @@ public static class Ensure
     )
         where T : struct
     {
-        Parameter.NotNullOrEmpty(parameterName);
+        Argument.ThrowIfNullOrWhiteSpace(parameterName);
 
         return new EnsureContext<T?>(in value, parameterName);
     }

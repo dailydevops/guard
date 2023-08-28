@@ -1,5 +1,6 @@
 ﻿namespace NetEvolve.Guard;
 
+using NetEvolve.Arguments;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -21,7 +22,7 @@ public partial class EnsureContextExtensions
         in this EnsureContext<IEnumerable<T>?> value
     )
     {
-        Parameter.NotNull(value.Value, value.ParameterName);
+        Argument.ThrowIfNull(value.Value, value.ParameterName);
 
         if (!value.Value.Any())
         {
@@ -47,7 +48,7 @@ public partial class EnsureContextExtensions
     )
         where TEnumerable : IEnumerable<TValue>
     {
-        Parameter.NotNull(value.Value, value.ParameterName);
+        Argument.ThrowIfNull(value.Value, value.ParameterName);
 
         if (!value.Value.Any())
         {

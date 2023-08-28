@@ -1,6 +1,7 @@
 ﻿#if !NET7_0_OR_GREATER
 namespace NetEvolve.Guard;
 
+using NetEvolve.Arguments;
 using System;
 using System.Diagnostics;
 
@@ -20,10 +21,7 @@ public partial class EnsureContextExtensions
         sbyte compareValue
     )
     {
-        if (value.Value < compareValue)
-        {
-            throw new ArgumentOutOfRangeException(value.ParameterName, value.Value, null);
-        }
+        Argument.ThrowIfLessThan(value.Value, compareValue, value.ParameterName);
 
         return ref value;
     }

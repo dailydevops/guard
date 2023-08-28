@@ -1,5 +1,6 @@
 ﻿namespace NetEvolve.Guard;
 
+using NetEvolve.Arguments;
 using System;
 using System.Diagnostics;
 
@@ -18,7 +19,7 @@ public partial class EnsureContextExtensions
     public static EnsureContext<T> IsNotNullOrDefault<T>(in this EnsureContext<T?> value)
         where T : struct
     {
-        Parameter.NotNull(value.Value, value.ParameterName);
+        Argument.ThrowIfNull(value.Value, value.ParameterName);
 
         if (value.Value.Equals(default(T)))
         {
