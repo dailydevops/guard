@@ -25,7 +25,7 @@ public partial class EnsureContextExtensions
     {
         Argument.ThrowIfNull(pattern);
 
-        if (!Regex.IsMatch(value.Value, pattern))
+        if (!Regex.IsMatch(value.Value, pattern, RegexOptions.None, TimeSpan.FromMilliseconds(200)))
         {
             throw new ArgumentException(null, value.ParameterName);
         }
@@ -52,7 +52,7 @@ public partial class EnsureContextExtensions
     {
         Argument.ThrowIfNull(value.Value, value.ParameterName);
 
-        if (!Regex.IsMatch(value.Value, pattern, options))
+        if (!Regex.IsMatch(value.Value, pattern, options, TimeSpan.FromMilliseconds(200)))
         {
             throw new ArgumentException(null, value.ParameterName);
         }
