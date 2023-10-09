@@ -2,10 +2,6 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net5.0;net6.0;net7.0;net8.0</TargetFrameworks>
-
-    <CompatibilityCallerArgumentExpression>true</CompatibilityCallerArgumentExpression>
-    <CompatibilityStackTraceHidden>true</CompatibilityStackTraceHidden>
-    <CompatibilityStringSyntax>true</CompatibilityStringSyntax>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -25,6 +21,10 @@
 
   <ItemGroup>
     <PackageReference Include="NetEvolve.Arguments" />
+    <PackageReference Include="Polyfill">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
   </ItemGroup>
 
 </Project>
