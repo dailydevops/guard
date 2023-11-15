@@ -1,8 +1,8 @@
 ﻿namespace NetEvolve.Guard.Tests.Unit;
 
-using NetEvolve.Extensions.XUnit;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
+using NetEvolve.Extensions.XUnit;
 using Xunit;
 
 [ExcludeFromCodeCoverage]

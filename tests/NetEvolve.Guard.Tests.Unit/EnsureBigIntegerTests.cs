@@ -1,10 +1,10 @@
 ﻿namespace NetEvolve.Guard.Tests.Unit;
 
-using NetEvolve.Extensions.XUnit;
-using NetEvolve.Guard;
 using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Numerics;
+using NetEvolve.Extensions.XUnit;
+using NetEvolve.Guard;
 using Xunit;
 
 [ExcludeFromCodeCoverage]
