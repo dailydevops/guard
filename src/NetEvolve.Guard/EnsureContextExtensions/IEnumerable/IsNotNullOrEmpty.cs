@@ -1,10 +1,10 @@
 ﻿namespace NetEvolve.Guard;
 
-using NetEvolve.Arguments;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using NetEvolve.Arguments;
 
 public partial class EnsureContextExtensions
 {

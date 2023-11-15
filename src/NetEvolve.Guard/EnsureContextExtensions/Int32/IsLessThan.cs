@@ -1,9 +1,9 @@
 ﻿#if !NET7_0_OR_GREATER
 namespace NetEvolve.Guard;
 
-using NetEvolve.Arguments;
 using System;
 using System.Diagnostics;
+using NetEvolve.Arguments;
 
 public partial class EnsureContextExtensions
 {

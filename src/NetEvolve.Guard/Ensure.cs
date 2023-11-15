@@ -1,9 +1,9 @@
 ﻿namespace NetEvolve.Guard;
 
-using NetEvolve.Arguments;
 using System;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
+using NetEvolve.Arguments;
 
 /// <summary>
 /// Allows the validation of arguments and parameters
