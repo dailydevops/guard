@@ -46,7 +46,7 @@ public class EnsureObjectTests
         var value = new List<string>();
         _ = Assert.Throws<ArgumentException>(
             nameof(value),
-            () => _ = Ensure.That(value).IsNotNull().Validate(x => x.Any())
+            () => _ = Ensure.That(value).IsNotNull().Validate(x => x.Count != 0)
         );
     }
 
@@ -57,7 +57,7 @@ public class EnsureObjectTests
         _ = Assert.Throws<ArgumentException>(
             nameof(value),
             () =>
-                _ = Ensure.That(value).IsNotNull().Validate(x => x.Any(), conditionAsString: null!)
+                _ = Ensure.That(value).IsNotNull().Validate(x => x.Count != 0, conditionAsString: null!)
         );
     }
 
@@ -65,6 +65,6 @@ public class EnsureObjectTests
     public void Validate_ValueValue_Exception()
     {
         var value = new List<string> { "Hi" };
-        _ = Ensure.That(value).IsNotNull().Validate(x => x.Any());
+        _ = Ensure.That(value).IsNotNull().Validate(x => x.Count != 0);
     }
 }
