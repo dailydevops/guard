@@ -57,7 +57,10 @@ public class EnsureObjectTests
         _ = Assert.Throws<ArgumentException>(
             nameof(value),
             () =>
-                _ = Ensure.That(value).IsNotNull().Validate(x => x.Count != 0, conditionAsString: null!)
+                _ = Ensure
+                    .That(value)
+                    .IsNotNull()
+                    .Validate(x => x.Count != 0, conditionAsString: null!)
         );
     }
 
