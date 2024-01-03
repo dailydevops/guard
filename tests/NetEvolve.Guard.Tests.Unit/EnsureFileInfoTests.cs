@@ -27,7 +27,7 @@ public class EnsureFileInfoTests
         }
     }
 
-    public static TheoryData GetExistsData =>
+    public static TheoryData<bool, string> GetExistsData =>
         new TheoryData<bool, string>
         {
             { true, Path.Combine(Path.GetTempPath(), Path.GetRandomFileName()) },

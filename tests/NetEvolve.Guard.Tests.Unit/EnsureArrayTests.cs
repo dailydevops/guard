@@ -37,7 +37,7 @@ public class EnsureArrayTests
         }
     }
 
-    public static TheoryData GetNotNullOrEmptyData =>
+    public static TheoryData<bool, string?[]> GetNotNullOrEmptyData =>
         new TheoryData<bool, string?[]>
         {
             { true, Array.Empty<string?>() },

@@ -138,7 +138,7 @@ public sealed class EnsureDecimalTests
         }
     }
 
-    public static TheoryData GetInBetweenData =>
+    public static TheoryData<bool, decimal, decimal, decimal> GetInBetweenData =>
         new TheoryData<bool, decimal, decimal, decimal>
         {
             { true, MinValue, BaseValue, MaxValue },
@@ -149,7 +149,7 @@ public sealed class EnsureDecimalTests
             { false, BaseValue, MaxValue, MinValue }
         };
 
-    public static TheoryData GetNotBetweenData =>
+    public static TheoryData<bool, decimal, decimal, decimal> GetNotBetweenData =>
         new TheoryData<bool, decimal, decimal, decimal>
         {
             { false, MinValue, BaseValue, MaxValue },
@@ -158,7 +158,7 @@ public sealed class EnsureDecimalTests
             { true, BaseValue, MaxValue, MinValue }
         };
 
-    public static TheoryData GetGreaterThanData =>
+    public static TheoryData<bool, decimal, decimal> GetGreaterThanData =>
         new TheoryData<bool, decimal, decimal>
         {
             { true, BaseValue, MaxValue },
@@ -166,7 +166,7 @@ public sealed class EnsureDecimalTests
             { false, BaseValue, MinValue }
         };
 
-    public static TheoryData GetGreaterThanOrEqualData =>
+    public static TheoryData<bool, decimal, decimal> GetGreaterThanOrEqualData =>
         new TheoryData<bool, decimal, decimal>
         {
             { true, BaseValue, MaxValue },
@@ -174,7 +174,7 @@ public sealed class EnsureDecimalTests
             { false, BaseValue, MinValue }
         };
 
-    public static TheoryData GetLessThanData =>
+    public static TheoryData<bool, decimal, decimal> GetLessThanData =>
         new TheoryData<bool, decimal, decimal>
         {
             { true, BaseValue, MinValue },
@@ -182,7 +182,7 @@ public sealed class EnsureDecimalTests
             { false, BaseValue, MaxValue }
         };
 
-    public static TheoryData GetLessThanOrEqualData =>
+    public static TheoryData<bool, decimal, decimal> GetLessThanOrEqualData =>
         new TheoryData<bool, decimal, decimal>
         {
             { true, BaseValue, MinValue },

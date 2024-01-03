@@ -92,7 +92,7 @@ public class EnsureIEnumerableTests
         );
     }
 
-    public static TheoryData GetNotNullOrEmptyData =>
+    public static TheoryData<bool, IEnumerable<string?>> GetNotNullOrEmptyData =>
         new TheoryData<bool, IEnumerable<string?>>
         {
             { true, Array.Empty<string?>() },

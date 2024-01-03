@@ -120,7 +120,7 @@ public sealed class EnsureInt64Tests
         }
     }
 
-    public static TheoryData GetInBetweenData =>
+    public static TheoryData<bool, long, long, long> GetInBetweenData =>
         new TheoryData<bool, long, long, long>
         {
             { true, MinValue, BaseValue, MaxValue },
@@ -131,7 +131,7 @@ public sealed class EnsureInt64Tests
             { false, BaseValue, MaxValue, MinValue }
         };
 
-    public static TheoryData GetNotBetweenData =>
+    public static TheoryData<bool, long, long, long> GetNotBetweenData =>
         new TheoryData<bool, long, long, long>
         {
             { false, MinValue, BaseValue, MaxValue },
@@ -140,7 +140,7 @@ public sealed class EnsureInt64Tests
             { true, BaseValue, MaxValue, MinValue }
         };
 
-    public static TheoryData GetGreaterThanData =>
+    public static TheoryData<bool, long, long> GetGreaterThanData =>
         new TheoryData<bool, long, long>
         {
             { true, BaseValue, MaxValue },
@@ -148,7 +148,7 @@ public sealed class EnsureInt64Tests
             { false, BaseValue, MinValue }
         };
 
-    public static TheoryData GetGreaterThanOrEqualData =>
+    public static TheoryData<bool, long, long> GetGreaterThanOrEqualData =>
         new TheoryData<bool, long, long>
         {
             { true, BaseValue, MaxValue },
@@ -156,7 +156,7 @@ public sealed class EnsureInt64Tests
             { false, BaseValue, MinValue }
         };
 
-    public static TheoryData GetLessThanData =>
+    public static TheoryData<bool, long, long> GetLessThanData =>
         new TheoryData<bool, long, long>
         {
             { true, BaseValue, MinValue },
@@ -164,7 +164,7 @@ public sealed class EnsureInt64Tests
             { false, BaseValue, MaxValue }
         };
 
-    public static TheoryData GetLessThanOrEqualData =>
+    public static TheoryData<bool, long, long> GetLessThanOrEqualData =>
         new TheoryData<bool, long, long>
         {
             { true, BaseValue, MinValue },
@@ -190,7 +190,7 @@ public sealed class EnsureInt64Tests
         }
     }
 
-    public static TheoryData GetNotPow2Data =>
+    public static TheoryData<bool, long> GetNotPow2Data =>
         new TheoryData<bool, long> { { true, 63 }, { false, 64 } };
 #endif
 }

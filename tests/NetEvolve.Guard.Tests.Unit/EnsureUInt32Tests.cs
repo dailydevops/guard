@@ -120,7 +120,7 @@ public sealed class EnsureUInt32Tests
         }
     }
 
-    public static TheoryData GetInBetweenData =>
+    public static TheoryData<bool, uint, uint, uint> GetInBetweenData =>
         new TheoryData<bool, uint, uint, uint>
         {
             { true, MinValue, BaseValue, MaxValue },
@@ -131,7 +131,7 @@ public sealed class EnsureUInt32Tests
             { false, BaseValue, MaxValue, MinValue }
         };
 
-    public static TheoryData GetNotBetweenData =>
+    public static TheoryData<bool, uint, uint, uint> GetNotBetweenData =>
         new TheoryData<bool, uint, uint, uint>
         {
             { false, MinValue, BaseValue, MaxValue },
@@ -140,7 +140,7 @@ public sealed class EnsureUInt32Tests
             { true, BaseValue, MaxValue, MinValue }
         };
 
-    public static TheoryData GetGreaterThanData =>
+    public static TheoryData<bool, uint, uint> GetGreaterThanData =>
         new TheoryData<bool, uint, uint>
         {
             { true, BaseValue, MaxValue },
@@ -148,7 +148,7 @@ public sealed class EnsureUInt32Tests
             { false, BaseValue, MinValue }
         };
 
-    public static TheoryData GetGreaterThanOrEqualData =>
+    public static TheoryData<bool, uint, uint> GetGreaterThanOrEqualData =>
         new TheoryData<bool, uint, uint>
         {
             { true, BaseValue, MaxValue },
@@ -156,7 +156,7 @@ public sealed class EnsureUInt32Tests
             { false, BaseValue, MinValue }
         };
 
-    public static TheoryData GetLessThanData =>
+    public static TheoryData<bool, uint, uint> GetLessThanData =>
         new TheoryData<bool, uint, uint>
         {
             { true, BaseValue, MinValue },
@@ -164,7 +164,7 @@ public sealed class EnsureUInt32Tests
             { false, BaseValue, MaxValue }
         };
 
-    public static TheoryData GetLessThanOrEqualData =>
+    public static TheoryData<bool, uint, uint> GetLessThanOrEqualData =>
         new TheoryData<bool, uint, uint>
         {
             { true, BaseValue, MinValue },
@@ -190,7 +190,7 @@ public sealed class EnsureUInt32Tests
         }
     }
 
-    public static TheoryData GetNotPow2Data =>
+    public static TheoryData<bool, uint> GetNotPow2Data =>
         new TheoryData<bool, uint> { { true, 63 }, { false, 64 } };
 #endif
 }

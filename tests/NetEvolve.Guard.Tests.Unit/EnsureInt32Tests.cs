@@ -116,7 +116,7 @@ public sealed class EnsureInt32Tests
         }
     }
 
-    public static TheoryData GetInBetweenData =>
+    public static TheoryData<bool, int, int, int> GetInBetweenData =>
         new TheoryData<bool, int, int, int>
         {
             { true, MinValue, BaseValue, MaxValue },
@@ -127,7 +127,7 @@ public sealed class EnsureInt32Tests
             { false, BaseValue, MaxValue, MinValue }
         };
 
-    public static TheoryData GetNotBetweenData =>
+    public static TheoryData<bool, int, int, int> GetNotBetweenData =>
         new TheoryData<bool, int, int, int>
         {
             { false, MinValue, BaseValue, MaxValue },
@@ -136,7 +136,7 @@ public sealed class EnsureInt32Tests
             { true, BaseValue, MaxValue, MinValue }
         };
 
-    public static TheoryData GetGreaterThanData =>
+    public static TheoryData<bool, int, int> GetGreaterThanData =>
         new TheoryData<bool, int, int>
         {
             { true, BaseValue, MaxValue },
@@ -144,7 +144,7 @@ public sealed class EnsureInt32Tests
             { false, BaseValue, MinValue }
         };
 
-    public static TheoryData GetGreaterThanOrEqualData =>
+    public static TheoryData<bool, int, int> GetGreaterThanOrEqualData =>
         new TheoryData<bool, int, int>
         {
             { true, BaseValue, MaxValue },
@@ -152,7 +152,7 @@ public sealed class EnsureInt32Tests
             { false, BaseValue, MinValue }
         };
 
-    public static TheoryData GetLessThanData =>
+    public static TheoryData<bool, int, int> GetLessThanData =>
         new TheoryData<bool, int, int>
         {
             { true, BaseValue, MinValue },
@@ -160,7 +160,7 @@ public sealed class EnsureInt32Tests
             { false, BaseValue, MaxValue }
         };
 
-    public static TheoryData GetLessThanOrEqualData =>
+    public static TheoryData<bool, int, int> GetLessThanOrEqualData =>
         new TheoryData<bool, int, int>
         {
             { true, BaseValue, MinValue },
@@ -186,7 +186,7 @@ public sealed class EnsureInt32Tests
         }
     }
 
-    public static TheoryData GetNotPow2Data =>
+    public static TheoryData<bool, int> GetNotPow2Data =>
         new TheoryData<bool, int> { { true, 63 }, { false, 64 } };
 #endif
 }
