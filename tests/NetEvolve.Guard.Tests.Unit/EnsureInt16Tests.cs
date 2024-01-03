@@ -124,7 +124,7 @@ public sealed class EnsureInt16Tests
         }
     }
 
-    public static TheoryData GetInBetweenData =>
+    public static TheoryData<bool, short, short, short> GetInBetweenData =>
         new TheoryData<bool, short, short, short>
         {
             { true, MinValue, BaseValue, MaxValue },
@@ -135,7 +135,7 @@ public sealed class EnsureInt16Tests
             { false, BaseValue, MaxValue, MinValue }
         };
 
-    public static TheoryData GetNotBetweenData =>
+    public static TheoryData<bool, short, short, short> GetNotBetweenData =>
         new TheoryData<bool, short, short, short>
         {
             { false, MinValue, BaseValue, MaxValue },
@@ -144,7 +144,7 @@ public sealed class EnsureInt16Tests
             { true, BaseValue, MaxValue, MinValue }
         };
 
-    public static TheoryData GetGreaterThanData =>
+    public static TheoryData<bool, short, short> GetGreaterThanData =>
         new TheoryData<bool, short, short>
         {
             { true, BaseValue, MaxValue },
@@ -152,7 +152,7 @@ public sealed class EnsureInt16Tests
             { false, BaseValue, MinValue }
         };
 
-    public static TheoryData GetGreaterThanOrEqualData =>
+    public static TheoryData<bool, short, short> GetGreaterThanOrEqualData =>
         new TheoryData<bool, short, short>
         {
             { true, BaseValue, MaxValue },
@@ -160,7 +160,7 @@ public sealed class EnsureInt16Tests
             { false, BaseValue, MinValue }
         };
 
-    public static TheoryData GetLessThanData =>
+    public static TheoryData<bool, short, short> GetLessThanData =>
         new TheoryData<bool, short, short>
         {
             { true, BaseValue, MinValue },
@@ -168,7 +168,7 @@ public sealed class EnsureInt16Tests
             { false, BaseValue, MaxValue }
         };
 
-    public static TheoryData GetLessThanOrEqualData =>
+    public static TheoryData<bool, short, short> GetLessThanOrEqualData =>
         new TheoryData<bool, short, short>
         {
             { true, BaseValue, MinValue },
@@ -194,7 +194,7 @@ public sealed class EnsureInt16Tests
         }
     }
 
-    public static TheoryData GetNotPow2Data =>
+    public static TheoryData<bool, short> GetNotPow2Data =>
         new TheoryData<bool, short> { { true, 63 }, { false, 64 } };
 #endif
 }

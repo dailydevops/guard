@@ -138,7 +138,7 @@ public sealed class EnsureTimeSpanTests
         }
     }
 
-    public static TheoryData GetInBetweenData =>
+    public static TheoryData<bool, TimeSpan, TimeSpan, TimeSpan> GetInBetweenData =>
         new TheoryData<bool, TimeSpan, TimeSpan, TimeSpan>
         {
             { true, MinValue, BaseValue, MaxValue },
@@ -149,7 +149,7 @@ public sealed class EnsureTimeSpanTests
             { false, BaseValue, MaxValue, MinValue }
         };
 
-    public static TheoryData GetNotBetweenData =>
+    public static TheoryData<bool, TimeSpan, TimeSpan, TimeSpan> GetNotBetweenData =>
         new TheoryData<bool, TimeSpan, TimeSpan, TimeSpan>
         {
             { false, MinValue, BaseValue, MaxValue },
@@ -158,7 +158,7 @@ public sealed class EnsureTimeSpanTests
             { true, BaseValue, MaxValue, MinValue }
         };
 
-    public static TheoryData GetGreaterThanData =>
+    public static TheoryData<bool, TimeSpan, TimeSpan> GetGreaterThanData =>
         new TheoryData<bool, TimeSpan, TimeSpan>
         {
             { true, BaseValue, MaxValue },
@@ -166,7 +166,7 @@ public sealed class EnsureTimeSpanTests
             { false, BaseValue, MinValue }
         };
 
-    public static TheoryData GetGreaterThanOrEqualData =>
+    public static TheoryData<bool, TimeSpan, TimeSpan> GetGreaterThanOrEqualData =>
         new TheoryData<bool, TimeSpan, TimeSpan>
         {
             { true, BaseValue, MaxValue },
@@ -174,7 +174,7 @@ public sealed class EnsureTimeSpanTests
             { false, BaseValue, MinValue }
         };
 
-    public static TheoryData GetLessThanData =>
+    public static TheoryData<bool, TimeSpan, TimeSpan> GetLessThanData =>
         new TheoryData<bool, TimeSpan, TimeSpan>
         {
             { true, BaseValue, MinValue },
@@ -182,7 +182,7 @@ public sealed class EnsureTimeSpanTests
             { false, BaseValue, MaxValue }
         };
 
-    public static TheoryData GetLessThanOrEqualData =>
+    public static TheoryData<bool, TimeSpan, TimeSpan> GetLessThanOrEqualData =>
         new TheoryData<bool, TimeSpan, TimeSpan>
         {
             { true, BaseValue, MinValue },

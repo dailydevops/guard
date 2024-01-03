@@ -142,7 +142,12 @@ public sealed class EnsureDateTimeOffsetTests
         }
     }
 
-    public static TheoryData GetInBetweenData =>
+    public static TheoryData<
+        bool,
+        DateTimeOffset,
+        DateTimeOffset,
+        DateTimeOffset
+    > GetInBetweenData =>
         new TheoryData<bool, DateTimeOffset, DateTimeOffset, DateTimeOffset>
         {
             { true, MinValue, BaseValue, MaxValue },
@@ -153,7 +158,12 @@ public sealed class EnsureDateTimeOffsetTests
             { false, BaseValue, MaxValue, MinValue }
         };
 
-    public static TheoryData GetNotBetweenData =>
+    public static TheoryData<
+        bool,
+        DateTimeOffset,
+        DateTimeOffset,
+        DateTimeOffset
+    > GetNotBetweenData =>
         new TheoryData<bool, DateTimeOffset, DateTimeOffset, DateTimeOffset>
         {
             { false, MinValue, BaseValue, MaxValue },
@@ -162,7 +172,7 @@ public sealed class EnsureDateTimeOffsetTests
             { true, BaseValue, MaxValue, MinValue }
         };
 
-    public static TheoryData GetGreaterThanData =>
+    public static TheoryData<bool, DateTimeOffset, DateTimeOffset> GetGreaterThanData =>
         new TheoryData<bool, DateTimeOffset, DateTimeOffset>
         {
             { true, BaseValue, MaxValue },
@@ -170,7 +180,7 @@ public sealed class EnsureDateTimeOffsetTests
             { false, BaseValue, MinValue }
         };
 
-    public static TheoryData GetGreaterThanOrEqualData =>
+    public static TheoryData<bool, DateTimeOffset, DateTimeOffset> GetGreaterThanOrEqualData =>
         new TheoryData<bool, DateTimeOffset, DateTimeOffset>
         {
             { true, BaseValue, MaxValue },
@@ -178,7 +188,7 @@ public sealed class EnsureDateTimeOffsetTests
             { false, BaseValue, MinValue }
         };
 
-    public static TheoryData GetLessThanData =>
+    public static TheoryData<bool, DateTimeOffset, DateTimeOffset> GetLessThanData =>
         new TheoryData<bool, DateTimeOffset, DateTimeOffset>
         {
             { true, BaseValue, MinValue },
@@ -186,7 +196,7 @@ public sealed class EnsureDateTimeOffsetTests
             { false, BaseValue, MaxValue }
         };
 
-    public static TheoryData GetLessThanOrEqualData =>
+    public static TheoryData<bool, DateTimeOffset, DateTimeOffset> GetLessThanOrEqualData =>
         new TheoryData<bool, DateTimeOffset, DateTimeOffset>
         {
             { true, BaseValue, MinValue },

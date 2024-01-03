@@ -124,7 +124,7 @@ public sealed class EnsureUInt64Tests
         }
     }
 
-    public static TheoryData GetInBetweenData =>
+    public static TheoryData<bool, ulong, ulong, ulong> GetInBetweenData =>
         new TheoryData<bool, ulong, ulong, ulong>
         {
             { true, MinValue, BaseValue, MaxValue },
@@ -135,7 +135,7 @@ public sealed class EnsureUInt64Tests
             { false, BaseValue, MaxValue, MinValue }
         };
 
-    public static TheoryData GetNotBetweenData =>
+    public static TheoryData<bool, ulong, ulong, ulong> GetNotBetweenData =>
         new TheoryData<bool, ulong, ulong, ulong>
         {
             { false, MinValue, BaseValue, MaxValue },
@@ -144,7 +144,7 @@ public sealed class EnsureUInt64Tests
             { true, BaseValue, MaxValue, MinValue }
         };
 
-    public static TheoryData GetGreaterThanData =>
+    public static TheoryData<bool, ulong, ulong> GetGreaterThanData =>
         new TheoryData<bool, ulong, ulong>
         {
             { true, BaseValue, MaxValue },
@@ -152,7 +152,7 @@ public sealed class EnsureUInt64Tests
             { false, BaseValue, MinValue }
         };
 
-    public static TheoryData GetGreaterThanOrEqualData =>
+    public static TheoryData<bool, ulong, ulong> GetGreaterThanOrEqualData =>
         new TheoryData<bool, ulong, ulong>
         {
             { true, BaseValue, MaxValue },
@@ -160,7 +160,7 @@ public sealed class EnsureUInt64Tests
             { false, BaseValue, MinValue }
         };
 
-    public static TheoryData GetLessThanData =>
+    public static TheoryData<bool, ulong, ulong> GetLessThanData =>
         new TheoryData<bool, ulong, ulong>
         {
             { true, BaseValue, MinValue },
@@ -168,7 +168,7 @@ public sealed class EnsureUInt64Tests
             { false, BaseValue, MaxValue }
         };
 
-    public static TheoryData GetLessThanOrEqualData =>
+    public static TheoryData<bool, ulong, ulong> GetLessThanOrEqualData =>
         new TheoryData<bool, ulong, ulong>
         {
             { true, BaseValue, MinValue },
@@ -194,7 +194,7 @@ public sealed class EnsureUInt64Tests
         }
     }
 
-    public static TheoryData GetNotPow2Data =>
+    public static TheoryData<bool, ulong> GetNotPow2Data =>
         new TheoryData<bool, ulong> { { true, 63 }, { false, 64 } };
 #endif
 }

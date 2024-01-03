@@ -120,7 +120,7 @@ public sealed class EnsureUInt8Tests
         }
     }
 
-    public static TheoryData GetInBetweenData =>
+    public static TheoryData<bool, byte, byte, byte> GetInBetweenData =>
         new TheoryData<bool, byte, byte, byte>
         {
             { true, MinValue, BaseValue, MaxValue },
@@ -131,7 +131,7 @@ public sealed class EnsureUInt8Tests
             { false, BaseValue, MaxValue, MinValue }
         };
 
-    public static TheoryData GetNotBetweenData =>
+    public static TheoryData<bool, byte, byte, byte> GetNotBetweenData =>
         new TheoryData<bool, byte, byte, byte>
         {
             { false, MinValue, BaseValue, MaxValue },
@@ -140,7 +140,7 @@ public sealed class EnsureUInt8Tests
             { true, BaseValue, MaxValue, MinValue }
         };
 
-    public static TheoryData GetGreaterThanData =>
+    public static TheoryData<bool, byte, byte> GetGreaterThanData =>
         new TheoryData<bool, byte, byte>
         {
             { true, BaseValue, MaxValue },
@@ -148,7 +148,7 @@ public sealed class EnsureUInt8Tests
             { false, BaseValue, MinValue }
         };
 
-    public static TheoryData GetGreaterThanOrEqualData =>
+    public static TheoryData<bool, byte, byte> GetGreaterThanOrEqualData =>
         new TheoryData<bool, byte, byte>
         {
             { true, BaseValue, MaxValue },
@@ -156,7 +156,7 @@ public sealed class EnsureUInt8Tests
             { false, BaseValue, MinValue }
         };
 
-    public static TheoryData GetLessThanData =>
+    public static TheoryData<bool, byte, byte> GetLessThanData =>
         new TheoryData<bool, byte, byte>
         {
             { true, BaseValue, MinValue },
@@ -164,7 +164,7 @@ public sealed class EnsureUInt8Tests
             { false, BaseValue, MaxValue }
         };
 
-    public static TheoryData GetLessThanOrEqualData =>
+    public static TheoryData<bool, byte, byte> GetLessThanOrEqualData =>
         new TheoryData<bool, byte, byte>
         {
             { true, BaseValue, MinValue },
@@ -190,7 +190,7 @@ public sealed class EnsureUInt8Tests
         }
     }
 
-    public static TheoryData GetNotPow2Data =>
+    public static TheoryData<bool, byte> GetNotPow2Data =>
         new TheoryData<bool, byte> { { true, 63 }, { false, 64 } };
 #endif
 }

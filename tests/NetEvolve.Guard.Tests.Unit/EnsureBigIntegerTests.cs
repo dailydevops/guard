@@ -143,7 +143,7 @@ public sealed class EnsureBigIntegerTests
         }
     }
 
-    public static TheoryData GetInBetweenData =>
+    public static TheoryData<bool, BigInteger, BigInteger, BigInteger> GetInBetweenData =>
         new TheoryData<bool, BigInteger, BigInteger, BigInteger>
         {
             { true, MinValue, BaseValue, MaxValue },
@@ -154,7 +154,7 @@ public sealed class EnsureBigIntegerTests
             { false, BaseValue, MaxValue, MinValue }
         };
 
-    public static TheoryData GetNotBetweenData =>
+    public static TheoryData<bool, BigInteger, BigInteger, BigInteger> GetNotBetweenData =>
         new TheoryData<bool, BigInteger, BigInteger, BigInteger>
         {
             { false, MinValue, BaseValue, MaxValue },
@@ -163,7 +163,7 @@ public sealed class EnsureBigIntegerTests
             { true, BaseValue, MaxValue, MinValue }
         };
 
-    public static TheoryData GetGreaterThanData =>
+    public static TheoryData<bool, BigInteger, BigInteger> GetGreaterThanData =>
         new TheoryData<bool, BigInteger, BigInteger>
         {
             { true, BaseValue, MaxValue },
@@ -171,7 +171,7 @@ public sealed class EnsureBigIntegerTests
             { false, BaseValue, MinValue }
         };
 
-    public static TheoryData GetGreaterThanOrEqualData =>
+    public static TheoryData<bool, BigInteger, BigInteger> GetGreaterThanOrEqualData =>
         new TheoryData<bool, BigInteger, BigInteger>
         {
             { true, BaseValue, MaxValue },
@@ -179,7 +179,7 @@ public sealed class EnsureBigIntegerTests
             { false, BaseValue, MinValue }
         };
 
-    public static TheoryData GetLessThanData =>
+    public static TheoryData<bool, BigInteger, BigInteger> GetLessThanData =>
         new TheoryData<bool, BigInteger, BigInteger>
         {
             { true, BaseValue, MinValue },
@@ -187,7 +187,7 @@ public sealed class EnsureBigIntegerTests
             { false, BaseValue, MaxValue }
         };
 
-    public static TheoryData GetLessThanOrEqualData =>
+    public static TheoryData<bool, BigInteger, BigInteger> GetLessThanOrEqualData =>
         new TheoryData<bool, BigInteger, BigInteger>
         {
             { true, BaseValue, MinValue },
@@ -213,7 +213,7 @@ public sealed class EnsureBigIntegerTests
         }
     }
 
-    public static TheoryData GetNotPow2Data =>
+    public static TheoryData<bool, BigInteger> GetNotPow2Data =>
         new TheoryData<bool, BigInteger> { { true, 63 }, { false, 64 } };
 #endif
 }

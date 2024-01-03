@@ -120,7 +120,7 @@ public sealed class EnsureCharTests
         }
     }
 
-    public static TheoryData GetInBetweenData =>
+    public static TheoryData<bool, char, char, char> GetInBetweenData =>
         new TheoryData<bool, char, char, char>
         {
             { true, MinValue, BaseValue, MaxValue },
@@ -131,7 +131,7 @@ public sealed class EnsureCharTests
             { false, BaseValue, MaxValue, MinValue }
         };
 
-    public static TheoryData GetNotBetweenData =>
+    public static TheoryData<bool, char, char, char> GetNotBetweenData =>
         new TheoryData<bool, char, char, char>
         {
             { true, BaseValue, MinValue, MaxValue },
@@ -140,7 +140,7 @@ public sealed class EnsureCharTests
             { false, MaxValue, BaseValue, MinValue }
         };
 
-    public static TheoryData GetGreaterThanData =>
+    public static TheoryData<bool, char, char> GetGreaterThanData =>
         new TheoryData<bool, char, char>
         {
             { true, BaseValue, MaxValue },
@@ -148,7 +148,7 @@ public sealed class EnsureCharTests
             { false, BaseValue, MinValue }
         };
 
-    public static TheoryData GetGreaterThanOrEqualData =>
+    public static TheoryData<bool, char, char> GetGreaterThanOrEqualData =>
         new TheoryData<bool, char, char>
         {
             { true, BaseValue, MaxValue },
@@ -156,7 +156,7 @@ public sealed class EnsureCharTests
             { false, BaseValue, MinValue }
         };
 
-    public static TheoryData GetLessThanData =>
+    public static TheoryData<bool, char, char> GetLessThanData =>
         new TheoryData<bool, char, char>
         {
             { true, BaseValue, MinValue },
@@ -164,7 +164,7 @@ public sealed class EnsureCharTests
             { false, BaseValue, MaxValue }
         };
 
-    public static TheoryData GetLessThanOrEqualData =>
+    public static TheoryData<bool, char, char> GetLessThanOrEqualData =>
         new TheoryData<bool, char, char>
         {
             { true, BaseValue, MinValue },

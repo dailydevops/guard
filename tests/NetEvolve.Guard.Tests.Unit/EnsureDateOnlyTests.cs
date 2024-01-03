@@ -139,7 +139,7 @@ public sealed class EnsureDateOnlyTests
         }
     }
 
-    public static TheoryData GetInBetweenData =>
+    public static TheoryData<bool, DateOnly, DateOnly, DateOnly> GetInBetweenData =>
         new TheoryData<bool, DateOnly, DateOnly, DateOnly>
         {
             { true, MinValue, BaseValue, MaxValue },
@@ -150,7 +150,7 @@ public sealed class EnsureDateOnlyTests
             { false, BaseValue, MaxValue, MinValue }
         };
 
-    public static TheoryData GetNotBetweenData =>
+    public static TheoryData<bool, DateOnly, DateOnly, DateOnly> GetNotBetweenData =>
         new TheoryData<bool, DateOnly, DateOnly, DateOnly>
         {
             { false, MinValue, BaseValue, MaxValue },
@@ -159,7 +159,7 @@ public sealed class EnsureDateOnlyTests
             { true, BaseValue, MaxValue, MinValue }
         };
 
-    public static TheoryData GetGreaterThanData =>
+    public static TheoryData<bool, DateOnly, DateOnly> GetGreaterThanData =>
         new TheoryData<bool, DateOnly, DateOnly>
         {
             { true, BaseValue, MaxValue },
@@ -167,7 +167,7 @@ public sealed class EnsureDateOnlyTests
             { false, BaseValue, MinValue }
         };
 
-    public static TheoryData GetGreaterThanOrEqualData =>
+    public static TheoryData<bool, DateOnly, DateOnly> GetGreaterThanOrEqualData =>
         new TheoryData<bool, DateOnly, DateOnly>
         {
             { true, BaseValue, MaxValue },
@@ -175,7 +175,7 @@ public sealed class EnsureDateOnlyTests
             { false, BaseValue, MinValue }
         };
 
-    public static TheoryData GetLessThanData =>
+    public static TheoryData<bool, DateOnly, DateOnly> GetLessThanData =>
         new TheoryData<bool, DateOnly, DateOnly>
         {
             { true, BaseValue, MinValue },
@@ -183,7 +183,7 @@ public sealed class EnsureDateOnlyTests
             { false, BaseValue, MaxValue }
         };
 
-    public static TheoryData GetLessThanOrEqualData =>
+    public static TheoryData<bool, DateOnly, DateOnly> GetLessThanOrEqualData =>
         new TheoryData<bool, DateOnly, DateOnly>
         {
             { true, BaseValue, MinValue },

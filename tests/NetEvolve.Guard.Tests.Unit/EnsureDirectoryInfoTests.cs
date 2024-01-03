@@ -26,7 +26,7 @@ public class EnsureDirectoryInfoTests
         }
     }
 
-    public static TheoryData GetExistsData =>
+    public static TheoryData<bool, string> GetExistsData =>
         new TheoryData<bool, string>
         {
             { true, "/does.not.exists/" },
