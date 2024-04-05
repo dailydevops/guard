@@ -18,7 +18,7 @@
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.9.0" />
     <PackageVersion Include="NetEvolve.Arguments" Version="1.0.123" />
     <PackageVersion Include="NetEvolve.Extensions.XUnit" Version="2.0.36" />
-    <PackageVersion Include="Polyfill" Version="4.3.0" />
+    <PackageVersion Include="Polyfill" Version="4.4.1" />
     <PackageVersion Include="xunit" Version="2.7.0" />
     <PackageVersion Include="xunit.runner.visualstudio" Version="2.5.6" />
     <PackageVersion Update="xunit.runner.visualstudio" Version="2.4.5" Condition=" '$(TargetFramework)' == 'net5.0' Or '$(TargetFramework)' == 'netcoreapp3.1' " />
