@@ -132,7 +132,7 @@ public sealed class EnsureInt8Tests
             { false, MinValue, MinValue, MaxValue },
             { false, MaxValue, MinValue, MaxValue },
             { false, BaseValue, MinValue, MaxValue },
-            { false, BaseValue, MaxValue, MinValue }
+            { false, BaseValue, MaxValue, MinValue },
         };
 
     public static TheoryData<bool, sbyte, sbyte, sbyte> GetNotBetweenData =>
@@ -141,7 +141,7 @@ public sealed class EnsureInt8Tests
             { false, MinValue, BaseValue, MaxValue },
             { false, MaxValue, BaseValue, MinValue },
             { true, BaseValue, MinValue, MaxValue },
-            { true, BaseValue, MaxValue, MinValue }
+            { true, BaseValue, MaxValue, MinValue },
         };
 
     public static TheoryData<bool, sbyte, sbyte> GetGreaterThanData =>
@@ -149,7 +149,7 @@ public sealed class EnsureInt8Tests
         {
             { true, BaseValue, MaxValue },
             { true, BaseValue, BaseValue },
-            { false, BaseValue, MinValue }
+            { false, BaseValue, MinValue },
         };
 
     public static TheoryData<bool, sbyte, sbyte> GetGreaterThanOrEqualData =>
@@ -157,7 +157,7 @@ public sealed class EnsureInt8Tests
         {
             { true, BaseValue, MaxValue },
             { false, BaseValue, BaseValue },
-            { false, BaseValue, MinValue }
+            { false, BaseValue, MinValue },
         };
 
     public static TheoryData<bool, sbyte, sbyte> GetLessThanData =>
@@ -165,7 +165,7 @@ public sealed class EnsureInt8Tests
         {
             { true, BaseValue, MinValue },
             { true, BaseValue, BaseValue },
-            { false, BaseValue, MaxValue }
+            { false, BaseValue, MaxValue },
         };
 
     public static TheoryData<bool, sbyte, sbyte> GetLessThanOrEqualData =>
@@ -173,7 +173,7 @@ public sealed class EnsureInt8Tests
         {
             { true, BaseValue, MinValue },
             { false, BaseValue, BaseValue },
-            { false, BaseValue, MaxValue }
+            { false, BaseValue, MaxValue },
         };
 
 #if NET6_0_OR_GREATER

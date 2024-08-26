@@ -147,7 +147,7 @@ public sealed class EnsureTimeOnlyTests
             { false, MinValue, MinValue, MaxValue },
             { false, MaxValue, MinValue, MaxValue },
             { false, BaseValue, MinValue, MaxValue },
-            { false, BaseValue, MaxValue, MinValue }
+            { false, BaseValue, MaxValue, MinValue },
         };
 
     public static TheoryData<bool, TimeOnly, TimeOnly, TimeOnly> GetNotBetweenData =>
@@ -156,7 +156,7 @@ public sealed class EnsureTimeOnlyTests
             { false, MinValue, BaseValue, MaxValue },
             { false, MaxValue, BaseValue, MinValue },
             { true, BaseValue, MinValue, MaxValue },
-            { true, BaseValue, MaxValue, MinValue }
+            { true, BaseValue, MaxValue, MinValue },
         };
 
     public static TheoryData<bool, TimeOnly, TimeOnly> GetGreaterThanData =>
@@ -164,7 +164,7 @@ public sealed class EnsureTimeOnlyTests
         {
             { true, BaseValue, MaxValue },
             { true, BaseValue, BaseValue },
-            { false, BaseValue, MinValue }
+            { false, BaseValue, MinValue },
         };
 
     public static TheoryData<bool, TimeOnly, TimeOnly> GetGreaterThanOrEqualData =>
@@ -172,7 +172,7 @@ public sealed class EnsureTimeOnlyTests
         {
             { true, BaseValue, MaxValue },
             { false, BaseValue, BaseValue },
-            { false, BaseValue, MinValue }
+            { false, BaseValue, MinValue },
         };
 
     public static TheoryData<bool, TimeOnly, TimeOnly> GetLessThanData =>
@@ -180,7 +180,7 @@ public sealed class EnsureTimeOnlyTests
         {
             { true, BaseValue, MinValue },
             { true, BaseValue, BaseValue },
-            { false, BaseValue, MaxValue }
+            { false, BaseValue, MaxValue },
         };
 
     public static TheoryData<bool, TimeOnly, TimeOnly> GetLessThanOrEqualData =>
@@ -188,7 +188,7 @@ public sealed class EnsureTimeOnlyTests
         {
             { true, BaseValue, MinValue },
             { false, BaseValue, BaseValue },
-            { false, BaseValue, MaxValue }
+            { false, BaseValue, MaxValue },
         };
 }
 #endif

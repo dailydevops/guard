@@ -203,7 +203,7 @@ public sealed class EnsureFloatTests
             { false, MinValue, MinValue, MaxValue },
             { false, MaxValue, MinValue, MaxValue },
             { false, BaseValue, MinValue, MaxValue },
-            { false, BaseValue, MaxValue, MinValue }
+            { false, BaseValue, MaxValue, MinValue },
         };
 
     public static TheoryData<bool, float, float, float> GetNotBetweenData =>
@@ -212,7 +212,7 @@ public sealed class EnsureFloatTests
             { false, MinValue, BaseValue, MaxValue },
             { false, MaxValue, BaseValue, MinValue },
             { true, BaseValue, MinValue, MaxValue },
-            { true, BaseValue, MaxValue, MinValue }
+            { true, BaseValue, MaxValue, MinValue },
         };
 
     public static TheoryData<bool, float, float> GetGreaterThanData =>
@@ -220,7 +220,7 @@ public sealed class EnsureFloatTests
         {
             { true, BaseValue, MaxValue },
             { true, BaseValue, BaseValue },
-            { false, BaseValue, MinValue }
+            { false, BaseValue, MinValue },
         };
 
     public static TheoryData<bool, float, float> GetGreaterThanOrEqualData =>
@@ -228,7 +228,7 @@ public sealed class EnsureFloatTests
         {
             { true, BaseValue, MaxValue },
             { false, BaseValue, BaseValue },
-            { false, BaseValue, MinValue }
+            { false, BaseValue, MinValue },
         };
 
     public static TheoryData<bool, float, float> GetLessThanData =>
@@ -236,7 +236,7 @@ public sealed class EnsureFloatTests
         {
             { true, BaseValue, MinValue },
             { true, BaseValue, BaseValue },
-            { false, BaseValue, MaxValue }
+            { false, BaseValue, MaxValue },
         };
 
     public static TheoryData<bool, float, float> GetLessThanOrEqualData =>
@@ -244,7 +244,7 @@ public sealed class EnsureFloatTests
         {
             { true, BaseValue, MinValue },
             { false, BaseValue, BaseValue },
-            { false, BaseValue, MaxValue }
+            { false, BaseValue, MaxValue },
         };
 
     public static TheoryData<bool, float> GetNotNaNData =>
@@ -253,7 +253,7 @@ public sealed class EnsureFloatTests
             { true, NaN },
             { false, BaseValue },
             { false, MaxValue },
-            { false, MinValue }
+            { false, MinValue },
         };
 
     public static TheoryData<bool, float> GetNotInfinityData =>
@@ -262,7 +262,7 @@ public sealed class EnsureFloatTests
             { true, PositiveInfinity },
             { true, NegativeInfinity },
             { false, MaxValue },
-            { false, MinValue }
+            { false, MinValue },
         };
 
     public static TheoryData<bool, float> GetNotNegativeInfinityData =>
@@ -271,7 +271,7 @@ public sealed class EnsureFloatTests
             { false, PositiveInfinity },
             { true, NegativeInfinity },
             { false, MaxValue },
-            { false, MinValue }
+            { false, MinValue },
         };
 
     public static TheoryData<bool, float> GetNotPositiveInfinityData =>
@@ -280,6 +280,6 @@ public sealed class EnsureFloatTests
             { true, PositiveInfinity },
             { false, NegativeInfinity },
             { false, MaxValue },
-            { false, MinValue }
+            { false, MinValue },
         };
 }

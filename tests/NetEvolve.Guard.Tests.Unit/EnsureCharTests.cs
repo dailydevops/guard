@@ -128,7 +128,7 @@ public sealed class EnsureCharTests
             { false, MinValue, MinValue, MaxValue },
             { false, MaxValue, MinValue, MaxValue },
             { false, BaseValue, MinValue, MaxValue },
-            { false, BaseValue, MaxValue, MinValue }
+            { false, BaseValue, MaxValue, MinValue },
         };
 
     public static TheoryData<bool, char, char, char> GetNotBetweenData =>
@@ -137,7 +137,7 @@ public sealed class EnsureCharTests
             { true, BaseValue, MinValue, MaxValue },
             { true, BaseValue, MaxValue, MinValue },
             { false, MinValue, BaseValue, MaxValue },
-            { false, MaxValue, BaseValue, MinValue }
+            { false, MaxValue, BaseValue, MinValue },
         };
 
     public static TheoryData<bool, char, char> GetGreaterThanData =>
@@ -145,7 +145,7 @@ public sealed class EnsureCharTests
         {
             { true, BaseValue, MaxValue },
             { true, BaseValue, BaseValue },
-            { false, BaseValue, MinValue }
+            { false, BaseValue, MinValue },
         };
 
     public static TheoryData<bool, char, char> GetGreaterThanOrEqualData =>
@@ -153,7 +153,7 @@ public sealed class EnsureCharTests
         {
             { true, BaseValue, MaxValue },
             { false, BaseValue, BaseValue },
-            { false, BaseValue, MinValue }
+            { false, BaseValue, MinValue },
         };
 
     public static TheoryData<bool, char, char> GetLessThanData =>
@@ -161,7 +161,7 @@ public sealed class EnsureCharTests
         {
             { true, BaseValue, MinValue },
             { true, BaseValue, BaseValue },
-            { false, BaseValue, MaxValue }
+            { false, BaseValue, MaxValue },
         };
 
     public static TheoryData<bool, char, char> GetLessThanOrEqualData =>
@@ -169,6 +169,6 @@ public sealed class EnsureCharTests
         {
             { true, BaseValue, MinValue },
             { false, BaseValue, BaseValue },
-            { false, BaseValue, MaxValue }
+            { false, BaseValue, MaxValue },
         };
 }

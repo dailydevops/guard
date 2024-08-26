@@ -203,7 +203,7 @@ public sealed class EnsureHalfTests
 #endif
             { false, MaxValue, MinValue, MaxValue },
             { false, BaseValue, MinValue, MaxValue },
-            { false, BaseValue, MaxValue, MinValue }
+            { false, BaseValue, MaxValue, MinValue },
         };
 
     public static TheoryData<bool, Half, Half, Half> GetNotBetweenData =>
@@ -212,7 +212,7 @@ public sealed class EnsureHalfTests
             { false, MinValue, BaseValue, MaxValue },
             { false, MaxValue, BaseValue, MinValue },
             { true, BaseValue, MinValue, MaxValue },
-            { true, BaseValue, MaxValue, MinValue }
+            { true, BaseValue, MaxValue, MinValue },
         };
 
     public static TheoryData<bool, Half, Half> GetGreaterThanData =>
@@ -220,7 +220,7 @@ public sealed class EnsureHalfTests
         {
             { true, BaseValue, MaxValue },
             { true, BaseValue, BaseValue },
-            { false, BaseValue, MinValue }
+            { false, BaseValue, MinValue },
         };
 
     public static TheoryData<bool, Half, Half> GetGreaterThanOrEqualData =>
@@ -228,7 +228,7 @@ public sealed class EnsureHalfTests
         {
             { true, BaseValue, MaxValue },
             { false, BaseValue, BaseValue },
-            { false, BaseValue, MinValue }
+            { false, BaseValue, MinValue },
         };
 
     public static TheoryData<bool, Half, Half> GetLessThanData =>
@@ -236,7 +236,7 @@ public sealed class EnsureHalfTests
         {
             { true, BaseValue, MinValue },
             { true, BaseValue, BaseValue },
-            { false, BaseValue, MaxValue }
+            { false, BaseValue, MaxValue },
         };
 
     public static TheoryData<bool, Half, Half> GetLessThanOrEqualData =>
@@ -244,7 +244,7 @@ public sealed class EnsureHalfTests
         {
             { true, BaseValue, MinValue },
             { false, BaseValue, BaseValue },
-            { false, BaseValue, MaxValue }
+            { false, BaseValue, MaxValue },
         };
 
     public static TheoryData<bool, Half> GetNotNaNData =>
@@ -253,7 +253,7 @@ public sealed class EnsureHalfTests
             { true, NaN },
             { false, BaseValue },
             { false, MaxValue },
-            { false, MinValue }
+            { false, MinValue },
         };
 
     public static TheoryData<bool, Half> GetNotInfinityData =>
@@ -262,7 +262,7 @@ public sealed class EnsureHalfTests
             { true, PositiveInfinity },
             { true, NegativeInfinity },
             { false, MaxValue },
-            { false, MinValue }
+            { false, MinValue },
         };
 
     public static TheoryData<bool, Half> GetNotNegativeInfinityData =>
@@ -271,7 +271,7 @@ public sealed class EnsureHalfTests
             { false, PositiveInfinity },
             { true, NegativeInfinity },
             { false, MaxValue },
-            { false, MinValue }
+            { false, MinValue },
         };
 
     public static TheoryData<bool, Half> GetNotPositiveInfinityData =>
@@ -280,7 +280,7 @@ public sealed class EnsureHalfTests
             { true, PositiveInfinity },
             { false, NegativeInfinity },
             { false, MaxValue },
-            { false, MinValue }
+            { false, MinValue },
         };
 }
 #endif
