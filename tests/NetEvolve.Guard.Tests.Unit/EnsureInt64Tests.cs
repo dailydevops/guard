@@ -128,7 +128,7 @@ public sealed class EnsureInt64Tests
             { false, MinValue, MinValue, MaxValue },
             { false, MaxValue, MinValue, MaxValue },
             { false, BaseValue, MinValue, MaxValue },
-            { false, BaseValue, MaxValue, MinValue }
+            { false, BaseValue, MaxValue, MinValue },
         };
 
     public static TheoryData<bool, long, long, long> GetNotBetweenData =>
@@ -137,7 +137,7 @@ public sealed class EnsureInt64Tests
             { false, MinValue, BaseValue, MaxValue },
             { false, MaxValue, BaseValue, MinValue },
             { true, BaseValue, MinValue, MaxValue },
-            { true, BaseValue, MaxValue, MinValue }
+            { true, BaseValue, MaxValue, MinValue },
         };
 
     public static TheoryData<bool, long, long> GetGreaterThanData =>
@@ -145,7 +145,7 @@ public sealed class EnsureInt64Tests
         {
             { true, BaseValue, MaxValue },
             { true, BaseValue, BaseValue },
-            { false, BaseValue, MinValue }
+            { false, BaseValue, MinValue },
         };
 
     public static TheoryData<bool, long, long> GetGreaterThanOrEqualData =>
@@ -153,7 +153,7 @@ public sealed class EnsureInt64Tests
         {
             { true, BaseValue, MaxValue },
             { false, BaseValue, BaseValue },
-            { false, BaseValue, MinValue }
+            { false, BaseValue, MinValue },
         };
 
     public static TheoryData<bool, long, long> GetLessThanData =>
@@ -161,7 +161,7 @@ public sealed class EnsureInt64Tests
         {
             { true, BaseValue, MinValue },
             { true, BaseValue, BaseValue },
-            { false, BaseValue, MaxValue }
+            { false, BaseValue, MaxValue },
         };
 
     public static TheoryData<bool, long, long> GetLessThanOrEqualData =>
@@ -169,7 +169,7 @@ public sealed class EnsureInt64Tests
         {
             { true, BaseValue, MinValue },
             { false, BaseValue, BaseValue },
-            { false, BaseValue, MaxValue }
+            { false, BaseValue, MaxValue },
         };
 
 #if NET6_0_OR_GREATER

@@ -30,6 +30,6 @@ public class EnsureDirectoryInfoTests
         new TheoryData<bool, string>
         {
             { true, "/does.not.exists/" },
-            { false, Path.GetTempPath() }
+            { false, Path.GetTempPath() },
         };
 }

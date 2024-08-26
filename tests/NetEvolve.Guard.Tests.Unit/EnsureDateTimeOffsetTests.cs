@@ -155,7 +155,7 @@ public sealed class EnsureDateTimeOffsetTests
             { false, MinValue, MinValue, MaxValue },
             { false, MaxValue, MinValue, MaxValue },
             { false, BaseValue, MinValue, MaxValue },
-            { false, BaseValue, MaxValue, MinValue }
+            { false, BaseValue, MaxValue, MinValue },
         };
 
     public static TheoryData<
@@ -169,7 +169,7 @@ public sealed class EnsureDateTimeOffsetTests
             { false, MinValue, BaseValue, MaxValue },
             { false, MaxValue, BaseValue, MinValue },
             { true, BaseValue, MinValue, MaxValue },
-            { true, BaseValue, MaxValue, MinValue }
+            { true, BaseValue, MaxValue, MinValue },
         };
 
     public static TheoryData<bool, DateTimeOffset, DateTimeOffset> GetGreaterThanData =>
@@ -177,7 +177,7 @@ public sealed class EnsureDateTimeOffsetTests
         {
             { true, BaseValue, MaxValue },
             { true, BaseValue, BaseValue },
-            { false, BaseValue, MinValue }
+            { false, BaseValue, MinValue },
         };
 
     public static TheoryData<bool, DateTimeOffset, DateTimeOffset> GetGreaterThanOrEqualData =>
@@ -185,7 +185,7 @@ public sealed class EnsureDateTimeOffsetTests
         {
             { true, BaseValue, MaxValue },
             { false, BaseValue, BaseValue },
-            { false, BaseValue, MinValue }
+            { false, BaseValue, MinValue },
         };
 
     public static TheoryData<bool, DateTimeOffset, DateTimeOffset> GetLessThanData =>
@@ -193,7 +193,7 @@ public sealed class EnsureDateTimeOffsetTests
         {
             { true, BaseValue, MinValue },
             { true, BaseValue, BaseValue },
-            { false, BaseValue, MaxValue }
+            { false, BaseValue, MaxValue },
         };
 
     public static TheoryData<bool, DateTimeOffset, DateTimeOffset> GetLessThanOrEqualData =>
@@ -201,6 +201,6 @@ public sealed class EnsureDateTimeOffsetTests
         {
             { true, BaseValue, MinValue },
             { false, BaseValue, BaseValue },
-            { false, BaseValue, MaxValue }
+            { false, BaseValue, MaxValue },
         };
 }
