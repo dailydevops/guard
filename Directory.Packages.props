@@ -19,7 +19,7 @@
     <PackageVersion Include="NetEvolve.Arguments" Version="1.2.100" />
     <PackageVersion Include="NetEvolve.Extensions.XUnit" Version="2.2.111" />
     <PackageVersion Include="Polyfill" Version="6.10.0" />
-    <PackageVersion Include="xunit" Version="2.9.1" />
+    <PackageVersion Include="xunit" Version="2.9.2" />
   </ItemGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'net5.0' Or '$(TargetFramework)' == 'netcoreapp3.1' ">
