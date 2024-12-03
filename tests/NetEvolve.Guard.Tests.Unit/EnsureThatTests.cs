@@ -15,20 +15,15 @@ public sealed class EnsureThatTests
     public void That_Object_Theory_Expected(string? parameterName)
     {
         var value = new string('-', 10);
-        if (parameterName is null)
-        {
-            _ = Assert.Throws<ArgumentNullException>(
+        _ = parameterName is null
+            ? Assert.Throws<ArgumentNullException>(
+                nameof(parameterName),
+                () => _ = Ensure.That(value, parameterName!)
+            )
+            : Assert.Throws<ArgumentException>(
                 nameof(parameterName),
                 () => _ = Ensure.That(value, parameterName!)
             );
-        }
-        else
-        {
-            _ = Assert.Throws<ArgumentException>(
-                nameof(parameterName),
-                () => _ = Ensure.That(value, parameterName!)
-            );
-        }
     }
 
     [Theory]
@@ -37,20 +32,15 @@ public sealed class EnsureThatTests
     public void That_Struct_Theory_Expected(string? parameterName)
     {
         var value = 5;
-        if (parameterName is null)
-        {
-            _ = Assert.Throws<ArgumentNullException>(
+        _ = parameterName is null
+            ? Assert.Throws<ArgumentNullException>(
+                nameof(parameterName),
+                () => _ = Ensure.That(value, parameterName!)
+            )
+            : Assert.Throws<ArgumentException>(
                 nameof(parameterName),
                 () => _ = Ensure.That(value, parameterName!)
             );
-        }
-        else
-        {
-            _ = Assert.Throws<ArgumentException>(
-                nameof(parameterName),
-                () => _ = Ensure.That(value, parameterName!)
-            );
-        }
     }
 
     [Theory]
@@ -59,19 +49,14 @@ public sealed class EnsureThatTests
     public void That_NullableStruct_Theory_Expected(string? parameterName)
     {
         int? value = null;
-        if (parameterName is null)
-        {
-            _ = Assert.Throws<ArgumentNullException>(
+        _ = parameterName is null
+            ? Assert.Throws<ArgumentNullException>(
+                nameof(parameterName),
+                () => _ = Ensure.That(value, parameterName!)
+            )
+            : Assert.Throws<ArgumentException>(
                 nameof(parameterName),
                 () => _ = Ensure.That(value, parameterName!)
             );
-        }
-        else
-        {
-            _ = Assert.Throws<ArgumentException>(
-                nameof(parameterName),
-                () => _ = Ensure.That(value, parameterName!)
-            );
-        }
     }
 }
