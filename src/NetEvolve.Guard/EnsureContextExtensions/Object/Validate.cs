@@ -14,7 +14,7 @@ public partial class EnsureContextExtensions
     /// <typeparam name="T">Type to be checked.</typeparam>
     /// <param name="value">Value to be verified.</param>
     /// <param name="condition">Validation expression for checking the type.</param>
-    /// <param name="conditionAsString">Optional parameter, this is filled in with the <see cref="CallerArgumentExpressionAttribute"/> mechanism and doesn't need to be set manually.</param>
+    /// <param name="conditionAsString">Optional parameter, this is filled in with the <b>CallerArgumentExpressionAttribute</b> mechanism and doesn't need to be set manually.</param>
     /// <returns>Returns <paramref name="value"/>.</returns>
     /// <exception cref="ArgumentNullException">When <paramref name="condition"/> is <see langword="null"/>.</exception>
     /// <exception cref="ArgumentException">When <paramref name="condition"/> returns <see langword="false"/>.</exception>
