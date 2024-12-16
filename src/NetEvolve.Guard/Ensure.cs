@@ -15,7 +15,7 @@ public static class Ensure
     /// </summary>
     /// <typeparam name="T">Type of <paramref name="value"/>.</typeparam>
     /// <param name="value">Value to be verified.</param>
-    /// <param name="parameterName">Optional parameter, this is filled in with the <see cref="CallerArgumentExpressionAttribute"/> mechanism and doesn't need to be set manually.</param>
+    /// <param name="parameterName">Optional parameter, this is filled in with the <b>CallerArgumentExpressionAttribute</b> mechanism and doesn't need to be set manually.</param>
     /// <returns><see cref="EnsureContext{T}"/> for further validations.</returns>
     /// <exception cref="ArgumentNullException">Whenn <paramref name="parameterName"/> is <see langword="null"/>.</exception>
     /// <exception cref="ArgumentException">Whenn <paramref name="parameterName"/> is <see cref="string.Empty"/>.</exception>
@@ -37,7 +37,7 @@ public static class Ensure
     /// </summary>
     /// <typeparam name="T">Type of <paramref name="value"/>.</typeparam>
     /// <param name="value">Value to be verified.</param>
-    /// <param name="parameterName">Optional parameter, this is filled in with the <see cref="CallerArgumentExpressionAttribute"/> mechanism and doesn't need to be set manually.</param>
+    /// <param name="parameterName">Optional parameter, this is filled in with the <b>CallerArgumentExpressionAttribute</b> mechanism and doesn't need to be set manually.</param>
     /// <returns><see cref="EnsureContext{T}"/> for further validations.</returns>
     /// <exception cref="ArgumentNullException">Whenn <paramref name="parameterName"/> is <see langword="null"/>.</exception>
     /// <exception cref="ArgumentException">Whenn <paramref name="parameterName"/> is <see cref="string.Empty"/>.</exception>
@@ -59,7 +59,7 @@ public static class Ensure
     /// </summary>
     /// <typeparam name="T">Type of <paramref name="value"/>.</typeparam>
     /// <param name="value">Value to be verified.</param>
-    /// <param name="parameterName">Optional parameter, this is filled in with the <see cref="CallerArgumentExpressionAttribute"/> mechanism and doesn't need to be set manually.</param>
+    /// <param name="parameterName">Optional parameter, this is filled in with the <b>CallerArgumentExpressionAttribute</b> mechanism and doesn't need to be set manually.</param>
     /// <returns><see cref="EnsureContext{T}"/> for further validations.</returns>
     /// <exception cref="ArgumentNullException">Whenn <paramref name="parameterName"/> is <see langword="null"/>.</exception>
     /// <exception cref="ArgumentException">Whenn <paramref name="parameterName"/> is <see cref="string.Empty"/>.</exception>
