@@ -16,8 +16,8 @@ public class EnsureDirectoryInfoTests
         var directory = new DirectoryInfo(directoryPath);
         if (throwException)
         {
-            _ = Assert.Throws<DirectoryNotFoundException>(
-                () => _ = Ensure.That(directory).IsNotNull().Exists()
+            _ = Assert.Throws<DirectoryNotFoundException>(() =>
+                _ = Ensure.That(directory).IsNotNull().Exists()
             );
         }
         else
