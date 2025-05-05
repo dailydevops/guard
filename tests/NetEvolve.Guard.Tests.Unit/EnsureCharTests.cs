@@ -67,11 +67,7 @@ public sealed class EnsureCharTests
 
     [Theory]
     [MemberData(nameof(GetGreaterThanOrEqualData))]
-    public void GreaterThanOrEqual_Theory_Expected(
-        bool throwException,
-        char value,
-        char compareValue
-    )
+    public void GreaterThanOrEqual_Theory_Expected(bool throwException, char value, char compareValue)
     {
         if (throwException)
         {

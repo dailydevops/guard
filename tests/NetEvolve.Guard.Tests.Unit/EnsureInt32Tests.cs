@@ -175,10 +175,7 @@ public sealed class EnsureInt32Tests
     {
         if (throwException)
         {
-            _ = Assert.Throws<ArgumentException>(
-                nameof(value),
-                () => _ = Ensure.That(value).IsPow2()
-            );
+            _ = Assert.Throws<ArgumentException>(nameof(value), () => _ = Ensure.That(value).IsPow2());
         }
         else
         {
@@ -186,7 +183,6 @@ public sealed class EnsureInt32Tests
         }
     }
 
-    public static TheoryData<bool, int> GetNotPow2Data =>
-        new TheoryData<bool, int> { { true, 63 }, { false, 64 } };
+    public static TheoryData<bool, int> GetNotPow2Data => new TheoryData<bool, int> { { true, 63 }, { false, 64 } };
 #endif
 }

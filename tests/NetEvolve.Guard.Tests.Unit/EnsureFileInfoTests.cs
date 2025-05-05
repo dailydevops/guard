@@ -17,9 +17,7 @@ public class EnsureFileInfoTests
         var file = new FileInfo(filePath);
         if (throwException)
         {
-            _ = Assert.Throws<FileNotFoundException>(() =>
-                _ = Ensure.That(file).IsNotNull().Exists()
-            );
+            _ = Assert.Throws<FileNotFoundException>(() => _ = Ensure.That(file).IsNotNull().Exists());
         }
         else
         {

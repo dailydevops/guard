@@ -16,14 +16,8 @@ public sealed class EnsureThatTests
     {
         var value = new string('-', 10);
         _ = parameterName is null
-            ? Assert.Throws<ArgumentNullException>(
-                nameof(parameterName),
-                () => _ = Ensure.That(value, parameterName!)
-            )
-            : Assert.Throws<ArgumentException>(
-                nameof(parameterName),
-                () => _ = Ensure.That(value, parameterName!)
-            );
+            ? Assert.Throws<ArgumentNullException>(nameof(parameterName), () => _ = Ensure.That(value, parameterName!))
+            : Assert.Throws<ArgumentException>(nameof(parameterName), () => _ = Ensure.That(value, parameterName!));
     }
 
     [Theory]
@@ -33,14 +27,8 @@ public sealed class EnsureThatTests
     {
         var value = 5;
         _ = parameterName is null
-            ? Assert.Throws<ArgumentNullException>(
-                nameof(parameterName),
-                () => _ = Ensure.That(value, parameterName!)
-            )
-            : Assert.Throws<ArgumentException>(
-                nameof(parameterName),
-                () => _ = Ensure.That(value, parameterName!)
-            );
+            ? Assert.Throws<ArgumentNullException>(nameof(parameterName), () => _ = Ensure.That(value, parameterName!))
+            : Assert.Throws<ArgumentException>(nameof(parameterName), () => _ = Ensure.That(value, parameterName!));
     }
 
     [Theory]
@@ -50,13 +38,7 @@ public sealed class EnsureThatTests
     {
         int? value = null;
         _ = parameterName is null
-            ? Assert.Throws<ArgumentNullException>(
-                nameof(parameterName),
-                () => _ = Ensure.That(value, parameterName!)
-            )
-            : Assert.Throws<ArgumentException>(
-                nameof(parameterName),
-                () => _ = Ensure.That(value, parameterName!)
-            );
+            ? Assert.Throws<ArgumentNullException>(nameof(parameterName), () => _ = Ensure.That(value, parameterName!))
+            : Assert.Throws<ArgumentException>(nameof(parameterName), () => _ = Ensure.That(value, parameterName!));
     }
 }

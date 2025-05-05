@@ -67,11 +67,7 @@ public sealed class EnsureInt16Tests
 
     [Theory]
     [MemberData(nameof(GetGreaterThanOrEqualData))]
-    public void GreaterThanOrEqual_Theory_Expected(
-        bool throwException,
-        short value,
-        short compareValue
-    )
+    public void GreaterThanOrEqual_Theory_Expected(bool throwException, short value, short compareValue)
     {
         if (throwException)
         {
@@ -105,11 +101,7 @@ public sealed class EnsureInt16Tests
 
     [Theory]
     [MemberData(nameof(GetLessThanOrEqualData))]
-    public void LessThanOrEqual_Theory_Expected(
-        bool throwException,
-        short value,
-        short compareValue
-    )
+    public void LessThanOrEqual_Theory_Expected(bool throwException, short value, short compareValue)
     {
         if (throwException)
         {
@@ -183,10 +175,7 @@ public sealed class EnsureInt16Tests
     {
         if (throwException)
         {
-            _ = Assert.Throws<ArgumentException>(
-                nameof(value),
-                () => _ = Ensure.That(value).IsPow2()
-            );
+            _ = Assert.Throws<ArgumentException>(nameof(value), () => _ = Ensure.That(value).IsPow2());
         }
         else
         {
@@ -194,7 +183,6 @@ public sealed class EnsureInt16Tests
         }
     }
 
-    public static TheoryData<bool, short> GetNotPow2Data =>
-        new TheoryData<bool, short> { { true, 63 }, { false, 64 } };
+    public static TheoryData<bool, short> GetNotPow2Data => new TheoryData<bool, short> { { true, 63 }, { false, 64 } };
 #endif
 }

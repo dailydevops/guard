@@ -70,11 +70,7 @@ public sealed class EnsureFloatTests
 
     [Theory]
     [MemberData(nameof(GetGreaterThanOrEqualData))]
-    public void GreaterThanOrEqual_Theory_Expected(
-        bool throwException,
-        float value,
-        float compareValue
-    )
+    public void GreaterThanOrEqual_Theory_Expected(bool throwException, float value, float compareValue)
     {
         if (throwException)
         {
@@ -108,11 +104,7 @@ public sealed class EnsureFloatTests
 
     [Theory]
     [MemberData(nameof(GetLessThanOrEqualData))]
-    public void LessThanOrEqual_Theory_Expected(
-        bool throwException,
-        float value,
-        float compareValue
-    )
+    public void LessThanOrEqual_Theory_Expected(bool throwException, float value, float compareValue)
     {
         if (throwException)
         {
@@ -133,10 +125,7 @@ public sealed class EnsureFloatTests
     {
         if (throwException)
         {
-            _ = Assert.Throws<ArgumentException>(
-                nameof(value),
-                () => _ = Ensure.That(value).IsNotNaN()
-            );
+            _ = Assert.Throws<ArgumentException>(nameof(value), () => _ = Ensure.That(value).IsNotNaN());
         }
         else
         {
@@ -150,10 +139,7 @@ public sealed class EnsureFloatTests
     {
         if (throwException)
         {
-            _ = Assert.Throws<ArgumentException>(
-                nameof(value),
-                () => _ = Ensure.That(value).IsNotInfinity()
-            );
+            _ = Assert.Throws<ArgumentException>(nameof(value), () => _ = Ensure.That(value).IsNotInfinity());
         }
         else
         {
@@ -167,10 +153,7 @@ public sealed class EnsureFloatTests
     {
         if (throwException)
         {
-            _ = Assert.Throws<ArgumentException>(
-                nameof(value),
-                () => _ = Ensure.That(value).IsNotNegativeInfinity()
-            );
+            _ = Assert.Throws<ArgumentException>(nameof(value), () => _ = Ensure.That(value).IsNotNegativeInfinity());
         }
         else
         {
@@ -184,10 +167,7 @@ public sealed class EnsureFloatTests
     {
         if (throwException)
         {
-            _ = Assert.Throws<ArgumentException>(
-                nameof(value),
-                () => _ = Ensure.That(value).IsNotPositiveInfinity()
-            );
+            _ = Assert.Throws<ArgumentException>(nameof(value), () => _ = Ensure.That(value).IsNotPositiveInfinity());
         }
         else
         {

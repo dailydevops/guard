@@ -33,12 +33,7 @@ public sealed class EnsureUInt16Tests
 
     [Theory]
     [MemberData(nameof(GetNotBetweenData))]
-    public void NotBetween_Theory_Expected(
-        bool throwException,
-        ushort value,
-        ushort min,
-        ushort max
-    )
+    public void NotBetween_Theory_Expected(bool throwException, ushort value, ushort min, ushort max)
     {
         if (throwException)
         {
@@ -72,11 +67,7 @@ public sealed class EnsureUInt16Tests
 
     [Theory]
     [MemberData(nameof(GetGreaterThanOrEqualData))]
-    public void GreaterThanOrEqual_Theory_Expected(
-        bool throwException,
-        ushort value,
-        ushort compareValue
-    )
+    public void GreaterThanOrEqual_Theory_Expected(bool throwException, ushort value, ushort compareValue)
     {
         if (throwException)
         {
@@ -110,11 +101,7 @@ public sealed class EnsureUInt16Tests
 
     [Theory]
     [MemberData(nameof(GetLessThanOrEqualData))]
-    public void LessThanOrEqual_Theory_Expected(
-        bool throwException,
-        ushort value,
-        ushort compareValue
-    )
+    public void LessThanOrEqual_Theory_Expected(bool throwException, ushort value, ushort compareValue)
     {
         if (throwException)
         {
@@ -188,10 +175,7 @@ public sealed class EnsureUInt16Tests
     {
         if (throwException)
         {
-            _ = Assert.Throws<ArgumentException>(
-                nameof(value),
-                () => _ = Ensure.That(value).IsPow2()
-            );
+            _ = Assert.Throws<ArgumentException>(nameof(value), () => _ = Ensure.That(value).IsPow2());
         }
         else
         {

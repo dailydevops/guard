@@ -17,12 +17,7 @@ public sealed class EnsureDateOnlyTests
 
     [Theory]
     [MemberData(nameof(GetInBetweenData))]
-    public void InBetween_Theory_Expected(
-        bool throwException,
-        DateOnly value,
-        DateOnly min,
-        DateOnly max
-    )
+    public void InBetween_Theory_Expected(bool throwException, DateOnly value, DateOnly min, DateOnly max)
     {
         if (throwException)
         {
@@ -39,12 +34,7 @@ public sealed class EnsureDateOnlyTests
 
     [Theory]
     [MemberData(nameof(GetNotBetweenData))]
-    public void NotBetween_Theory_Expected(
-        bool throwException,
-        DateOnly value,
-        DateOnly min,
-        DateOnly max
-    )
+    public void NotBetween_Theory_Expected(bool throwException, DateOnly value, DateOnly min, DateOnly max)
     {
         if (throwException)
         {
@@ -61,11 +51,7 @@ public sealed class EnsureDateOnlyTests
 
     [Theory]
     [MemberData(nameof(GetGreaterThanData))]
-    public void GreaterThan_Theory_Expected(
-        bool throwException,
-        DateOnly value,
-        DateOnly compareValue
-    )
+    public void GreaterThan_Theory_Expected(bool throwException, DateOnly value, DateOnly compareValue)
     {
         if (throwException)
         {
@@ -82,11 +68,7 @@ public sealed class EnsureDateOnlyTests
 
     [Theory]
     [MemberData(nameof(GetGreaterThanOrEqualData))]
-    public void GreaterThanOrEqual_Theory_Expected(
-        bool throwException,
-        DateOnly value,
-        DateOnly compareValue
-    )
+    public void GreaterThanOrEqual_Theory_Expected(bool throwException, DateOnly value, DateOnly compareValue)
     {
         if (throwException)
         {
@@ -120,11 +102,7 @@ public sealed class EnsureDateOnlyTests
 
     [Theory]
     [MemberData(nameof(GetLessThanOrEqualData))]
-    public void LessThanOrEqual_Theory_Expected(
-        bool throwException,
-        DateOnly value,
-        DateOnly compareValue
-    )
+    public void LessThanOrEqual_Theory_Expected(bool throwException, DateOnly value, DateOnly compareValue)
     {
         if (throwException)
         {

@@ -17,12 +17,7 @@ public sealed class EnsureBigIntegerTests
 
     [Theory]
     [MemberData(nameof(GetInBetweenData))]
-    public void InBetween_Theory_Expected(
-        bool throwException,
-        BigInteger value,
-        BigInteger min,
-        BigInteger max
-    )
+    public void InBetween_Theory_Expected(bool throwException, BigInteger value, BigInteger min, BigInteger max)
     {
         if (throwException)
         {
@@ -39,12 +34,7 @@ public sealed class EnsureBigIntegerTests
 
     [Theory]
     [MemberData(nameof(GetNotBetweenData))]
-    public void NotBetween_Theory_Expected(
-        bool throwException,
-        BigInteger value,
-        BigInteger min,
-        BigInteger max
-    )
+    public void NotBetween_Theory_Expected(bool throwException, BigInteger value, BigInteger min, BigInteger max)
     {
         if (throwException)
         {
@@ -61,11 +51,7 @@ public sealed class EnsureBigIntegerTests
 
     [Theory]
     [MemberData(nameof(GetGreaterThanData))]
-    public void GreaterThan_Theory_Expected(
-        bool throwException,
-        BigInteger value,
-        BigInteger compareValue
-    )
+    public void GreaterThan_Theory_Expected(bool throwException, BigInteger value, BigInteger compareValue)
     {
         if (throwException)
         {
@@ -82,11 +68,7 @@ public sealed class EnsureBigIntegerTests
 
     [Theory]
     [MemberData(nameof(GetGreaterThanOrEqualData))]
-    public void GreaterThanOrEqual_Theory_Expected(
-        bool throwException,
-        BigInteger value,
-        BigInteger compareValue
-    )
+    public void GreaterThanOrEqual_Theory_Expected(bool throwException, BigInteger value, BigInteger compareValue)
     {
         if (throwException)
         {
@@ -103,11 +85,7 @@ public sealed class EnsureBigIntegerTests
 
     [Theory]
     [MemberData(nameof(GetLessThanData))]
-    public void LessThan_Theory_Expected(
-        bool throwException,
-        BigInteger value,
-        BigInteger compareValue
-    )
+    public void LessThan_Theory_Expected(bool throwException, BigInteger value, BigInteger compareValue)
     {
         if (throwException)
         {
@@ -124,11 +102,7 @@ public sealed class EnsureBigIntegerTests
 
     [Theory]
     [MemberData(nameof(GetLessThanOrEqualData))]
-    public void LessThanOrEqual_Theory_Expected(
-        bool throwException,
-        BigInteger value,
-        BigInteger compareValue
-    )
+    public void LessThanOrEqual_Theory_Expected(bool throwException, BigInteger value, BigInteger compareValue)
     {
         if (throwException)
         {
@@ -202,10 +176,7 @@ public sealed class EnsureBigIntegerTests
     {
         if (throwException)
         {
-            _ = Assert.Throws<ArgumentException>(
-                nameof(value),
-                () => _ = Ensure.That(value).IsPow2()
-            );
+            _ = Assert.Throws<ArgumentException>(nameof(value), () => _ = Ensure.That(value).IsPow2());
         }
         else
         {

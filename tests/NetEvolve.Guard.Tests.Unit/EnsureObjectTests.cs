@@ -18,10 +18,7 @@ public class EnsureObjectTests
     {
         if (throwException)
         {
-            _ = Assert.Throws<ArgumentNullException>(
-                nameof(value),
-                () => _ = Ensure.That(value).IsNotNull()
-            );
+            _ = Assert.Throws<ArgumentNullException>(nameof(value), () => _ = Ensure.That(value).IsNotNull());
         }
         else
         {
@@ -33,10 +30,7 @@ public class EnsureObjectTests
     public void Validate_ValueNull_Exception()
     {
         List<string>? value = null;
-        _ = Assert.Throws<ArgumentNullException>(
-            "condition",
-            () => _ = Ensure.That(value).Validate(null!)
-        );
+        _ = Assert.Throws<ArgumentNullException>("condition", () => _ = Ensure.That(value).Validate(null!));
     }
 
     [Fact]
@@ -55,11 +49,7 @@ public class EnsureObjectTests
         var value = new List<string>();
         _ = Assert.Throws<ArgumentException>(
             nameof(value),
-            () =>
-                _ = Ensure
-                    .That(value)
-                    .IsNotNull()
-                    .Validate(x => x.Count != 0, conditionAsString: null!)
+            () => _ = Ensure.That(value).IsNotNull().Validate(x => x.Count != 0, conditionAsString: null!)
         );
     }
 

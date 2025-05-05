@@ -17,10 +17,7 @@ public partial class EnsureContextExtensions
     /// <exception cref="ArgumentOutOfRangeException">When <paramref name="value"/> is greater than <paramref name="compareValue"/>.</exception>
     [DebuggerStepThrough]
     [StackTraceHidden]
-    public static ref readonly EnsureContext<uint> IsLessThan(
-        in this EnsureContext<uint> value,
-        uint compareValue
-    )
+    public static ref readonly EnsureContext<uint> IsLessThan(in this EnsureContext<uint> value, uint compareValue)
     {
         Argument.ThrowIfGreaterThanOrEqual(value.Value, compareValue, value.ParameterName);
 

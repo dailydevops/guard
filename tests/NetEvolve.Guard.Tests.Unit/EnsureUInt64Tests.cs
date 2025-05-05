@@ -67,11 +67,7 @@ public sealed class EnsureUInt64Tests
 
     [Theory]
     [MemberData(nameof(GetGreaterThanOrEqualData))]
-    public void GreaterThanOrEqual_Theory_Expected(
-        bool throwException,
-        ulong value,
-        ulong compareValue
-    )
+    public void GreaterThanOrEqual_Theory_Expected(bool throwException, ulong value, ulong compareValue)
     {
         if (throwException)
         {
@@ -105,11 +101,7 @@ public sealed class EnsureUInt64Tests
 
     [Theory]
     [MemberData(nameof(GetLessThanOrEqualData))]
-    public void LessThanOrEqual_Theory_Expected(
-        bool throwException,
-        ulong value,
-        ulong compareValue
-    )
+    public void LessThanOrEqual_Theory_Expected(bool throwException, ulong value, ulong compareValue)
     {
         if (throwException)
         {
@@ -183,10 +175,7 @@ public sealed class EnsureUInt64Tests
     {
         if (throwException)
         {
-            _ = Assert.Throws<ArgumentException>(
-                nameof(value),
-                () => _ = Ensure.That(value).IsPow2()
-            );
+            _ = Assert.Throws<ArgumentException>(nameof(value), () => _ = Ensure.That(value).IsPow2());
         }
         else
         {
@@ -194,7 +183,6 @@ public sealed class EnsureUInt64Tests
         }
     }
 
-    public static TheoryData<bool, ulong> GetNotPow2Data =>
-        new TheoryData<bool, ulong> { { true, 63 }, { false, 64 } };
+    public static TheoryData<bool, ulong> GetNotPow2Data => new TheoryData<bool, ulong> { { true, 63 }, { false, 64 } };
 #endif
 }

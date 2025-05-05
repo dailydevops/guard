@@ -16,10 +16,7 @@ public class EnsureIEnumerableTests
     {
         IEnumerable<string>? values = null;
 
-        _ = Assert.Throws<ArgumentNullException>(
-            nameof(values),
-            () => _ = Ensure.That(values).IsNotNullOrEmpty()
-        );
+        _ = Assert.Throws<ArgumentNullException>(nameof(values), () => _ = Ensure.That(values).IsNotNullOrEmpty());
     }
 
     [Theory]
@@ -28,10 +25,7 @@ public class EnsureIEnumerableTests
     {
         if (throwException)
         {
-            _ = Assert.Throws<ArgumentException>(
-                nameof(values),
-                () => _ = Ensure.That(values).IsNotNullOrEmpty()
-            );
+            _ = Assert.Throws<ArgumentException>(nameof(values), () => _ = Ensure.That(values).IsNotNullOrEmpty());
         }
         else
         {
@@ -41,10 +35,7 @@ public class EnsureIEnumerableTests
 
     [Theory]
     [MemberData(nameof(GetNotNullOrEmptyData))]
-    public void NotNullOrEmpty_TEnumerableTheory_Expected(
-        bool throwException,
-        IEnumerable<string?> values
-    )
+    public void NotNullOrEmpty_TEnumerableTheory_Expected(bool throwException, IEnumerable<string?> values)
     {
         if (throwException)
         {

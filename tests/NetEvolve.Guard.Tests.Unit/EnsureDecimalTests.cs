@@ -16,12 +16,7 @@ public sealed class EnsureDecimalTests
 
     [Theory]
     [MemberData(nameof(GetInBetweenData))]
-    public void InBetween_Theory_Expected(
-        bool throwException,
-        decimal value,
-        decimal min,
-        decimal max
-    )
+    public void InBetween_Theory_Expected(bool throwException, decimal value, decimal min, decimal max)
     {
         if (throwException)
         {
@@ -38,12 +33,7 @@ public sealed class EnsureDecimalTests
 
     [Theory]
     [MemberData(nameof(GetNotBetweenData))]
-    public void NotBetween_Theory_Expected(
-        bool throwException,
-        decimal value,
-        decimal min,
-        decimal max
-    )
+    public void NotBetween_Theory_Expected(bool throwException, decimal value, decimal min, decimal max)
     {
         if (throwException)
         {
@@ -60,11 +50,7 @@ public sealed class EnsureDecimalTests
 
     [Theory]
     [MemberData(nameof(GetGreaterThanData))]
-    public void GreaterThan_Theory_Expected(
-        bool throwException,
-        decimal value,
-        decimal compareValue
-    )
+    public void GreaterThan_Theory_Expected(bool throwException, decimal value, decimal compareValue)
     {
         if (throwException)
         {
@@ -81,11 +67,7 @@ public sealed class EnsureDecimalTests
 
     [Theory]
     [MemberData(nameof(GetGreaterThanOrEqualData))]
-    public void GreaterThanOrEqual_Theory_Expected(
-        bool throwException,
-        decimal value,
-        decimal compareValue
-    )
+    public void GreaterThanOrEqual_Theory_Expected(bool throwException, decimal value, decimal compareValue)
     {
         if (throwException)
         {
@@ -119,11 +101,7 @@ public sealed class EnsureDecimalTests
 
     [Theory]
     [MemberData(nameof(GetLessThanOrEqualData))]
-    public void LessThanOrEqual_Theory_Expected(
-        bool throwException,
-        decimal value,
-        decimal compareValue
-    )
+    public void LessThanOrEqual_Theory_Expected(bool throwException, decimal value, decimal compareValue)
     {
         if (throwException)
         {

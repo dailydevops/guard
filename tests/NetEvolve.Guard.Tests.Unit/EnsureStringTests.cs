@@ -15,25 +15,15 @@ public class EnsureStringTests
     [InlineData(false, true, "")]
     [InlineData(false, false, " ")]
     [InlineData(false, false, "Hello World!")]
-    public void NotNullOrEmpty_Theory_Expected(
-        bool throwExceptionNull,
-        bool throwException,
-        string? value
-    )
+    public void NotNullOrEmpty_Theory_Expected(bool throwExceptionNull, bool throwException, string? value)
     {
         if (throwExceptionNull)
         {
-            _ = Assert.Throws<ArgumentNullException>(
-                nameof(value),
-                () => _ = Ensure.That(value).IsNotNullOrEmpty()
-            );
+            _ = Assert.Throws<ArgumentNullException>(nameof(value), () => _ = Ensure.That(value).IsNotNullOrEmpty());
         }
         else if (throwException)
         {
-            _ = Assert.Throws<ArgumentException>(
-                nameof(value),
-                () => _ = Ensure.That(value).IsNotNullOrEmpty()
-            );
+            _ = Assert.Throws<ArgumentException>(nameof(value), () => _ = Ensure.That(value).IsNotNullOrEmpty());
         }
         else
         {
@@ -46,11 +36,7 @@ public class EnsureStringTests
     [InlineData(false, true, "")]
     [InlineData(false, true, " ")]
     [InlineData(false, false, "Hello World!")]
-    public void NotNullOrWhiteSpace_Theory_Expected(
-        bool throwExceptionNull,
-        bool throwException,
-        string? value
-    )
+    public void NotNullOrWhiteSpace_Theory_Expected(bool throwExceptionNull, bool throwException, string? value)
     {
         if (throwExceptionNull)
         {
@@ -61,10 +47,7 @@ public class EnsureStringTests
         }
         else if (throwException)
         {
-            _ = Assert.Throws<ArgumentException>(
-                nameof(value),
-                () => _ = Ensure.That(value).IsNotNullOrWhiteSpace()
-            );
+            _ = Assert.Throws<ArgumentException>(nameof(value), () => _ = Ensure.That(value).IsNotNullOrWhiteSpace());
         }
         else
         {
@@ -118,11 +101,7 @@ public class EnsureStringTests
         /*language=regex*/@"^[a-z]+",
         RegexOptions.IgnoreCase
     )]
-    public void IsMatchWithOptions_Theory_Expected(
-        bool throwException,
-        string? pattern,
-        RegexOptions options
-    )
+    public void IsMatchWithOptions_Theory_Expected(bool throwException, string? pattern, RegexOptions options)
     {
         var value = "Lorum ipsum";
 

@@ -14,10 +14,7 @@ public class EnsureArrayTests
     {
         string?[]? values = null;
 
-        _ = Assert.Throws<ArgumentNullException>(
-            nameof(values),
-            () => _ = Ensure.That(values).IsNotNullOrEmpty()
-        );
+        _ = Assert.Throws<ArgumentNullException>(nameof(values), () => _ = Ensure.That(values).IsNotNullOrEmpty());
     }
 
     [Theory]
@@ -26,10 +23,7 @@ public class EnsureArrayTests
     {
         if (throwException)
         {
-            _ = Assert.Throws<ArgumentException>(
-                nameof(values),
-                () => _ = Ensure.That(values).IsNotNullOrEmpty()
-            );
+            _ = Assert.Throws<ArgumentException>(nameof(values), () => _ = Ensure.That(values).IsNotNullOrEmpty());
         }
         else
         {

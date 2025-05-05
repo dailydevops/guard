@@ -36,12 +36,7 @@ public sealed class EnsureDoubleTests
 
     [Theory]
     [MemberData(nameof(GetNotBetweenData))]
-    public void NotBetween_Theory_Expected(
-        bool throwException,
-        double value,
-        double min,
-        double max
-    )
+    public void NotBetween_Theory_Expected(bool throwException, double value, double min, double max)
     {
         if (throwException)
         {
@@ -75,11 +70,7 @@ public sealed class EnsureDoubleTests
 
     [Theory]
     [MemberData(nameof(GetGreaterThanOrEqualData))]
-    public void GreaterThanOrEqual_Theory_Expected(
-        bool throwException,
-        double value,
-        double compareValue
-    )
+    public void GreaterThanOrEqual_Theory_Expected(bool throwException, double value, double compareValue)
     {
         if (throwException)
         {
@@ -113,11 +104,7 @@ public sealed class EnsureDoubleTests
 
     [Theory]
     [MemberData(nameof(GetLessThanOrEqualData))]
-    public void LessThanOrEqual_Theory_Expected(
-        bool throwException,
-        double value,
-        double compareValue
-    )
+    public void LessThanOrEqual_Theory_Expected(bool throwException, double value, double compareValue)
     {
         if (throwException)
         {
@@ -138,10 +125,7 @@ public sealed class EnsureDoubleTests
     {
         if (throwException)
         {
-            _ = Assert.Throws<ArgumentException>(
-                nameof(value),
-                () => _ = Ensure.That(value).IsNotNaN()
-            );
+            _ = Assert.Throws<ArgumentException>(nameof(value), () => _ = Ensure.That(value).IsNotNaN());
         }
         else
         {
@@ -155,10 +139,7 @@ public sealed class EnsureDoubleTests
     {
         if (throwException)
         {
-            _ = Assert.Throws<ArgumentException>(
-                nameof(value),
-                () => _ = Ensure.That(value).IsNotInfinity()
-            );
+            _ = Assert.Throws<ArgumentException>(nameof(value), () => _ = Ensure.That(value).IsNotInfinity());
         }
         else
         {
@@ -172,10 +153,7 @@ public sealed class EnsureDoubleTests
     {
         if (throwException)
         {
-            _ = Assert.Throws<ArgumentException>(
-                nameof(value),
-                () => _ = Ensure.That(value).IsNotNegativeInfinity()
-            );
+            _ = Assert.Throws<ArgumentException>(nameof(value), () => _ = Ensure.That(value).IsNotNegativeInfinity());
         }
         else
         {
@@ -189,10 +167,7 @@ public sealed class EnsureDoubleTests
     {
         if (throwException)
         {
-            _ = Assert.Throws<ArgumentException>(
-                nameof(value),
-                () => _ = Ensure.That(value).IsNotPositiveInfinity()
-            );
+            _ = Assert.Throws<ArgumentException>(nameof(value), () => _ = Ensure.That(value).IsNotPositiveInfinity());
         }
         else
         {

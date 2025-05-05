@@ -67,11 +67,7 @@ public sealed class EnsureUInt8Tests
 
     [Theory]
     [MemberData(nameof(GetGreaterThanOrEqualData))]
-    public void GreaterThanOrEqual_Theory_Expected(
-        bool throwException,
-        byte value,
-        byte compareValue
-    )
+    public void GreaterThanOrEqual_Theory_Expected(bool throwException, byte value, byte compareValue)
     {
         if (throwException)
         {
@@ -179,10 +175,7 @@ public sealed class EnsureUInt8Tests
     {
         if (throwException)
         {
-            _ = Assert.Throws<ArgumentException>(
-                nameof(value),
-                () => _ = Ensure.That(value).IsPow2()
-            );
+            _ = Assert.Throws<ArgumentException>(nameof(value), () => _ = Ensure.That(value).IsPow2());
         }
         else
         {
@@ -190,7 +183,6 @@ public sealed class EnsureUInt8Tests
         }
     }
 
-    public static TheoryData<bool, byte> GetNotPow2Data =>
-        new TheoryData<bool, byte> { { true, 63 }, { false, 64 } };
+    public static TheoryData<bool, byte> GetNotPow2Data => new TheoryData<bool, byte> { { true, 63 }, { false, 64 } };
 #endif
 }

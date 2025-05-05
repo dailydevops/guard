@@ -15,9 +15,7 @@ public partial class EnsureContextExtensions
     /// <exception cref="ArgumentException">When <paramref name="value"/> is negative infinity, then a <see cref="ArgumentException"/> is raised.</exception>
     [DebuggerStepThrough]
     [StackTraceHidden]
-    public static ref readonly EnsureContext<T> IsNotPositiveInfinity<T>(
-        in this EnsureContext<T> value
-    )
+    public static ref readonly EnsureContext<T> IsNotPositiveInfinity<T>(in this EnsureContext<T> value)
         where T : IFloatingPoint<T>
     {
         if (T.IsPositiveInfinity(value.Value))

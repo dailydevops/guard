@@ -18,9 +18,7 @@ public partial class EnsureContextExtensions
     /// <exception cref="ArgumentException">When <paramref name="value"/> has no elements.</exception>
     [DebuggerStepThrough]
     [StackTraceHidden]
-    public static EnsureContext<IEnumerable<T>> IsNotNullOrEmpty<T>(
-        in this EnsureContext<IEnumerable<T>?> value
-    )
+    public static EnsureContext<IEnumerable<T>> IsNotNullOrEmpty<T>(in this EnsureContext<IEnumerable<T>?> value)
     {
         Argument.ThrowIfNull(value.Value, value.ParameterName);
 
