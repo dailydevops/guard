@@ -13,9 +13,7 @@ public partial class EnsureContextExtensions
     /// <exception cref="ArgumentException">When <paramref name="value"/> is infinity, then a <see cref="ArgumentException"/> is raised.</exception>
     [DebuggerStepThrough]
     [StackTraceHidden]
-    public static ref readonly EnsureContext<double> IsNotInfinity(
-        in this EnsureContext<double> value
-    )
+    public static ref readonly EnsureContext<double> IsNotInfinity(in this EnsureContext<double> value)
     {
         if (double.IsInfinity(value.Value))
         {

@@ -16,9 +16,7 @@ public partial class EnsureContextExtensions
     /// <exception cref="ArgumentException">When <paramref name="value"/> is not a power of two.</exception>
     [DebuggerStepThrough]
     [StackTraceHidden]
-    public static ref readonly EnsureContext<BigInteger> IsPow2(
-        in this EnsureContext<BigInteger> value
-    )
+    public static ref readonly EnsureContext<BigInteger> IsPow2(in this EnsureContext<BigInteger> value)
     {
         if (!value.Value.IsPowerOfTwo)
         {

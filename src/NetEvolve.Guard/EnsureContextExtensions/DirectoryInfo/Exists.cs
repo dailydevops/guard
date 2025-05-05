@@ -12,9 +12,7 @@ public partial class EnsureContextExtensions
     /// <exception cref="DirectoryNotFoundException">When <paramref name="value"/> not exists.</exception>
     [DebuggerStepThrough]
     [StackTraceHidden]
-    public static ref readonly EnsureContext<DirectoryInfo> Exists(
-        in this EnsureContext<DirectoryInfo> value
-    )
+    public static ref readonly EnsureContext<DirectoryInfo> Exists(in this EnsureContext<DirectoryInfo> value)
     {
         if (!value.Value.Exists)
         {

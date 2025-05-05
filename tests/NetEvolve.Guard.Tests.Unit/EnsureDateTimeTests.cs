@@ -16,12 +16,7 @@ public sealed class EnsureDateTimeTests
 
     [Theory]
     [MemberData(nameof(GetInBetweenData))]
-    public void InBetween_Theory_Expected(
-        bool throwException,
-        DateTime value,
-        DateTime min,
-        DateTime max
-    )
+    public void InBetween_Theory_Expected(bool throwException, DateTime value, DateTime min, DateTime max)
     {
         if (throwException)
         {
@@ -38,12 +33,7 @@ public sealed class EnsureDateTimeTests
 
     [Theory]
     [MemberData(nameof(GetNotBetweenData))]
-    public void NotBetween_Theory_Expected(
-        bool throwException,
-        DateTime value,
-        DateTime min,
-        DateTime max
-    )
+    public void NotBetween_Theory_Expected(bool throwException, DateTime value, DateTime min, DateTime max)
     {
         if (throwException)
         {
@@ -60,11 +50,7 @@ public sealed class EnsureDateTimeTests
 
     [Theory]
     [MemberData(nameof(GetGreaterThanData))]
-    public void GreaterThan_Theory_Expected(
-        bool throwException,
-        DateTime value,
-        DateTime compareValue
-    )
+    public void GreaterThan_Theory_Expected(bool throwException, DateTime value, DateTime compareValue)
     {
         if (throwException)
         {
@@ -81,11 +67,7 @@ public sealed class EnsureDateTimeTests
 
     [Theory]
     [MemberData(nameof(GetGreaterThanOrEqualData))]
-    public void GreaterThanOrEqual_Theory_Expected(
-        bool throwException,
-        DateTime value,
-        DateTime compareValue
-    )
+    public void GreaterThanOrEqual_Theory_Expected(bool throwException, DateTime value, DateTime compareValue)
     {
         if (throwException)
         {
@@ -119,11 +101,7 @@ public sealed class EnsureDateTimeTests
 
     [Theory]
     [MemberData(nameof(GetLessThanOrEqualData))]
-    public void LessThanOrEqual_Theory_Expected(
-        bool throwException,
-        DateTime value,
-        DateTime compareValue
-    )
+    public void LessThanOrEqual_Theory_Expected(bool throwException, DateTime value, DateTime compareValue)
     {
         if (throwException)
         {

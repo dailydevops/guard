@@ -19,11 +19,7 @@ public partial class EnsureContextExtensions
     /// <exception cref="ArgumentOutOfRangeException">When <paramref name="value"/> is not between <paramref name="minValue"/> and <paramref name="maxValue"/>.</exception>
     [DebuggerStepThrough]
     [StackTraceHidden]
-    public static ref readonly EnsureContext<T> IsNotBetween<T>(
-        in this EnsureContext<T> value,
-        T minValue,
-        T maxValue
-    )
+    public static ref readonly EnsureContext<T> IsNotBetween<T>(in this EnsureContext<T> value, T minValue, T maxValue)
         where T : IComparisonOperators<T, T, bool>
     {
         if ((minValue <= value.Value) == (value.Value <= maxValue))

@@ -16,10 +16,7 @@ public class EnsureStructTests
     {
         if (throwException)
         {
-            _ = Assert.Throws<ArgumentException>(
-                nameof(value),
-                () => _ = Ensure.That(value).IsNotDefault()
-            );
+            _ = Assert.Throws<ArgumentException>(nameof(value), () => _ = Ensure.That(value).IsNotDefault());
         }
         else
         {
@@ -35,10 +32,7 @@ public class EnsureStructTests
     {
         if (throwException)
         {
-            _ = Assert.Throws<ArgumentNullException>(
-                nameof(value),
-                () => _ = Ensure.That(value).IsNotNull()
-            );
+            _ = Assert.Throws<ArgumentNullException>(nameof(value), () => _ = Ensure.That(value).IsNotNull());
         }
         else
         {

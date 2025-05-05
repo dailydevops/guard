@@ -60,11 +60,7 @@ public sealed class EnsureDateTimeOffsetTests
 
     [Theory]
     [MemberData(nameof(GetGreaterThanData))]
-    public void GreaterThan_Theory_Expected(
-        bool throwException,
-        DateTimeOffset value,
-        DateTimeOffset compareValue
-    )
+    public void GreaterThan_Theory_Expected(bool throwException, DateTimeOffset value, DateTimeOffset compareValue)
     {
         if (throwException)
         {
@@ -102,11 +98,7 @@ public sealed class EnsureDateTimeOffsetTests
 
     [Theory]
     [MemberData(nameof(GetLessThanData))]
-    public void LessThan_Theory_Expected(
-        bool throwException,
-        DateTimeOffset value,
-        DateTimeOffset compareValue
-    )
+    public void LessThan_Theory_Expected(bool throwException, DateTimeOffset value, DateTimeOffset compareValue)
     {
         if (throwException)
         {
@@ -123,11 +115,7 @@ public sealed class EnsureDateTimeOffsetTests
 
     [Theory]
     [MemberData(nameof(GetLessThanOrEqualData))]
-    public void LessThanOrEqual_Theory_Expected(
-        bool throwException,
-        DateTimeOffset value,
-        DateTimeOffset compareValue
-    )
+    public void LessThanOrEqual_Theory_Expected(bool throwException, DateTimeOffset value, DateTimeOffset compareValue)
     {
         if (throwException)
         {
@@ -142,12 +130,7 @@ public sealed class EnsureDateTimeOffsetTests
         }
     }
 
-    public static TheoryData<
-        bool,
-        DateTimeOffset,
-        DateTimeOffset,
-        DateTimeOffset
-    > GetInBetweenData =>
+    public static TheoryData<bool, DateTimeOffset, DateTimeOffset, DateTimeOffset> GetInBetweenData =>
         new TheoryData<bool, DateTimeOffset, DateTimeOffset, DateTimeOffset>
         {
             { true, MinValue, BaseValue, MaxValue },
@@ -158,12 +141,7 @@ public sealed class EnsureDateTimeOffsetTests
             { false, BaseValue, MaxValue, MinValue },
         };
 
-    public static TheoryData<
-        bool,
-        DateTimeOffset,
-        DateTimeOffset,
-        DateTimeOffset
-    > GetNotBetweenData =>
+    public static TheoryData<bool, DateTimeOffset, DateTimeOffset, DateTimeOffset> GetNotBetweenData =>
         new TheoryData<bool, DateTimeOffset, DateTimeOffset, DateTimeOffset>
         {
             { false, MinValue, BaseValue, MaxValue },
