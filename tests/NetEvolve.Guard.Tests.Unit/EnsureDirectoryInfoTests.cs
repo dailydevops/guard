@@ -24,5 +24,5 @@ public class EnsureDirectoryInfoTests
     }
 
     public static IEnumerable<(bool, string)> GetExistsData =>
-        new[] { (true, "/does.not.exists/"), (false, Path.GetTempPath()) };
+        [(true, "/does.not.exists/"), (false, Path.GetTempPath())];
 }

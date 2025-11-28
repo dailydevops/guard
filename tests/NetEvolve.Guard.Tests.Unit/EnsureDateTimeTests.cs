@@ -116,34 +116,32 @@ public sealed class EnsureDateTimeTests
     }
 
     public static IEnumerable<(bool, DateTime, DateTime, DateTime)> GetInBetweenData =>
-        new[]
-        {
+        [
             (true, MinValue, BaseValue, MaxValue),
             (true, MaxValue, BaseValue, MinValue),
             (false, MinValue, MinValue, MaxValue),
             (false, MaxValue, MinValue, MaxValue),
             (false, BaseValue, MinValue, MaxValue),
             (false, BaseValue, MaxValue, MinValue),
-        };
+        ];
 
     public static IEnumerable<(bool, DateTime, DateTime, DateTime)> GetNotBetweenData =>
-        new[]
-        {
+        [
             (false, MinValue, BaseValue, MaxValue),
             (false, MaxValue, BaseValue, MinValue),
             (true, BaseValue, MinValue, MaxValue),
             (true, BaseValue, MaxValue, MinValue),
-        };
+        ];
 
     public static IEnumerable<(bool, DateTime, DateTime)> GetGreaterThanData =>
-        new[] { (true, BaseValue, MaxValue), (true, BaseValue, BaseValue), (false, BaseValue, MinValue) };
+        [(true, BaseValue, MaxValue), (true, BaseValue, BaseValue), (false, BaseValue, MinValue)];
 
     public static IEnumerable<(bool, DateTime, DateTime)> GetGreaterThanOrEqualData =>
-        new[] { (true, BaseValue, MaxValue), (false, BaseValue, BaseValue), (false, BaseValue, MinValue) };
+        [(true, BaseValue, MaxValue), (false, BaseValue, BaseValue), (false, BaseValue, MinValue)];
 
     public static IEnumerable<(bool, DateTime, DateTime)> GetLessThanData =>
-        new[] { (true, BaseValue, MinValue), (true, BaseValue, BaseValue), (false, BaseValue, MaxValue) };
+        [(true, BaseValue, MinValue), (true, BaseValue, BaseValue), (false, BaseValue, MaxValue)];
 
     public static IEnumerable<(bool, DateTime, DateTime)> GetLessThanOrEqualData =>
-        new[] { (true, BaseValue, MinValue), (false, BaseValue, BaseValue), (false, BaseValue, MaxValue) };
+        [(true, BaseValue, MinValue), (false, BaseValue, BaseValue), (false, BaseValue, MaxValue)];
 }

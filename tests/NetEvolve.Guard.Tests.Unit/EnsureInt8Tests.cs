@@ -116,36 +116,34 @@ public sealed class EnsureInt8Tests
     }
 
     public static IEnumerable<(bool, sbyte, sbyte, sbyte)> GetInBetweenData =>
-        new[]
-        {
+        [
             (true, MinValue, BaseValue, MaxValue),
             (true, MaxValue, BaseValue, MinValue),
             (false, MinValue, MinValue, MaxValue),
             (false, MaxValue, MinValue, MaxValue),
             (false, BaseValue, MinValue, MaxValue),
             (false, BaseValue, MaxValue, MinValue),
-        };
+        ];
 
     public static IEnumerable<(bool, sbyte, sbyte, sbyte)> GetNotBetweenData =>
-        new[]
-        {
+        [
             (false, MinValue, BaseValue, MaxValue),
             (false, MaxValue, BaseValue, MinValue),
             (true, BaseValue, MinValue, MaxValue),
             (true, BaseValue, MaxValue, MinValue),
-        };
+        ];
 
     public static IEnumerable<(bool, sbyte, sbyte)> GetGreaterThanData =>
-        new[] { (true, BaseValue, MaxValue), (true, BaseValue, BaseValue), (false, BaseValue, MinValue) };
+        [(true, BaseValue, MaxValue), (true, BaseValue, BaseValue), (false, BaseValue, MinValue)];
 
     public static IEnumerable<(bool, sbyte, sbyte)> GetGreaterThanOrEqualData =>
-        new[] { (true, BaseValue, MaxValue), (false, BaseValue, BaseValue), (false, BaseValue, MinValue) };
+        [(true, BaseValue, MaxValue), (false, BaseValue, BaseValue), (false, BaseValue, MinValue)];
 
     public static IEnumerable<(bool, sbyte, sbyte)> GetLessThanData =>
-        new[] { (true, BaseValue, MinValue), (true, BaseValue, BaseValue), (false, BaseValue, MaxValue) };
+        [(true, BaseValue, MinValue), (true, BaseValue, BaseValue), (false, BaseValue, MaxValue)];
 
     public static IEnumerable<(bool, sbyte, sbyte)> GetLessThanOrEqualData =>
-        new[] { (true, BaseValue, MinValue), (false, BaseValue, BaseValue), (false, BaseValue, MaxValue) };
+        [(true, BaseValue, MinValue), (false, BaseValue, BaseValue), (false, BaseValue, MaxValue)];
 
 #if NET6_0_OR_GREATER
     [Test]
@@ -162,6 +160,6 @@ public sealed class EnsureInt8Tests
         }
     }
 
-    public static IEnumerable<(bool, sbyte)> GetNotPow2Data => new[] { (true, (sbyte)63), (false, (sbyte)64) };
+    public static IEnumerable<(bool, sbyte)> GetNotPow2Data => [(true, (sbyte)63), (false, (sbyte)64)];
 #endif
 }

@@ -116,36 +116,34 @@ public sealed class EnsureInt64Tests
     }
 
     public static IEnumerable<(bool, long, long, long)> GetInBetweenData =>
-        new[]
-        {
+        [
             (true, MinValue, BaseValue, MaxValue),
             (true, MaxValue, BaseValue, MinValue),
             (false, MinValue, MinValue, MaxValue),
             (false, MaxValue, MinValue, MaxValue),
             (false, BaseValue, MinValue, MaxValue),
             (false, BaseValue, MaxValue, MinValue),
-        };
+        ];
 
     public static IEnumerable<(bool, long, long, long)> GetNotBetweenData =>
-        new[]
-        {
+        [
             (false, MinValue, BaseValue, MaxValue),
             (false, MaxValue, BaseValue, MinValue),
             (true, BaseValue, MinValue, MaxValue),
             (true, BaseValue, MaxValue, MinValue),
-        };
+        ];
 
     public static IEnumerable<(bool, long, long)> GetGreaterThanData =>
-        new[] { (true, BaseValue, MaxValue), (true, BaseValue, BaseValue), (false, BaseValue, MinValue) };
+        [(true, BaseValue, MaxValue), (true, BaseValue, BaseValue), (false, BaseValue, MinValue)];
 
     public static IEnumerable<(bool, long, long)> GetGreaterThanOrEqualData =>
-        new[] { (true, BaseValue, MaxValue), (false, BaseValue, BaseValue), (false, BaseValue, MinValue) };
+        [(true, BaseValue, MaxValue), (false, BaseValue, BaseValue), (false, BaseValue, MinValue)];
 
     public static IEnumerable<(bool, long, long)> GetLessThanData =>
-        new[] { (true, BaseValue, MinValue), (true, BaseValue, BaseValue), (false, BaseValue, MaxValue) };
+        [(true, BaseValue, MinValue), (true, BaseValue, BaseValue), (false, BaseValue, MaxValue)];
 
     public static IEnumerable<(bool, long, long)> GetLessThanOrEqualData =>
-        new[] { (true, BaseValue, MinValue), (false, BaseValue, BaseValue), (false, BaseValue, MaxValue) };
+        [(true, BaseValue, MinValue), (false, BaseValue, BaseValue), (false, BaseValue, MaxValue)];
 
 #if NET6_0_OR_GREATER
     [Test]
@@ -162,6 +160,6 @@ public sealed class EnsureInt64Tests
         }
     }
 
-    public static IEnumerable<(bool, long)> GetNotPow2Data => new[] { (true, 63L), (false, 64L) };
+    public static IEnumerable<(bool, long)> GetNotPow2Data => [(true, 63L), (false, 64L)];
 #endif
 }

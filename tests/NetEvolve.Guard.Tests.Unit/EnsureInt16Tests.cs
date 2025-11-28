@@ -116,36 +116,34 @@ public sealed class EnsureInt16Tests
     }
 
     public static IEnumerable<(bool, short, short, short)> GetInBetweenData =>
-        new[]
-        {
+        [
             (true, MinValue, BaseValue, MaxValue),
             (true, MaxValue, BaseValue, MinValue),
             (false, MinValue, MinValue, MaxValue),
             (false, MaxValue, MinValue, MaxValue),
             (false, BaseValue, MinValue, MaxValue),
             (false, BaseValue, MaxValue, MinValue),
-        };
+        ];
 
     public static IEnumerable<(bool, short, short, short)> GetNotBetweenData =>
-        new[]
-        {
+        [
             (false, MinValue, BaseValue, MaxValue),
             (false, MaxValue, BaseValue, MinValue),
             (true, BaseValue, MinValue, MaxValue),
             (true, BaseValue, MaxValue, MinValue),
-        };
+        ];
 
     public static IEnumerable<(bool, short, short)> GetGreaterThanData =>
-        new[] { (true, BaseValue, MaxValue), (true, BaseValue, BaseValue), (false, BaseValue, MinValue) };
+        [(true, BaseValue, MaxValue), (true, BaseValue, BaseValue), (false, BaseValue, MinValue)];
 
     public static IEnumerable<(bool, short, short)> GetGreaterThanOrEqualData =>
-        new[] { (true, BaseValue, MaxValue), (false, BaseValue, BaseValue), (false, BaseValue, MinValue) };
+        [(true, BaseValue, MaxValue), (false, BaseValue, BaseValue), (false, BaseValue, MinValue)];
 
     public static IEnumerable<(bool, short, short)> GetLessThanData =>
-        new[] { (true, BaseValue, MinValue), (true, BaseValue, BaseValue), (false, BaseValue, MaxValue) };
+        [(true, BaseValue, MinValue), (true, BaseValue, BaseValue), (false, BaseValue, MaxValue)];
 
     public static IEnumerable<(bool, short, short)> GetLessThanOrEqualData =>
-        new[] { (true, BaseValue, MinValue), (false, BaseValue, BaseValue), (false, BaseValue, MaxValue) };
+        [(true, BaseValue, MinValue), (false, BaseValue, BaseValue), (false, BaseValue, MaxValue)];
 
 #if NET6_0_OR_GREATER
     [Test]
@@ -162,6 +160,6 @@ public sealed class EnsureInt16Tests
         }
     }
 
-    public static IEnumerable<(bool, short)> GetNotPow2Data => new[] { (true, (short)63), (false, (short)64) };
+    public static IEnumerable<(bool, short)> GetNotPow2Data => [(true, (short)63), (false, (short)64)];
 #endif
 }

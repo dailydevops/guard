@@ -25,13 +25,12 @@ public class EnsureFileInfoTests
     }
 
     public static IEnumerable<(bool, string)> GetExistsData =>
-        new[]
-        {
+        [
             (true, Path.Combine(Path.GetTempPath(), Path.GetRandomFileName())),
 #if NET5_0_OR_GREATER
             (false, typeof(EnsureFileInfoTests).Assembly.Location)
 #else
             (false, new System.Uri(typeof(EnsureFileInfoTests).Assembly.CodeBase!).LocalPath)
 #endif
-        };
+        ];
 }

@@ -83,12 +83,11 @@ public class EnsureIEnumerableTests
     }
 
     public static IEnumerable<(bool, IEnumerable<string?>)> GetNotNullOrEmptyData =>
-        new[]
-        {
+        [
             (true, Array.Empty<string?>()),
             (true, Enumerable.Empty<string?>()),
             (false, new string?[] { "Hello", null, "World!" }),
             (false, new string?[] { "Hello", string.Empty, "World!" }),
             (false, new string?[] { "Hello", " ", "World!" }),
-        };
+        ];
 }

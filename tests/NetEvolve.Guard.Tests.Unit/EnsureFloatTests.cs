@@ -175,46 +175,44 @@ public sealed class EnsureFloatTests
     }
 
     public static IEnumerable<(bool, float, float, float)> GetInBetweenData =>
-        new[]
-        {
+        [
             (true, MinValue, BaseValue, MaxValue),
             (true, MaxValue, BaseValue, MinValue),
             (false, MinValue, MinValue, MaxValue),
             (false, MaxValue, MinValue, MaxValue),
             (false, BaseValue, MinValue, MaxValue),
             (false, BaseValue, MaxValue, MinValue),
-        };
+        ];
 
     public static IEnumerable<(bool, float, float, float)> GetNotBetweenData =>
-        new[]
-        {
+        [
             (false, MinValue, BaseValue, MaxValue),
             (false, MaxValue, BaseValue, MinValue),
             (true, BaseValue, MinValue, MaxValue),
             (true, BaseValue, MaxValue, MinValue),
-        };
+        ];
 
     public static IEnumerable<(bool, float, float)> GetGreaterThanData =>
-        new[] { (true, BaseValue, MaxValue), (true, BaseValue, BaseValue), (false, BaseValue, MinValue) };
+        [(true, BaseValue, MaxValue), (true, BaseValue, BaseValue), (false, BaseValue, MinValue)];
 
     public static IEnumerable<(bool, float, float)> GetGreaterThanOrEqualData =>
-        new[] { (true, BaseValue, MaxValue), (false, BaseValue, BaseValue), (false, BaseValue, MinValue) };
+        [(true, BaseValue, MaxValue), (false, BaseValue, BaseValue), (false, BaseValue, MinValue)];
 
     public static IEnumerable<(bool, float, float)> GetLessThanData =>
-        new[] { (true, BaseValue, MinValue), (true, BaseValue, BaseValue), (false, BaseValue, MaxValue) };
+        [(true, BaseValue, MinValue), (true, BaseValue, BaseValue), (false, BaseValue, MaxValue)];
 
     public static IEnumerable<(bool, float, float)> GetLessThanOrEqualData =>
-        new[] { (true, BaseValue, MinValue), (false, BaseValue, BaseValue), (false, BaseValue, MaxValue) };
+        [(true, BaseValue, MinValue), (false, BaseValue, BaseValue), (false, BaseValue, MaxValue)];
 
     public static IEnumerable<(bool, float)> GetNotNaNData =>
-        new[] { (true, NaN), (false, BaseValue), (false, MaxValue), (false, MinValue) };
+        [(true, NaN), (false, BaseValue), (false, MaxValue), (false, MinValue)];
 
     public static IEnumerable<(bool, float)> GetNotInfinityData =>
-        new[] { (true, PositiveInfinity), (true, NegativeInfinity), (false, MaxValue), (false, MinValue) };
+        [(true, PositiveInfinity), (true, NegativeInfinity), (false, MaxValue), (false, MinValue)];
 
     public static IEnumerable<(bool, float)> GetNotNegativeInfinityData =>
-        new[] { (false, PositiveInfinity), (true, NegativeInfinity), (false, MaxValue), (false, MinValue) };
+        [(false, PositiveInfinity), (true, NegativeInfinity), (false, MaxValue), (false, MinValue)];
 
     public static IEnumerable<(bool, float)> GetNotPositiveInfinityData =>
-        new[] { (true, PositiveInfinity), (false, NegativeInfinity), (false, MaxValue), (false, MinValue) };
+        [(true, PositiveInfinity), (false, NegativeInfinity), (false, MaxValue), (false, MinValue)];
 }
