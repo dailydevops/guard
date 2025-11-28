@@ -2,9 +2,8 @@
 
 using System;
 using System.Diagnostics.CodeAnalysis;
-using NetEvolve.Extensions.XUnit;
+using NetEvolve.Extensions.TUnit;
 using NetEvolve.Guard;
-using Xunit;
 
 [ExcludeFromCodeCoverage]
 [UnitTest]
@@ -17,8 +16,8 @@ public sealed class EnsureFloatTests
     private static float NegativeInfinity { get; } = float.NegativeInfinity;
     private static float PositiveInfinity { get; } = float.PositiveInfinity;
 
-    [Theory]
-    [MemberData(nameof(GetInBetweenData))]
+    [Test]
+    [MethodDataSource(nameof(GetInBetweenData))]
     public void InBetween_Theory_Expected(bool throwException, float value, float min, float max)
     {
         if (throwException)
@@ -34,8 +33,8 @@ public sealed class EnsureFloatTests
         }
     }
 
-    [Theory]
-    [MemberData(nameof(GetNotBetweenData))]
+    [Test]
+    [MethodDataSource(nameof(GetNotBetweenData))]
     public void NotBetween_Theory_Expected(bool throwException, float value, float min, float max)
     {
         if (throwException)
@@ -51,8 +50,8 @@ public sealed class EnsureFloatTests
         }
     }
 
-    [Theory]
-    [MemberData(nameof(GetGreaterThanData))]
+    [Test]
+    [MethodDataSource(nameof(GetGreaterThanData))]
     public void GreaterThan_Theory_Expected(bool throwException, float value, float compareValue)
     {
         if (throwException)
@@ -68,8 +67,8 @@ public sealed class EnsureFloatTests
         }
     }
 
-    [Theory]
-    [MemberData(nameof(GetGreaterThanOrEqualData))]
+    [Test]
+    [MethodDataSource(nameof(GetGreaterThanOrEqualData))]
     public void GreaterThanOrEqual_Theory_Expected(bool throwException, float value, float compareValue)
     {
         if (throwException)
@@ -85,8 +84,8 @@ public sealed class EnsureFloatTests
         }
     }
 
-    [Theory]
-    [MemberData(nameof(GetLessThanData))]
+    [Test]
+    [MethodDataSource(nameof(GetLessThanData))]
     public void LessThan_Theory_Expected(bool throwException, float value, float compareValue)
     {
         if (throwException)
@@ -102,8 +101,8 @@ public sealed class EnsureFloatTests
         }
     }
 
-    [Theory]
-    [MemberData(nameof(GetLessThanOrEqualData))]
+    [Test]
+    [MethodDataSource(nameof(GetLessThanOrEqualData))]
     public void LessThanOrEqual_Theory_Expected(bool throwException, float value, float compareValue)
     {
         if (throwException)
@@ -119,8 +118,8 @@ public sealed class EnsureFloatTests
         }
     }
 
-    [Theory]
-    [MemberData(nameof(GetNotNaNData))]
+    [Test]
+    [MethodDataSource(nameof(GetNotNaNData))]
     public void NotNaN_Theory_Expected(bool throwException, float value)
     {
         if (throwException)
@@ -133,8 +132,8 @@ public sealed class EnsureFloatTests
         }
     }
 
-    [Theory]
-    [MemberData(nameof(GetNotInfinityData))]
+    [Test]
+    [MethodDataSource(nameof(GetNotInfinityData))]
     public void NotInfinity_Theory_Expected(bool throwException, float value)
     {
         if (throwException)
@@ -147,8 +146,8 @@ public sealed class EnsureFloatTests
         }
     }
 
-    [Theory]
-    [MemberData(nameof(GetNotNegativeInfinityData))]
+    [Test]
+    [MethodDataSource(nameof(GetNotNegativeInfinityData))]
     public void NotNegativeInfinity_Theory_Expected(bool throwException, float value)
     {
         if (throwException)
@@ -161,8 +160,8 @@ public sealed class EnsureFloatTests
         }
     }
 
-    [Theory]
-    [MemberData(nameof(GetNotPositiveInfinityData))]
+    [Test]
+    [MethodDataSource(nameof(GetNotPositiveInfinityData))]
     public void NotPositiveInfinity_Theory_Expected(bool throwException, float value)
     {
         if (throwException)

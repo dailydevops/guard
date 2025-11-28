@@ -3,9 +3,8 @@ namespace NetEvolve.Guard.Tests.Unit;
 
 using System;
 using System.Diagnostics.CodeAnalysis;
-using NetEvolve.Extensions.XUnit;
+using NetEvolve.Extensions.TUnit;
 using NetEvolve.Guard;
-using Xunit;
 
 [ExcludeFromCodeCoverage]
 [UnitTest]
@@ -15,8 +14,8 @@ public sealed class EnsureTimeOnlyTests
     private static TimeOnly MaxValue { get; } = TimeOnly.MaxValue;
     private static TimeOnly MinValue { get; } = TimeOnly.MinValue;
 
-    [Theory]
-    [MemberData(nameof(GetInBetweenData))]
+    [Test]
+    [MethodDataSource(nameof(GetInBetweenData))]
     public void InBetween_Theory_Expected(bool throwException, TimeOnly value, TimeOnly min, TimeOnly max)
     {
         if (throwException)
@@ -32,8 +31,8 @@ public sealed class EnsureTimeOnlyTests
         }
     }
 
-    [Theory]
-    [MemberData(nameof(GetNotBetweenData))]
+    [Test]
+    [MethodDataSource(nameof(GetNotBetweenData))]
     public void NotBetween_Theory_Expected(bool throwException, TimeOnly value, TimeOnly min, TimeOnly max)
     {
         if (throwException)
@@ -49,8 +48,8 @@ public sealed class EnsureTimeOnlyTests
         }
     }
 
-    [Theory]
-    [MemberData(nameof(GetGreaterThanData))]
+    [Test]
+    [MethodDataSource(nameof(GetGreaterThanData))]
     public void GreaterThan_Theory_Expected(bool throwException, TimeOnly value, TimeOnly compareValue)
     {
         if (throwException)
@@ -66,8 +65,8 @@ public sealed class EnsureTimeOnlyTests
         }
     }
 
-    [Theory]
-    [MemberData(nameof(GetGreaterThanOrEqualData))]
+    [Test]
+    [MethodDataSource(nameof(GetGreaterThanOrEqualData))]
     public void GreaterThanOrEqual_Theory_Expected(bool throwException, TimeOnly value, TimeOnly compareValue)
     {
         if (throwException)
@@ -83,8 +82,8 @@ public sealed class EnsureTimeOnlyTests
         }
     }
 
-    [Theory]
-    [MemberData(nameof(GetLessThanData))]
+    [Test]
+    [MethodDataSource(nameof(GetLessThanData))]
     public void LessThan_Theory_Expected(bool throwException, TimeOnly value, TimeOnly compareValue)
     {
         if (throwException)
@@ -100,8 +99,8 @@ public sealed class EnsureTimeOnlyTests
         }
     }
 
-    [Theory]
-    [MemberData(nameof(GetLessThanOrEqualData))]
+    [Test]
+    [MethodDataSource(nameof(GetLessThanOrEqualData))]
     public void LessThanOrEqual_Theory_Expected(bool throwException, TimeOnly value, TimeOnly compareValue)
     {
         if (throwException)

@@ -2,16 +2,14 @@
 
 using System;
 using System.Diagnostics.CodeAnalysis;
-using NetEvolve.Extensions.XUnit;
-using Xunit;
 
 [ExcludeFromCodeCoverage]
 [UnitTest]
 public class EnsureGuidTests
 {
-    [Theory]
-    [InlineData(true, "00000000-0000-0000-0000-000000000000")]
-    [InlineData(false, "00000000-0000-0000-0000-000000000001")]
+    [Test]
+    [Arguments(true, "00000000-0000-0000-0000-000000000000")]
+    [Arguments(false, "00000000-0000-0000-0000-000000000001")]
     public void NotEmpty_Theory_Expected(bool throwException, string valueString)
     {
         var value = Guid.Parse(valueString);
@@ -25,10 +23,10 @@ public class EnsureGuidTests
         }
     }
 
-    [Theory]
-    [InlineData(true, false, null)]
-    [InlineData(false, true, "00000000-0000-0000-0000-000000000000")]
-    [InlineData(false, false, "00000000-0000-0000-0000-000000000001")]
+    [Test]
+    [Arguments(true, false, null)]
+    [Arguments(false, true, "00000000-0000-0000-0000-000000000000")]
+    [Arguments(false, false, "00000000-0000-0000-0000-000000000001")]
     public void NotNullOrEmpty_Theory_Expected(bool throwExceptionNull, bool throwException, string? valueString)
     {
         Guid? value = valueString is not null ? Guid.Parse(valueString) : null;

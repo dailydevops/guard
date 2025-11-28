@@ -2,14 +2,13 @@
 
 using System;
 using System.Diagnostics.CodeAnalysis;
-using NetEvolve.Extensions.XUnit;
-using Xunit;
+using NetEvolve.Extensions.TUnit;
 
 [ExcludeFromCodeCoverage]
 [UnitTest]
 public class EnsureArrayTests
 {
-    [Fact]
+    [Test]
     public void NotNullOrEmpty_Null_ArgumentNullException()
     {
         string?[]? values = null;
@@ -17,8 +16,8 @@ public class EnsureArrayTests
         _ = Assert.Throws<ArgumentNullException>(nameof(values), () => _ = Ensure.That(values).IsNotNullOrEmpty());
     }
 
-    [Theory]
-    [MemberData(nameof(GetNotNullOrEmptyData))]
+    [Test]
+    [MethodDataSource(nameof(GetNotNullOrEmptyData))]
     public void NotNullOrEmpty_Theory_Expected(bool throwException, string?[] values)
     {
         if (throwException)
@@ -31,12 +30,11 @@ public class EnsureArrayTests
         }
     }
 
-    public static TheoryData<bool, string?[]> GetNotNullOrEmptyData =>
-        new TheoryData<bool, string?[]>
-        {
-            { true, Array.Empty<string?>() },
-            { false, new string?[] { "Hello", null, "World!" } },
-            { false, new string?[] { "Hello", string.Empty, "World!" } },
-            { false, new string?[] { "Hello", " ", "World!" } },
-        };
+    public static IEnumerable<(bool, string?[])> GetNotNullOrEmptyData =>
+        [
+            (true, []),
+            (false, ["Hello", null, "World!"]),
+            (false, ["Hello", string.Empty, "World!"]),
+            (false, ["Hello", " ", "World!"]),
+        ];
 }

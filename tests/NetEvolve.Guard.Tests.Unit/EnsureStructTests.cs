@@ -2,16 +2,15 @@
 
 using System;
 using System.Diagnostics.CodeAnalysis;
-using NetEvolve.Extensions.XUnit;
-using Xunit;
+using NetEvolve.Extensions.TUnit;
 
 [ExcludeFromCodeCoverage]
 [UnitTest]
 public class EnsureStructTests
 {
-    [Theory]
-    [InlineData(true, default(int))]
-    [InlineData(false, 5)]
+    [Test]
+    [Arguments(true, default(int))]
+    [Arguments(false, 5)]
     public void NotDefault_Theory_Expected(bool throwException, int value)
     {
         if (throwException)
@@ -24,10 +23,10 @@ public class EnsureStructTests
         }
     }
 
-    [Theory]
-    [InlineData(true, null)]
-    [InlineData(false, default(int))]
-    [InlineData(false, 5)]
+    [Test]
+    [Arguments(true, null)]
+    [Arguments(false, default(int))]
+    [Arguments(false, 5)]
     public void NotNull_Theory_Expected(bool throwException, int? value)
     {
         if (throwException)
@@ -43,10 +42,10 @@ public class EnsureStructTests
         }
     }
 
-    [Theory]
-    [InlineData(true, null)]
-    [InlineData(true, default(int))]
-    [InlineData(false, 5)]
+    [Test]
+    [Arguments(true, null)]
+    [Arguments(true, default(int))]
+    [Arguments(false, 5)]
     public void NotNullOrDefault_Theory_Expected(bool throwException, int? value)
     {
         if (throwException)

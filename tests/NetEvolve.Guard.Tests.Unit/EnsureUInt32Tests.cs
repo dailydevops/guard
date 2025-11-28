@@ -2,9 +2,8 @@
 
 using System;
 using System.Diagnostics.CodeAnalysis;
-using NetEvolve.Extensions.XUnit;
+using NetEvolve.Extensions.TUnit;
 using NetEvolve.Guard;
-using Xunit;
 
 [ExcludeFromCodeCoverage]
 [UnitTest]
@@ -14,8 +13,8 @@ public sealed class EnsureUInt32Tests
     private static uint MaxValue { get; } = uint.MaxValue;
     private static uint MinValue { get; } = uint.MinValue;
 
-    [Theory]
-    [MemberData(nameof(GetInBetweenData))]
+    [Test]
+    [MethodDataSource(nameof(GetInBetweenData))]
     public void InBetween_Theory_Expected(bool throwException, uint value, uint min, uint max)
     {
         if (throwException)
@@ -31,8 +30,8 @@ public sealed class EnsureUInt32Tests
         }
     }
 
-    [Theory]
-    [MemberData(nameof(GetNotBetweenData))]
+    [Test]
+    [MethodDataSource(nameof(GetNotBetweenData))]
     public void NotBetween_Theory_Expected(bool throwException, uint value, uint min, uint max)
     {
         if (throwException)
@@ -48,8 +47,8 @@ public sealed class EnsureUInt32Tests
         }
     }
 
-    [Theory]
-    [MemberData(nameof(GetGreaterThanData))]
+    [Test]
+    [MethodDataSource(nameof(GetGreaterThanData))]
     public void GreaterThan_Theory_Expected(bool throwException, uint value, uint compareValue)
     {
         if (throwException)
@@ -65,8 +64,8 @@ public sealed class EnsureUInt32Tests
         }
     }
 
-    [Theory]
-    [MemberData(nameof(GetGreaterThanOrEqualData))]
+    [Test]
+    [MethodDataSource(nameof(GetGreaterThanOrEqualData))]
     public void GreaterThanOrEqual_Theory_Expected(bool throwException, uint value, uint compareValue)
     {
         if (throwException)
@@ -82,8 +81,8 @@ public sealed class EnsureUInt32Tests
         }
     }
 
-    [Theory]
-    [MemberData(nameof(GetLessThanData))]
+    [Test]
+    [MethodDataSource(nameof(GetLessThanData))]
     public void LessThan_Theory_Expected(bool throwException, uint value, uint compareValue)
     {
         if (throwException)
@@ -99,8 +98,8 @@ public sealed class EnsureUInt32Tests
         }
     }
 
-    [Theory]
-    [MemberData(nameof(GetLessThanOrEqualData))]
+    [Test]
+    [MethodDataSource(nameof(GetLessThanOrEqualData))]
     public void LessThanOrEqual_Theory_Expected(bool throwException, uint value, uint compareValue)
     {
         if (throwException)
@@ -169,8 +168,8 @@ public sealed class EnsureUInt32Tests
         };
 
 #if NET6_0_OR_GREATER
-    [Theory]
-    [MemberData(nameof(GetNotPow2Data))]
+    [Test]
+    [MethodDataSource(nameof(GetNotPow2Data))]
     public void NotPow2_Theory_Expected(bool throwException, uint value)
     {
         if (throwException)

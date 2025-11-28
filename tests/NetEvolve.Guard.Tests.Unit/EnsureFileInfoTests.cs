@@ -2,16 +2,15 @@
 
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
-using NetEvolve.Extensions.XUnit;
+using NetEvolve.Extensions.TUnit;
 using NetEvolve.Guard;
-using Xunit;
 
 [ExcludeFromCodeCoverage]
 [UnitTest]
 public class EnsureFileInfoTests
 {
-    [Theory]
-    [MemberData(nameof(GetExistsData))]
+    [Test]
+    [MethodDataSource(nameof(GetExistsData))]
     public void Exists_Theory_Expected(bool throwException, string filePath)
     {
         var file = new FileInfo(filePath);

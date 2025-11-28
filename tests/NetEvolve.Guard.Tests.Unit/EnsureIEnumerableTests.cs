@@ -4,14 +4,12 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
-using NetEvolve.Extensions.XUnit;
-using Xunit;
 
 [ExcludeFromCodeCoverage]
 [UnitTest]
 public class EnsureIEnumerableTests
 {
-    [Fact]
+    [Test]
     public void NotNullOrEmpty_Null_ArgumentNullException()
     {
         IEnumerable<string>? values = null;
@@ -19,8 +17,8 @@ public class EnsureIEnumerableTests
         _ = Assert.Throws<ArgumentNullException>(nameof(values), () => _ = Ensure.That(values).IsNotNullOrEmpty());
     }
 
-    [Theory]
-    [MemberData(nameof(GetNotNullOrEmptyData))]
+    [Test]
+    [MethodDataSource(nameof(GetNotNullOrEmptyData))]
     public void NotNullOrEmpty_Theory_Expected(bool throwException, IEnumerable<string?> values)
     {
         if (throwException)
@@ -33,8 +31,8 @@ public class EnsureIEnumerableTests
         }
     }
 
-    [Theory]
-    [MemberData(nameof(GetNotNullOrEmptyData))]
+    [Test]
+    [MethodDataSource(nameof(GetNotNullOrEmptyData))]
     public void NotNullOrEmpty_TEnumerableTheory_Expected(bool throwException, IEnumerable<string?> values)
     {
         if (throwException)
@@ -50,7 +48,7 @@ public class EnsureIEnumerableTests
         }
     }
 
-    [Fact]
+    [Test]
     public void NotNullOrEmpty_TEnumerable_ArgumentNullException()
     {
         IEnumerable<string>? values = null;
@@ -61,7 +59,7 @@ public class EnsureIEnumerableTests
         );
     }
 
-    [Fact]
+    [Test]
     public void NotNullOrEmpty_Array_ArgumentException()
     {
         var values = Array.Empty<string>();
@@ -72,7 +70,7 @@ public class EnsureIEnumerableTests
         );
     }
 
-    [Fact]
+    [Test]
     public void NotNullOrEmpty_List_ArgumentException()
     {
         var values = new List<string>();

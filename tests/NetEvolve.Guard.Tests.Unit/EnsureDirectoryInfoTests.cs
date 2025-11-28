@@ -2,15 +2,13 @@
 
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
-using NetEvolve.Extensions.XUnit;
-using Xunit;
 
 [ExcludeFromCodeCoverage]
 [UnitTest]
 public class EnsureDirectoryInfoTests
 {
-    [Theory]
-    [MemberData(nameof(GetExistsData))]
+    [Test]
+    [MethodDataSource(nameof(GetExistsData))]
     public void Exists_Theory_Expected(bool throwException, string directoryPath)
     {
         var directory = new DirectoryInfo(directoryPath);
