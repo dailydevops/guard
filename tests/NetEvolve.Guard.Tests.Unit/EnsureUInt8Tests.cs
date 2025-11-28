@@ -115,56 +115,56 @@ public sealed class EnsureUInt8Tests
         }
     }
 
-    public static TheoryData<bool, byte, byte, byte> GetInBetweenData =>
-        new TheoryData<bool, byte, byte, byte>
+    public static IEnumerable<(bool, byte, byte, byte)> GetInBetweenData =>
+        new List<(bool, byte, byte, byte)>
         {
-            { true, MinValue, BaseValue, MaxValue },
-            { true, MaxValue, BaseValue, MinValue },
-            { false, MinValue, MinValue, MaxValue },
-            { false, MaxValue, MinValue, MaxValue },
-            { false, BaseValue, MinValue, MaxValue },
-            { false, BaseValue, MaxValue, MinValue },
+            { (true, MinValue, BaseValue, MaxValue) },
+            { (true, MaxValue, BaseValue, MinValue) },
+            { (false, MinValue, MinValue, MaxValue) },
+            { (false, MaxValue, MinValue, MaxValue) },
+            { (false, BaseValue, MinValue, MaxValue) },
+            { (false, BaseValue, MaxValue, MinValue) },
         };
 
-    public static TheoryData<bool, byte, byte, byte> GetNotBetweenData =>
-        new TheoryData<bool, byte, byte, byte>
+    public static IEnumerable<(bool, byte, byte, byte)> GetNotBetweenData =>
+        new List<(bool, byte, byte, byte)>
         {
-            { false, MinValue, BaseValue, MaxValue },
-            { false, MaxValue, BaseValue, MinValue },
-            { true, BaseValue, MinValue, MaxValue },
-            { true, BaseValue, MaxValue, MinValue },
+            { (false, MinValue, BaseValue, MaxValue) },
+            { (false, MaxValue, BaseValue, MinValue) },
+            { (true, BaseValue, MinValue, MaxValue) },
+            { (true, BaseValue, MaxValue, MinValue) },
         };
 
-    public static TheoryData<bool, byte, byte> GetGreaterThanData =>
-        new TheoryData<bool, byte, byte>
+    public static IEnumerable<(bool, byte, byte)> GetGreaterThanData =>
+        new List<(bool, byte, byte)>
         {
-            { true, BaseValue, MaxValue },
-            { true, BaseValue, BaseValue },
-            { false, BaseValue, MinValue },
+            { (true, BaseValue, MaxValue) },
+            { (true, BaseValue, BaseValue) },
+            { (false, BaseValue, MinValue) },
         };
 
-    public static TheoryData<bool, byte, byte> GetGreaterThanOrEqualData =>
-        new TheoryData<bool, byte, byte>
+    public static IEnumerable<(bool, byte, byte)> GetGreaterThanOrEqualData =>
+        new List<(bool, byte, byte)>
         {
-            { true, BaseValue, MaxValue },
-            { false, BaseValue, BaseValue },
-            { false, BaseValue, MinValue },
+            { (true, BaseValue, MaxValue) },
+            { (false, BaseValue, BaseValue) },
+            { (false, BaseValue, MinValue) },
         };
 
-    public static TheoryData<bool, byte, byte> GetLessThanData =>
-        new TheoryData<bool, byte, byte>
+    public static IEnumerable<(bool, byte, byte)> GetLessThanData =>
+        new List<(bool, byte, byte)>
         {
-            { true, BaseValue, MinValue },
-            { true, BaseValue, BaseValue },
-            { false, BaseValue, MaxValue },
+            { (true, BaseValue, MinValue) },
+            { (true, BaseValue, BaseValue) },
+            { (false, BaseValue, MaxValue) },
         };
 
-    public static TheoryData<bool, byte, byte> GetLessThanOrEqualData =>
-        new TheoryData<bool, byte, byte>
+    public static IEnumerable<(bool, byte, byte)> GetLessThanOrEqualData =>
+        new List<(bool, byte, byte)>
         {
-            { true, BaseValue, MinValue },
-            { false, BaseValue, BaseValue },
-            { false, BaseValue, MaxValue },
+            { (true, BaseValue, MinValue) },
+            { (false, BaseValue, BaseValue) },
+            { (false, BaseValue, MaxValue) },
         };
 
 #if NET6_0_OR_GREATER
@@ -182,6 +182,6 @@ public sealed class EnsureUInt8Tests
         }
     }
 
-    public static TheoryData<bool, byte> GetNotPow2Data => new TheoryData<bool, byte> { { true, 63 }, { false, 64 } };
+    public static IEnumerable<(bool, byte)> GetNotPow2Data => new List<(bool, byte)> { (true, 63), (false, 64) };
 #endif
 }

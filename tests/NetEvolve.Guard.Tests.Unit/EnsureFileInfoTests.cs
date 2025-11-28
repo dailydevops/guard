@@ -24,14 +24,14 @@ public class EnsureFileInfoTests
         }
     }
 
-    public static TheoryData<bool, string> GetExistsData =>
-        new TheoryData<bool, string>
+    public static IEnumerable<(bool, string)> GetExistsData =>
+        new[]
         {
-            { true, Path.Combine(Path.GetTempPath(), Path.GetRandomFileName()) },
+            (true, Path.Combine(Path.GetTempPath(), Path.GetRandomFileName())),
 #if NET5_0_OR_GREATER
-            { false, typeof(EnsureFileInfoTests).Assembly.Location }
+            (false, typeof(EnsureFileInfoTests).Assembly.Location)
 #else
-            { false, new System.Uri(typeof(EnsureFileInfoTests).Assembly.CodeBase!).LocalPath }
+            (false, new System.Uri(typeof(EnsureFileInfoTests).Assembly.CodeBase!).LocalPath)
 #endif
         };
 }

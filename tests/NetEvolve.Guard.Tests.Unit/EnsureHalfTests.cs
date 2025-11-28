@@ -175,95 +175,51 @@ public sealed class EnsureHalfTests
         }
     }
 
-    public static TheoryData<bool, Half, Half, Half> GetInBetweenData =>
-        new TheoryData<bool, Half, Half, Half>
+    public static IEnumerable<(bool, Half, Half, Half)> GetInBetweenData =>
+        new[]
         {
-            { true, MinValue, BaseValue, MaxValue },
-            { true, MaxValue, BaseValue, MinValue },
+            (true, MinValue, BaseValue, MaxValue),
+            (true, MaxValue, BaseValue, MinValue),
 #if NET6_0_OR_GREATER
             // Known Issue for .NET 5 - https://github.com/dotnet/runtime/issues/49983
-            { false, MinValue, MinValue, MaxValue },
+            (false, MinValue, MinValue, MaxValue),
 #endif
-            { false, MaxValue, MinValue, MaxValue },
-            { false, BaseValue, MinValue, MaxValue },
-            { false, BaseValue, MaxValue, MinValue },
+            (false, MaxValue, MinValue, MaxValue),
+            (false, BaseValue, MinValue, MaxValue),
+            (false, BaseValue, MaxValue, MinValue),
         };
 
-    public static TheoryData<bool, Half, Half, Half> GetNotBetweenData =>
-        new TheoryData<bool, Half, Half, Half>
+    public static IEnumerable<(bool, Half, Half, Half)> GetNotBetweenData =>
+        new[]
         {
-            { false, MinValue, BaseValue, MaxValue },
-            { false, MaxValue, BaseValue, MinValue },
-            { true, BaseValue, MinValue, MaxValue },
-            { true, BaseValue, MaxValue, MinValue },
+            (false, MinValue, BaseValue, MaxValue),
+            (false, MaxValue, BaseValue, MinValue),
+            (true, BaseValue, MinValue, MaxValue),
+            (true, BaseValue, MaxValue, MinValue),
         };
 
-    public static TheoryData<bool, Half, Half> GetGreaterThanData =>
-        new TheoryData<bool, Half, Half>
-        {
-            { true, BaseValue, MaxValue },
-            { true, BaseValue, BaseValue },
-            { false, BaseValue, MinValue },
-        };
+    public static IEnumerable<(bool, Half, Half)> GetGreaterThanData =>
+        new[] { (true, BaseValue, MaxValue), (true, BaseValue, BaseValue), (false, BaseValue, MinValue) };
 
-    public static TheoryData<bool, Half, Half> GetGreaterThanOrEqualData =>
-        new TheoryData<bool, Half, Half>
-        {
-            { true, BaseValue, MaxValue },
-            { false, BaseValue, BaseValue },
-            { false, BaseValue, MinValue },
-        };
+    public static IEnumerable<(bool, Half, Half)> GetGreaterThanOrEqualData =>
+        new[] { (true, BaseValue, MaxValue), (false, BaseValue, BaseValue), (false, BaseValue, MinValue) };
 
-    public static TheoryData<bool, Half, Half> GetLessThanData =>
-        new TheoryData<bool, Half, Half>
-        {
-            { true, BaseValue, MinValue },
-            { true, BaseValue, BaseValue },
-            { false, BaseValue, MaxValue },
-        };
+    public static IEnumerable<(bool, Half, Half)> GetLessThanData =>
+        new[] { (true, BaseValue, MinValue), (true, BaseValue, BaseValue), (false, BaseValue, MaxValue) };
 
-    public static TheoryData<bool, Half, Half> GetLessThanOrEqualData =>
-        new TheoryData<bool, Half, Half>
-        {
-            { true, BaseValue, MinValue },
-            { false, BaseValue, BaseValue },
-            { false, BaseValue, MaxValue },
-        };
+    public static IEnumerable<(bool, Half, Half)> GetLessThanOrEqualData =>
+        new[] { (true, BaseValue, MinValue), (false, BaseValue, BaseValue), (false, BaseValue, MaxValue) };
 
-    public static TheoryData<bool, Half> GetNotNaNData =>
-        new TheoryData<bool, Half>
-        {
-            { true, NaN },
-            { false, BaseValue },
-            { false, MaxValue },
-            { false, MinValue },
-        };
+    public static IEnumerable<(bool, Half)> GetNotNaNData =>
+        new[] { (true, NaN), (false, BaseValue), (false, MaxValue), (false, MinValue) };
 
-    public static TheoryData<bool, Half> GetNotInfinityData =>
-        new TheoryData<bool, Half>
-        {
-            { true, PositiveInfinity },
-            { true, NegativeInfinity },
-            { false, MaxValue },
-            { false, MinValue },
-        };
+    public static IEnumerable<(bool, Half)> GetNotInfinityData =>
+        new[] { (true, PositiveInfinity), (true, NegativeInfinity), (false, MaxValue), (false, MinValue) };
 
-    public static TheoryData<bool, Half> GetNotNegativeInfinityData =>
-        new TheoryData<bool, Half>
-        {
-            { false, PositiveInfinity },
-            { true, NegativeInfinity },
-            { false, MaxValue },
-            { false, MinValue },
-        };
+    public static IEnumerable<(bool, Half)> GetNotNegativeInfinityData =>
+        new[] { (false, PositiveInfinity), (true, NegativeInfinity), (false, MaxValue), (false, MinValue) };
 
-    public static TheoryData<bool, Half> GetNotPositiveInfinityData =>
-        new TheoryData<bool, Half>
-        {
-            { true, PositiveInfinity },
-            { false, NegativeInfinity },
-            { false, MaxValue },
-            { false, MinValue },
-        };
+    public static IEnumerable<(bool, Half)> GetNotPositiveInfinityData =>
+        new[] { (true, PositiveInfinity), (false, NegativeInfinity), (false, MaxValue), (false, MinValue) };
 }
 #endif

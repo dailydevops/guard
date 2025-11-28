@@ -3,6 +3,7 @@
 using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Text.RegularExpressions;
+using NetEvolve.Extensions.TUnit;
 
 [ExcludeFromCodeCoverage]
 [UnitTest]

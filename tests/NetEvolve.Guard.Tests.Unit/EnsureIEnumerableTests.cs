@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using NetEvolve.Extensions.TUnit;
 
 [ExcludeFromCodeCoverage]
 [UnitTest]
@@ -81,13 +82,13 @@ public class EnsureIEnumerableTests
         );
     }
 
-    public static TheoryData<bool, IEnumerable<string?>> GetNotNullOrEmptyData =>
-        new TheoryData<bool, IEnumerable<string?>>
+    public static IEnumerable<(bool, IEnumerable<string?>)> GetNotNullOrEmptyData =>
+        new[]
         {
-            { true, Array.Empty<string?>() },
-            { true, Enumerable.Empty<string?>() },
-            { false, new string?[] { "Hello", null, "World!" } },
-            { false, new string?[] { "Hello", string.Empty, "World!" } },
-            { false, new string?[] { "Hello", " ", "World!" } },
+            (true, Array.Empty<string?>()),
+            (true, Enumerable.Empty<string?>()),
+            (false, new string?[] { "Hello", null, "World!" }),
+            (false, new string?[] { "Hello", string.Empty, "World!" }),
+            (false, new string?[] { "Hello", " ", "World!" }),
         };
 }

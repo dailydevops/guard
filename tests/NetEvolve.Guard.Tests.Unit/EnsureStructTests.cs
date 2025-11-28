@@ -2,6 +2,7 @@
 
 using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Threading.Tasks;
 using NetEvolve.Extensions.TUnit;
 
 [ExcludeFromCodeCoverage]
@@ -27,7 +28,7 @@ public class EnsureStructTests
     [Arguments(true, null)]
     [Arguments(false, default(int))]
     [Arguments(false, 5)]
-    public void NotNull_Theory_Expected(bool throwException, int? value)
+    public async Task NotNull_Theory_Expected(bool throwException, int? value)
     {
         if (throwException)
         {
@@ -35,10 +36,10 @@ public class EnsureStructTests
         }
         else
         {
-            var result = _ = Ensure.That(value).IsNotNull();
+            int result = _ = Ensure.That(value).IsNotNull();
 
-            _ = Assert.IsType<int>(result);
-            Assert.Equal<int>(value!.Value, result);
+            _ = await Assert.That(result).IsTypeOf<int>();
+            _ = await Assert.That(result).IsEqualTo(value!.Value);
         }
     }
 
@@ -46,7 +47,7 @@ public class EnsureStructTests
     [Arguments(true, null)]
     [Arguments(true, default(int))]
     [Arguments(false, 5)]
-    public void NotNullOrDefault_Theory_Expected(bool throwException, int? value)
+    public async Task NotNullOrDefault_Theory_Expected(bool throwException, int? value)
     {
         if (throwException)
         {
@@ -57,10 +58,10 @@ public class EnsureStructTests
         }
         else
         {
-            var result = _ = Ensure.That(value).IsNotNullOrDefault();
+            int result = _ = Ensure.That(value).IsNotNullOrDefault();
 
-            _ = Assert.IsType<int>(result);
-            Assert.Equal<int>(value!.Value, result);
+            _ = await Assert.That(result).IsTypeOf<int>();
+            _ = await Assert.That(result).IsEqualTo(value!.Value);
         }
     }
 }

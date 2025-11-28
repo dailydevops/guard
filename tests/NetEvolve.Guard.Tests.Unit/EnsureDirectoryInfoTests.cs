@@ -2,6 +2,7 @@
 
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
+using NetEvolve.Extensions.TUnit;
 
 [ExcludeFromCodeCoverage]
 [UnitTest]
@@ -22,6 +23,6 @@ public class EnsureDirectoryInfoTests
         }
     }
 
-    public static TheoryData<bool, string> GetExistsData =>
-        new TheoryData<bool, string> { { true, "/does.not.exists/" }, { false, Path.GetTempPath() } };
+    public static IEnumerable<(bool, string)> GetExistsData =>
+        new[] { (true, "/does.not.exists/"), (false, Path.GetTempPath()) };
 }

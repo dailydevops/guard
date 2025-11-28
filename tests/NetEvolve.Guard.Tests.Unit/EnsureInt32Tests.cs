@@ -115,57 +115,37 @@ public sealed class EnsureInt32Tests
         }
     }
 
-    public static TheoryData<bool, int, int, int> GetInBetweenData =>
-        new TheoryData<bool, int, int, int>
+    public static IEnumerable<(bool, int, int, int)> GetInBetweenData =>
+        new[]
         {
-            { true, MinValue, BaseValue, MaxValue },
-            { true, MaxValue, BaseValue, MinValue },
-            { false, MinValue, MinValue, MaxValue },
-            { false, MaxValue, MinValue, MaxValue },
-            { false, BaseValue, MinValue, MaxValue },
-            { false, BaseValue, MaxValue, MinValue },
+            (true, MinValue, BaseValue, MaxValue),
+            (true, MaxValue, BaseValue, MinValue),
+            (false, MinValue, MinValue, MaxValue),
+            (false, MaxValue, MinValue, MaxValue),
+            (false, BaseValue, MinValue, MaxValue),
+            (false, BaseValue, MaxValue, MinValue),
         };
 
-    public static TheoryData<bool, int, int, int> GetNotBetweenData =>
-        new TheoryData<bool, int, int, int>
+    public static IEnumerable<(bool, int, int, int)> GetNotBetweenData =>
+        new[]
         {
-            { false, MinValue, BaseValue, MaxValue },
-            { false, MaxValue, BaseValue, MinValue },
-            { true, BaseValue, MinValue, MaxValue },
-            { true, BaseValue, MaxValue, MinValue },
+            (false, MinValue, BaseValue, MaxValue),
+            (false, MaxValue, BaseValue, MinValue),
+            (true, BaseValue, MinValue, MaxValue),
+            (true, BaseValue, MaxValue, MinValue),
         };
 
-    public static TheoryData<bool, int, int> GetGreaterThanData =>
-        new TheoryData<bool, int, int>
-        {
-            { true, BaseValue, MaxValue },
-            { true, BaseValue, BaseValue },
-            { false, BaseValue, MinValue },
-        };
+    public static IEnumerable<(bool, int, int)> GetGreaterThanData =>
+        new[] { (true, BaseValue, MaxValue), (true, BaseValue, BaseValue), (false, BaseValue, MinValue) };
 
-    public static TheoryData<bool, int, int> GetGreaterThanOrEqualData =>
-        new TheoryData<bool, int, int>
-        {
-            { true, BaseValue, MaxValue },
-            { false, BaseValue, BaseValue },
-            { false, BaseValue, MinValue },
-        };
+    public static IEnumerable<(bool, int, int)> GetGreaterThanOrEqualData =>
+        new[] { (true, BaseValue, MaxValue), (false, BaseValue, BaseValue), (false, BaseValue, MinValue) };
 
-    public static TheoryData<bool, int, int> GetLessThanData =>
-        new TheoryData<bool, int, int>
-        {
-            { true, BaseValue, MinValue },
-            { true, BaseValue, BaseValue },
-            { false, BaseValue, MaxValue },
-        };
+    public static IEnumerable<(bool, int, int)> GetLessThanData =>
+        new[] { (true, BaseValue, MinValue), (true, BaseValue, BaseValue), (false, BaseValue, MaxValue) };
 
-    public static TheoryData<bool, int, int> GetLessThanOrEqualData =>
-        new TheoryData<bool, int, int>
-        {
-            { true, BaseValue, MinValue },
-            { false, BaseValue, BaseValue },
-            { false, BaseValue, MaxValue },
-        };
+    public static IEnumerable<(bool, int, int)> GetLessThanOrEqualData =>
+        new[] { (true, BaseValue, MinValue), (false, BaseValue, BaseValue), (false, BaseValue, MaxValue) };
 
 #if NET6_0_OR_GREATER
     [Test]
@@ -182,6 +162,6 @@ public sealed class EnsureInt32Tests
         }
     }
 
-    public static TheoryData<bool, int> GetNotPow2Data => new TheoryData<bool, int> { { true, 63 }, { false, 64 } };
+    public static IEnumerable<(bool, int)> GetNotPow2Data => new[] { (true, 63), (false, 64) };
 #endif
 }

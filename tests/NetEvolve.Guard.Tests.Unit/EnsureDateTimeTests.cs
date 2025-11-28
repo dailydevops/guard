@@ -136,34 +136,14 @@ public sealed class EnsureDateTimeTests
         };
 
     public static IEnumerable<(bool, DateTime, DateTime)> GetGreaterThanData =>
-        new[]
-        {
-            (true, BaseValue, MaxValue),
-            (true, BaseValue, BaseValue),
-            (false, BaseValue, MinValue),
-        };
+        new[] { (true, BaseValue, MaxValue), (true, BaseValue, BaseValue), (false, BaseValue, MinValue) };
 
     public static IEnumerable<(bool, DateTime, DateTime)> GetGreaterThanOrEqualData =>
-        new[]
-        {
-            (true, BaseValue, MaxValue),
-            (false, BaseValue, BaseValue),
-            (false, BaseValue, MinValue),
-        };
+        new[] { (true, BaseValue, MaxValue), (false, BaseValue, BaseValue), (false, BaseValue, MinValue) };
 
     public static IEnumerable<(bool, DateTime, DateTime)> GetLessThanData =>
-        new[]
-        {
-            (true, BaseValue, MinValue),
-            (true, BaseValue, BaseValue),
-            (false, BaseValue, MaxValue),
-        };
+        new[] { (true, BaseValue, MinValue), (true, BaseValue, BaseValue), (false, BaseValue, MaxValue) };
 
     public static IEnumerable<(bool, DateTime, DateTime)> GetLessThanOrEqualData =>
-        new[]
-        {
-            (true, BaseValue, MinValue),
-            (false, BaseValue, BaseValue),
-            (false, BaseValue, MaxValue),
-        };
+        new[] { (true, BaseValue, MinValue), (false, BaseValue, BaseValue), (false, BaseValue, MaxValue) };
 }
