@@ -2,15 +2,14 @@
 
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
-using NetEvolve.Extensions.XUnit;
-using Xunit;
+using NetEvolve.Extensions.TUnit;
 
 [ExcludeFromCodeCoverage]
 [UnitTest]
 public class EnsureDirectoryInfoTests
 {
-    [Theory]
-    [MemberData(nameof(GetExistsData))]
+    [Test]
+    [MethodDataSource(nameof(GetExistsData))]
     public void Exists_Theory_Expected(bool throwException, string directoryPath)
     {
         var directory = new DirectoryInfo(directoryPath);
@@ -24,6 +23,6 @@ public class EnsureDirectoryInfoTests
         }
     }
 
-    public static TheoryData<bool, string> GetExistsData =>
-        new TheoryData<bool, string> { { true, "/does.not.exists/" }, { false, Path.GetTempPath() } };
+    public static IEnumerable<(bool, string)> GetExistsData =>
+        [(true, "/does.not.exists/"), (false, Path.GetTempPath())];
 }

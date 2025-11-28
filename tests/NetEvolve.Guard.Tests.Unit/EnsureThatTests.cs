@@ -2,16 +2,15 @@
 
 using System;
 using System.Diagnostics.CodeAnalysis;
-using NetEvolve.Extensions.XUnit;
-using Xunit;
+using NetEvolve.Extensions.TUnit;
 
 [ExcludeFromCodeCoverage]
 [UnitTest]
 public sealed class EnsureThatTests
 {
-    [Theory]
-    [InlineData(null)]
-    [InlineData("")]
+    [Test]
+    [Arguments(null)]
+    [Arguments("")]
     public void That_Object_Theory_Expected(string? parameterName)
     {
         var value = new string('-', 10);
@@ -20,9 +19,9 @@ public sealed class EnsureThatTests
             : Assert.Throws<ArgumentException>(nameof(parameterName), () => _ = Ensure.That(value, parameterName!));
     }
 
-    [Theory]
-    [InlineData(null)]
-    [InlineData("")]
+    [Test]
+    [Arguments(null)]
+    [Arguments("")]
     public void That_Struct_Theory_Expected(string? parameterName)
     {
         var value = 5;
@@ -31,9 +30,9 @@ public sealed class EnsureThatTests
             : Assert.Throws<ArgumentException>(nameof(parameterName), () => _ = Ensure.That(value, parameterName!));
     }
 
-    [Theory]
-    [InlineData(null)]
-    [InlineData("")]
+    [Test]
+    [Arguments(null)]
+    [Arguments("")]
     public void That_NullableStruct_Theory_Expected(string? parameterName)
     {
         int? value = null;

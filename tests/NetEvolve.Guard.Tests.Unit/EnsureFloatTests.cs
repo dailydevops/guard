@@ -2,9 +2,8 @@
 
 using System;
 using System.Diagnostics.CodeAnalysis;
-using NetEvolve.Extensions.XUnit;
+using NetEvolve.Extensions.TUnit;
 using NetEvolve.Guard;
-using Xunit;
 
 [ExcludeFromCodeCoverage]
 [UnitTest]
@@ -17,8 +16,8 @@ public sealed class EnsureFloatTests
     private static float NegativeInfinity { get; } = float.NegativeInfinity;
     private static float PositiveInfinity { get; } = float.PositiveInfinity;
 
-    [Theory]
-    [MemberData(nameof(GetInBetweenData))]
+    [Test]
+    [MethodDataSource(nameof(GetInBetweenData))]
     public void InBetween_Theory_Expected(bool throwException, float value, float min, float max)
     {
         if (throwException)
@@ -34,8 +33,8 @@ public sealed class EnsureFloatTests
         }
     }
 
-    [Theory]
-    [MemberData(nameof(GetNotBetweenData))]
+    [Test]
+    [MethodDataSource(nameof(GetNotBetweenData))]
     public void NotBetween_Theory_Expected(bool throwException, float value, float min, float max)
     {
         if (throwException)
@@ -51,8 +50,8 @@ public sealed class EnsureFloatTests
         }
     }
 
-    [Theory]
-    [MemberData(nameof(GetGreaterThanData))]
+    [Test]
+    [MethodDataSource(nameof(GetGreaterThanData))]
     public void GreaterThan_Theory_Expected(bool throwException, float value, float compareValue)
     {
         if (throwException)
@@ -68,8 +67,8 @@ public sealed class EnsureFloatTests
         }
     }
 
-    [Theory]
-    [MemberData(nameof(GetGreaterThanOrEqualData))]
+    [Test]
+    [MethodDataSource(nameof(GetGreaterThanOrEqualData))]
     public void GreaterThanOrEqual_Theory_Expected(bool throwException, float value, float compareValue)
     {
         if (throwException)
@@ -85,8 +84,8 @@ public sealed class EnsureFloatTests
         }
     }
 
-    [Theory]
-    [MemberData(nameof(GetLessThanData))]
+    [Test]
+    [MethodDataSource(nameof(GetLessThanData))]
     public void LessThan_Theory_Expected(bool throwException, float value, float compareValue)
     {
         if (throwException)
@@ -102,8 +101,8 @@ public sealed class EnsureFloatTests
         }
     }
 
-    [Theory]
-    [MemberData(nameof(GetLessThanOrEqualData))]
+    [Test]
+    [MethodDataSource(nameof(GetLessThanOrEqualData))]
     public void LessThanOrEqual_Theory_Expected(bool throwException, float value, float compareValue)
     {
         if (throwException)
@@ -119,8 +118,8 @@ public sealed class EnsureFloatTests
         }
     }
 
-    [Theory]
-    [MemberData(nameof(GetNotNaNData))]
+    [Test]
+    [MethodDataSource(nameof(GetNotNaNData))]
     public void NotNaN_Theory_Expected(bool throwException, float value)
     {
         if (throwException)
@@ -133,8 +132,8 @@ public sealed class EnsureFloatTests
         }
     }
 
-    [Theory]
-    [MemberData(nameof(GetNotInfinityData))]
+    [Test]
+    [MethodDataSource(nameof(GetNotInfinityData))]
     public void NotInfinity_Theory_Expected(bool throwException, float value)
     {
         if (throwException)
@@ -147,8 +146,8 @@ public sealed class EnsureFloatTests
         }
     }
 
-    [Theory]
-    [MemberData(nameof(GetNotNegativeInfinityData))]
+    [Test]
+    [MethodDataSource(nameof(GetNotNegativeInfinityData))]
     public void NotNegativeInfinity_Theory_Expected(bool throwException, float value)
     {
         if (throwException)
@@ -161,8 +160,8 @@ public sealed class EnsureFloatTests
         }
     }
 
-    [Theory]
-    [MemberData(nameof(GetNotPositiveInfinityData))]
+    [Test]
+    [MethodDataSource(nameof(GetNotPositiveInfinityData))]
     public void NotPositiveInfinity_Theory_Expected(bool throwException, float value)
     {
         if (throwException)
@@ -175,91 +174,45 @@ public sealed class EnsureFloatTests
         }
     }
 
-    public static TheoryData<bool, float, float, float> GetInBetweenData =>
-        new TheoryData<bool, float, float, float>
-        {
-            { true, MinValue, BaseValue, MaxValue },
-            { true, MaxValue, BaseValue, MinValue },
-            { false, MinValue, MinValue, MaxValue },
-            { false, MaxValue, MinValue, MaxValue },
-            { false, BaseValue, MinValue, MaxValue },
-            { false, BaseValue, MaxValue, MinValue },
-        };
+    public static IEnumerable<(bool, float, float, float)> GetInBetweenData =>
+        [
+            (true, MinValue, BaseValue, MaxValue),
+            (true, MaxValue, BaseValue, MinValue),
+            (false, MinValue, MinValue, MaxValue),
+            (false, MaxValue, MinValue, MaxValue),
+            (false, BaseValue, MinValue, MaxValue),
+            (false, BaseValue, MaxValue, MinValue),
+        ];
 
-    public static TheoryData<bool, float, float, float> GetNotBetweenData =>
-        new TheoryData<bool, float, float, float>
-        {
-            { false, MinValue, BaseValue, MaxValue },
-            { false, MaxValue, BaseValue, MinValue },
-            { true, BaseValue, MinValue, MaxValue },
-            { true, BaseValue, MaxValue, MinValue },
-        };
+    public static IEnumerable<(bool, float, float, float)> GetNotBetweenData =>
+        [
+            (false, MinValue, BaseValue, MaxValue),
+            (false, MaxValue, BaseValue, MinValue),
+            (true, BaseValue, MinValue, MaxValue),
+            (true, BaseValue, MaxValue, MinValue),
+        ];
 
-    public static TheoryData<bool, float, float> GetGreaterThanData =>
-        new TheoryData<bool, float, float>
-        {
-            { true, BaseValue, MaxValue },
-            { true, BaseValue, BaseValue },
-            { false, BaseValue, MinValue },
-        };
+    public static IEnumerable<(bool, float, float)> GetGreaterThanData =>
+        [(true, BaseValue, MaxValue), (true, BaseValue, BaseValue), (false, BaseValue, MinValue)];
 
-    public static TheoryData<bool, float, float> GetGreaterThanOrEqualData =>
-        new TheoryData<bool, float, float>
-        {
-            { true, BaseValue, MaxValue },
-            { false, BaseValue, BaseValue },
-            { false, BaseValue, MinValue },
-        };
+    public static IEnumerable<(bool, float, float)> GetGreaterThanOrEqualData =>
+        [(true, BaseValue, MaxValue), (false, BaseValue, BaseValue), (false, BaseValue, MinValue)];
 
-    public static TheoryData<bool, float, float> GetLessThanData =>
-        new TheoryData<bool, float, float>
-        {
-            { true, BaseValue, MinValue },
-            { true, BaseValue, BaseValue },
-            { false, BaseValue, MaxValue },
-        };
+    public static IEnumerable<(bool, float, float)> GetLessThanData =>
+        [(true, BaseValue, MinValue), (true, BaseValue, BaseValue), (false, BaseValue, MaxValue)];
 
-    public static TheoryData<bool, float, float> GetLessThanOrEqualData =>
-        new TheoryData<bool, float, float>
-        {
-            { true, BaseValue, MinValue },
-            { false, BaseValue, BaseValue },
-            { false, BaseValue, MaxValue },
-        };
+    public static IEnumerable<(bool, float, float)> GetLessThanOrEqualData =>
+        [(true, BaseValue, MinValue), (false, BaseValue, BaseValue), (false, BaseValue, MaxValue)];
 
-    public static TheoryData<bool, float> GetNotNaNData =>
-        new TheoryData<bool, float>
-        {
-            { true, NaN },
-            { false, BaseValue },
-            { false, MaxValue },
-            { false, MinValue },
-        };
+    public static IEnumerable<(bool, float)> GetNotNaNData =>
+        [(true, NaN), (false, BaseValue), (false, MaxValue), (false, MinValue)];
 
-    public static TheoryData<bool, float> GetNotInfinityData =>
-        new TheoryData<bool, float>
-        {
-            { true, PositiveInfinity },
-            { true, NegativeInfinity },
-            { false, MaxValue },
-            { false, MinValue },
-        };
+    public static IEnumerable<(bool, float)> GetNotInfinityData =>
+        [(true, PositiveInfinity), (true, NegativeInfinity), (false, MaxValue), (false, MinValue)];
 
-    public static TheoryData<bool, float> GetNotNegativeInfinityData =>
-        new TheoryData<bool, float>
-        {
-            { false, PositiveInfinity },
-            { true, NegativeInfinity },
-            { false, MaxValue },
-            { false, MinValue },
-        };
+    public static IEnumerable<(bool, float)> GetNotNegativeInfinityData =>
+        [(false, PositiveInfinity), (true, NegativeInfinity), (false, MaxValue), (false, MinValue)];
 
-    public static TheoryData<bool, float> GetNotPositiveInfinityData =>
-        new TheoryData<bool, float>
-        {
-            { true, PositiveInfinity },
-            { false, NegativeInfinity },
-            { false, MaxValue },
-            { false, MinValue },
-        };
+    public static IEnumerable<(bool, float)> GetNotPositiveInfinityData =>
+        [(true, PositiveInfinity), (false, NegativeInfinity), (false, MaxValue), (false, MinValue)];
 }

@@ -2,9 +2,8 @@
 
 using System;
 using System.Diagnostics.CodeAnalysis;
-using NetEvolve.Extensions.XUnit;
+using NetEvolve.Extensions.TUnit;
 using NetEvolve.Guard;
-using Xunit;
 
 [ExcludeFromCodeCoverage]
 [UnitTest]
@@ -14,8 +13,8 @@ public sealed class EnsureTimeSpanTests
     private static TimeSpan MaxValue { get; } = TimeSpan.MaxValue;
     private static TimeSpan MinValue { get; } = TimeSpan.MinValue;
 
-    [Theory]
-    [MemberData(nameof(GetInBetweenData))]
+    [Test]
+    [MethodDataSource(nameof(GetInBetweenData))]
     public void InBetween_Theory_Expected(bool throwException, TimeSpan value, TimeSpan min, TimeSpan max)
     {
         if (throwException)
@@ -31,8 +30,8 @@ public sealed class EnsureTimeSpanTests
         }
     }
 
-    [Theory]
-    [MemberData(nameof(GetNotBetweenData))]
+    [Test]
+    [MethodDataSource(nameof(GetNotBetweenData))]
     public void NotBetween_Theory_Expected(bool throwException, TimeSpan value, TimeSpan min, TimeSpan max)
     {
         if (throwException)
@@ -48,8 +47,8 @@ public sealed class EnsureTimeSpanTests
         }
     }
 
-    [Theory]
-    [MemberData(nameof(GetGreaterThanData))]
+    [Test]
+    [MethodDataSource(nameof(GetGreaterThanData))]
     public void GreaterThan_Theory_Expected(bool throwException, TimeSpan value, TimeSpan compareValue)
     {
         if (throwException)
@@ -65,8 +64,8 @@ public sealed class EnsureTimeSpanTests
         }
     }
 
-    [Theory]
-    [MemberData(nameof(GetGreaterThanOrEqualData))]
+    [Test]
+    [MethodDataSource(nameof(GetGreaterThanOrEqualData))]
     public void GreaterThanOrEqual_Theory_Expected(bool throwException, TimeSpan value, TimeSpan compareValue)
     {
         if (throwException)
@@ -82,8 +81,8 @@ public sealed class EnsureTimeSpanTests
         }
     }
 
-    [Theory]
-    [MemberData(nameof(GetLessThanData))]
+    [Test]
+    [MethodDataSource(nameof(GetLessThanData))]
     public void LessThan_Theory_Expected(bool throwException, TimeSpan value, TimeSpan compareValue)
     {
         if (throwException)
@@ -99,8 +98,8 @@ public sealed class EnsureTimeSpanTests
         }
     }
 
-    [Theory]
-    [MemberData(nameof(GetLessThanOrEqualData))]
+    [Test]
+    [MethodDataSource(nameof(GetLessThanOrEqualData))]
     public void LessThanOrEqual_Theory_Expected(bool throwException, TimeSpan value, TimeSpan compareValue)
     {
         if (throwException)
@@ -116,55 +115,55 @@ public sealed class EnsureTimeSpanTests
         }
     }
 
-    public static TheoryData<bool, TimeSpan, TimeSpan, TimeSpan> GetInBetweenData =>
-        new TheoryData<bool, TimeSpan, TimeSpan, TimeSpan>
+    public static IEnumerable<(bool, TimeSpan, TimeSpan, TimeSpan)> GetInBetweenData =>
+        new List<(bool, TimeSpan, TimeSpan, TimeSpan)>
         {
-            { true, MinValue, BaseValue, MaxValue },
-            { true, MaxValue, BaseValue, MinValue },
-            { false, MinValue, MinValue, MaxValue },
-            { false, MaxValue, MinValue, MaxValue },
-            { false, BaseValue, MinValue, MaxValue },
-            { false, BaseValue, MaxValue, MinValue },
+            { (true, MinValue, BaseValue, MaxValue) },
+            { (true, MaxValue, BaseValue, MinValue) },
+            { (false, MinValue, MinValue, MaxValue) },
+            { (false, MaxValue, MinValue, MaxValue) },
+            { (false, BaseValue, MinValue, MaxValue) },
+            { (false, BaseValue, MaxValue, MinValue) },
         };
 
-    public static TheoryData<bool, TimeSpan, TimeSpan, TimeSpan> GetNotBetweenData =>
-        new TheoryData<bool, TimeSpan, TimeSpan, TimeSpan>
+    public static IEnumerable<(bool, TimeSpan, TimeSpan, TimeSpan)> GetNotBetweenData =>
+        new List<(bool, TimeSpan, TimeSpan, TimeSpan)>
         {
-            { false, MinValue, BaseValue, MaxValue },
-            { false, MaxValue, BaseValue, MinValue },
-            { true, BaseValue, MinValue, MaxValue },
-            { true, BaseValue, MaxValue, MinValue },
+            { (false, MinValue, BaseValue, MaxValue) },
+            { (false, MaxValue, BaseValue, MinValue) },
+            { (true, BaseValue, MinValue, MaxValue) },
+            { (true, BaseValue, MaxValue, MinValue) },
         };
 
-    public static TheoryData<bool, TimeSpan, TimeSpan> GetGreaterThanData =>
-        new TheoryData<bool, TimeSpan, TimeSpan>
+    public static IEnumerable<(bool, TimeSpan, TimeSpan)> GetGreaterThanData =>
+        new List<(bool, TimeSpan, TimeSpan)>
         {
-            { true, BaseValue, MaxValue },
-            { true, BaseValue, BaseValue },
-            { false, BaseValue, MinValue },
+            { (true, BaseValue, MaxValue) },
+            { (true, BaseValue, BaseValue) },
+            { (false, BaseValue, MinValue) },
         };
 
-    public static TheoryData<bool, TimeSpan, TimeSpan> GetGreaterThanOrEqualData =>
-        new TheoryData<bool, TimeSpan, TimeSpan>
+    public static IEnumerable<(bool, TimeSpan, TimeSpan)> GetGreaterThanOrEqualData =>
+        new List<(bool, TimeSpan, TimeSpan)>
         {
-            { true, BaseValue, MaxValue },
-            { false, BaseValue, BaseValue },
-            { false, BaseValue, MinValue },
+            { (true, BaseValue, MaxValue) },
+            { (false, BaseValue, BaseValue) },
+            { (false, BaseValue, MinValue) },
         };
 
-    public static TheoryData<bool, TimeSpan, TimeSpan> GetLessThanData =>
-        new TheoryData<bool, TimeSpan, TimeSpan>
+    public static IEnumerable<(bool, TimeSpan, TimeSpan)> GetLessThanData =>
+        new List<(bool, TimeSpan, TimeSpan)>
         {
-            { true, BaseValue, MinValue },
-            { true, BaseValue, BaseValue },
-            { false, BaseValue, MaxValue },
+            { (true, BaseValue, MinValue) },
+            { (true, BaseValue, BaseValue) },
+            { (false, BaseValue, MaxValue) },
         };
 
-    public static TheoryData<bool, TimeSpan, TimeSpan> GetLessThanOrEqualData =>
-        new TheoryData<bool, TimeSpan, TimeSpan>
+    public static IEnumerable<(bool, TimeSpan, TimeSpan)> GetLessThanOrEqualData =>
+        new List<(bool, TimeSpan, TimeSpan)>
         {
-            { true, BaseValue, MinValue },
-            { false, BaseValue, BaseValue },
-            { false, BaseValue, MaxValue },
+            { (true, BaseValue, MinValue) },
+            { (false, BaseValue, BaseValue) },
+            { (false, BaseValue, MaxValue) },
         };
 }

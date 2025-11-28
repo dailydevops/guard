@@ -2,9 +2,8 @@
 
 using System;
 using System.Diagnostics.CodeAnalysis;
-using NetEvolve.Extensions.XUnit;
+using NetEvolve.Extensions.TUnit;
 using NetEvolve.Guard;
-using Xunit;
 
 [ExcludeFromCodeCoverage]
 [UnitTest]
@@ -14,8 +13,8 @@ public sealed class EnsureUInt16Tests
     private static ushort MaxValue { get; } = ushort.MaxValue;
     private static ushort MinValue { get; } = ushort.MinValue;
 
-    [Theory]
-    [MemberData(nameof(GetInBetweenData))]
+    [Test]
+    [MethodDataSource(nameof(GetInBetweenData))]
     public void InBetween_Theory_Expected(bool throwException, ushort value, ushort min, ushort max)
     {
         if (throwException)
@@ -31,8 +30,8 @@ public sealed class EnsureUInt16Tests
         }
     }
 
-    [Theory]
-    [MemberData(nameof(GetNotBetweenData))]
+    [Test]
+    [MethodDataSource(nameof(GetNotBetweenData))]
     public void NotBetween_Theory_Expected(bool throwException, ushort value, ushort min, ushort max)
     {
         if (throwException)
@@ -48,8 +47,8 @@ public sealed class EnsureUInt16Tests
         }
     }
 
-    [Theory]
-    [MemberData(nameof(GetGreaterThanData))]
+    [Test]
+    [MethodDataSource(nameof(GetGreaterThanData))]
     public void GreaterThan_Theory_Expected(bool throwException, ushort value, ushort compareValue)
     {
         if (throwException)
@@ -65,8 +64,8 @@ public sealed class EnsureUInt16Tests
         }
     }
 
-    [Theory]
-    [MemberData(nameof(GetGreaterThanOrEqualData))]
+    [Test]
+    [MethodDataSource(nameof(GetGreaterThanOrEqualData))]
     public void GreaterThanOrEqual_Theory_Expected(bool throwException, ushort value, ushort compareValue)
     {
         if (throwException)
@@ -82,8 +81,8 @@ public sealed class EnsureUInt16Tests
         }
     }
 
-    [Theory]
-    [MemberData(nameof(GetLessThanData))]
+    [Test]
+    [MethodDataSource(nameof(GetLessThanData))]
     public void LessThan_Theory_Expected(bool throwException, ushort value, ushort compareValue)
     {
         if (throwException)
@@ -99,8 +98,8 @@ public sealed class EnsureUInt16Tests
         }
     }
 
-    [Theory]
-    [MemberData(nameof(GetLessThanOrEqualData))]
+    [Test]
+    [MethodDataSource(nameof(GetLessThanOrEqualData))]
     public void LessThanOrEqual_Theory_Expected(bool throwException, ushort value, ushort compareValue)
     {
         if (throwException)
@@ -116,61 +115,61 @@ public sealed class EnsureUInt16Tests
         }
     }
 
-    public static TheoryData<bool, ushort, ushort, ushort> GetInBetweenData =>
-        new TheoryData<bool, ushort, ushort, ushort>
+    public static IEnumerable<(bool, ushort, ushort, ushort)> GetInBetweenData =>
+        new List<(bool, ushort, ushort, ushort)>
         {
-            { true, MinValue, BaseValue, MaxValue },
-            { true, MaxValue, BaseValue, MinValue },
-            { false, MinValue, MinValue, MaxValue },
-            { false, MaxValue, MinValue, MaxValue },
-            { false, BaseValue, MinValue, MaxValue },
-            { false, BaseValue, MaxValue, MinValue },
+            { (true, MinValue, BaseValue, MaxValue) },
+            { (true, MaxValue, BaseValue, MinValue) },
+            { (false, MinValue, MinValue, MaxValue) },
+            { (false, MaxValue, MinValue, MaxValue) },
+            { (false, BaseValue, MinValue, MaxValue) },
+            { (false, BaseValue, MaxValue, MinValue) },
         };
 
-    public static TheoryData<bool, ushort, ushort, ushort> GetNotBetweenData =>
-        new TheoryData<bool, ushort, ushort, ushort>
+    public static IEnumerable<(bool, ushort, ushort, ushort)> GetNotBetweenData =>
+        new List<(bool, ushort, ushort, ushort)>
         {
-            { false, MinValue, BaseValue, MaxValue },
-            { false, MaxValue, BaseValue, MinValue },
-            { true, BaseValue, MinValue, MaxValue },
-            { true, BaseValue, MaxValue, MinValue },
+            { (false, MinValue, BaseValue, MaxValue) },
+            { (false, MaxValue, BaseValue, MinValue) },
+            { (true, BaseValue, MinValue, MaxValue) },
+            { (true, BaseValue, MaxValue, MinValue) },
         };
 
-    public static TheoryData<bool, ushort, ushort> GetGreaterThanData =>
-        new TheoryData<bool, ushort, ushort>
+    public static IEnumerable<(bool, ushort, ushort)> GetGreaterThanData =>
+        new List<(bool, ushort, ushort)>
         {
-            { true, BaseValue, MaxValue },
-            { true, BaseValue, BaseValue },
-            { false, BaseValue, MinValue },
+            { (true, BaseValue, MaxValue) },
+            { (true, BaseValue, BaseValue) },
+            { (false, BaseValue, MinValue) },
         };
 
-    public static TheoryData<bool, ushort, ushort> GetGreaterThanOrEqualData =>
-        new TheoryData<bool, ushort, ushort>
+    public static IEnumerable<(bool, ushort, ushort)> GetGreaterThanOrEqualData =>
+        new List<(bool, ushort, ushort)>
         {
-            { true, BaseValue, MaxValue },
-            { false, BaseValue, BaseValue },
-            { false, BaseValue, MinValue },
+            { (true, BaseValue, MaxValue) },
+            { (false, BaseValue, BaseValue) },
+            { (false, BaseValue, MinValue) },
         };
 
-    public static TheoryData<bool, ushort, ushort> GetLessThanData =>
-        new TheoryData<bool, ushort, ushort>
+    public static IEnumerable<(bool, ushort, ushort)> GetLessThanData =>
+        new List<(bool, ushort, ushort)>
         {
-            { true, BaseValue, MinValue },
-            { true, BaseValue, BaseValue },
-            { false, BaseValue, MaxValue },
+            { (true, BaseValue, MinValue) },
+            { (true, BaseValue, BaseValue) },
+            { (false, BaseValue, MaxValue) },
         };
 
-    public static TheoryData<bool, ushort, ushort> GetLessThanOrEqualData =>
-        new TheoryData<bool, ushort, ushort>
+    public static IEnumerable<(bool, ushort, ushort)> GetLessThanOrEqualData =>
+        new List<(bool, ushort, ushort)>
         {
-            { true, BaseValue, MinValue },
-            { false, BaseValue, BaseValue },
-            { false, BaseValue, MaxValue },
+            { (true, BaseValue, MinValue) },
+            { (false, BaseValue, BaseValue) },
+            { (false, BaseValue, MaxValue) },
         };
 
 #if NET6_0_OR_GREATER
-    [Theory]
-    [MemberData(nameof(GetNotPow2Data))]
+    [Test]
+    [MethodDataSource(nameof(GetNotPow2Data))]
     public void NotPow2_Theory_Expected(bool throwException, ushort value)
     {
         if (throwException)
@@ -183,7 +182,6 @@ public sealed class EnsureUInt16Tests
         }
     }
 
-    public static TheoryData<bool, ushort> GetNotPow2Data =>
-        new TheoryData<bool, ushort> { { true, 63 }, { false, 64 } };
+    public static IEnumerable<(bool, ushort)> GetNotPow2Data => new List<(bool, ushort)> { (true, 63), (false, 64) };
 #endif
 }

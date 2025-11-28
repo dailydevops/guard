@@ -3,9 +3,8 @@ namespace NetEvolve.Guard.Tests.Unit;
 
 using System;
 using System.Diagnostics.CodeAnalysis;
-using NetEvolve.Extensions.XUnit;
+using NetEvolve.Extensions.TUnit;
 using NetEvolve.Guard;
-using Xunit;
 
 [ExcludeFromCodeCoverage]
 [UnitTest]
@@ -15,8 +14,8 @@ public sealed class EnsureTimeOnlyTests
     private static TimeOnly MaxValue { get; } = TimeOnly.MaxValue;
     private static TimeOnly MinValue { get; } = TimeOnly.MinValue;
 
-    [Theory]
-    [MemberData(nameof(GetInBetweenData))]
+    [Test]
+    [MethodDataSource(nameof(GetInBetweenData))]
     public void InBetween_Theory_Expected(bool throwException, TimeOnly value, TimeOnly min, TimeOnly max)
     {
         if (throwException)
@@ -32,8 +31,8 @@ public sealed class EnsureTimeOnlyTests
         }
     }
 
-    [Theory]
-    [MemberData(nameof(GetNotBetweenData))]
+    [Test]
+    [MethodDataSource(nameof(GetNotBetweenData))]
     public void NotBetween_Theory_Expected(bool throwException, TimeOnly value, TimeOnly min, TimeOnly max)
     {
         if (throwException)
@@ -49,8 +48,8 @@ public sealed class EnsureTimeOnlyTests
         }
     }
 
-    [Theory]
-    [MemberData(nameof(GetGreaterThanData))]
+    [Test]
+    [MethodDataSource(nameof(GetGreaterThanData))]
     public void GreaterThan_Theory_Expected(bool throwException, TimeOnly value, TimeOnly compareValue)
     {
         if (throwException)
@@ -66,8 +65,8 @@ public sealed class EnsureTimeOnlyTests
         }
     }
 
-    [Theory]
-    [MemberData(nameof(GetGreaterThanOrEqualData))]
+    [Test]
+    [MethodDataSource(nameof(GetGreaterThanOrEqualData))]
     public void GreaterThanOrEqual_Theory_Expected(bool throwException, TimeOnly value, TimeOnly compareValue)
     {
         if (throwException)
@@ -83,8 +82,8 @@ public sealed class EnsureTimeOnlyTests
         }
     }
 
-    [Theory]
-    [MemberData(nameof(GetLessThanData))]
+    [Test]
+    [MethodDataSource(nameof(GetLessThanData))]
     public void LessThan_Theory_Expected(bool throwException, TimeOnly value, TimeOnly compareValue)
     {
         if (throwException)
@@ -100,8 +99,8 @@ public sealed class EnsureTimeOnlyTests
         }
     }
 
-    [Theory]
-    [MemberData(nameof(GetLessThanOrEqualData))]
+    [Test]
+    [MethodDataSource(nameof(GetLessThanOrEqualData))]
     public void LessThanOrEqual_Theory_Expected(bool throwException, TimeOnly value, TimeOnly compareValue)
     {
         if (throwException)
@@ -117,56 +116,56 @@ public sealed class EnsureTimeOnlyTests
         }
     }
 
-    public static TheoryData<bool, TimeOnly, TimeOnly, TimeOnly> GetInBetweenData =>
-        new TheoryData<bool, TimeOnly, TimeOnly, TimeOnly>
+    public static IEnumerable<(bool, TimeOnly, TimeOnly, TimeOnly)> GetInBetweenData =>
+        new List<(bool, TimeOnly, TimeOnly, TimeOnly)>
         {
-            { true, MinValue, BaseValue, MaxValue },
-            { true, MaxValue, BaseValue, MinValue },
-            { false, MinValue, MinValue, MaxValue },
-            { false, MaxValue, MinValue, MaxValue },
-            { false, BaseValue, MinValue, MaxValue },
-            { false, BaseValue, MaxValue, MinValue },
+            { (true, MinValue, BaseValue, MaxValue) },
+            { (true, MaxValue, BaseValue, MinValue) },
+            { (false, MinValue, MinValue, MaxValue) },
+            { (false, MaxValue, MinValue, MaxValue) },
+            { (false, BaseValue, MinValue, MaxValue) },
+            { (false, BaseValue, MaxValue, MinValue) },
         };
 
-    public static TheoryData<bool, TimeOnly, TimeOnly, TimeOnly> GetNotBetweenData =>
-        new TheoryData<bool, TimeOnly, TimeOnly, TimeOnly>
+    public static IEnumerable<(bool, TimeOnly, TimeOnly, TimeOnly)> GetNotBetweenData =>
+        new List<(bool, TimeOnly, TimeOnly, TimeOnly)>
         {
-            { false, MinValue, BaseValue, MaxValue },
-            { false, MaxValue, BaseValue, MinValue },
-            { true, BaseValue, MinValue, MaxValue },
-            { true, BaseValue, MaxValue, MinValue },
+            { (false, MinValue, BaseValue, MaxValue) },
+            { (false, MaxValue, BaseValue, MinValue) },
+            { (true, BaseValue, MinValue, MaxValue) },
+            { (true, BaseValue, MaxValue, MinValue) },
         };
 
-    public static TheoryData<bool, TimeOnly, TimeOnly> GetGreaterThanData =>
-        new TheoryData<bool, TimeOnly, TimeOnly>
+    public static IEnumerable<(bool, TimeOnly, TimeOnly)> GetGreaterThanData =>
+        new List<(bool, TimeOnly, TimeOnly)>
         {
-            { true, BaseValue, MaxValue },
-            { true, BaseValue, BaseValue },
-            { false, BaseValue, MinValue },
+            { (true, BaseValue, MaxValue) },
+            { (true, BaseValue, BaseValue) },
+            { (false, BaseValue, MinValue) },
         };
 
-    public static TheoryData<bool, TimeOnly, TimeOnly> GetGreaterThanOrEqualData =>
-        new TheoryData<bool, TimeOnly, TimeOnly>
+    public static IEnumerable<(bool, TimeOnly, TimeOnly)> GetGreaterThanOrEqualData =>
+        new List<(bool, TimeOnly, TimeOnly)>
         {
-            { true, BaseValue, MaxValue },
-            { false, BaseValue, BaseValue },
-            { false, BaseValue, MinValue },
+            { (true, BaseValue, MaxValue) },
+            { (false, BaseValue, BaseValue) },
+            { (false, BaseValue, MinValue) },
         };
 
-    public static TheoryData<bool, TimeOnly, TimeOnly> GetLessThanData =>
-        new TheoryData<bool, TimeOnly, TimeOnly>
+    public static IEnumerable<(bool, TimeOnly, TimeOnly)> GetLessThanData =>
+        new List<(bool, TimeOnly, TimeOnly)>
         {
-            { true, BaseValue, MinValue },
-            { true, BaseValue, BaseValue },
-            { false, BaseValue, MaxValue },
+            { (true, BaseValue, MinValue) },
+            { (true, BaseValue, BaseValue) },
+            { (false, BaseValue, MaxValue) },
         };
 
-    public static TheoryData<bool, TimeOnly, TimeOnly> GetLessThanOrEqualData =>
-        new TheoryData<bool, TimeOnly, TimeOnly>
+    public static IEnumerable<(bool, TimeOnly, TimeOnly)> GetLessThanOrEqualData =>
+        new List<(bool, TimeOnly, TimeOnly)>
         {
-            { true, BaseValue, MinValue },
-            { false, BaseValue, BaseValue },
-            { false, BaseValue, MaxValue },
+            { (true, BaseValue, MinValue) },
+            { (false, BaseValue, BaseValue) },
+            { (false, BaseValue, MaxValue) },
         };
 }
 #endif

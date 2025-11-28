@@ -3,18 +3,17 @@
 using System;
 using System.Diagnostics.CodeAnalysis;
 using System.Text.RegularExpressions;
-using NetEvolve.Extensions.XUnit;
-using Xunit;
+using NetEvolve.Extensions.TUnit;
 
 [ExcludeFromCodeCoverage]
 [UnitTest]
 public class EnsureStringTests
 {
-    [Theory]
-    [InlineData(true, false, null)]
-    [InlineData(false, true, "")]
-    [InlineData(false, false, " ")]
-    [InlineData(false, false, "Hello World!")]
+    [Test]
+    [Arguments(true, false, null)]
+    [Arguments(false, true, "")]
+    [Arguments(false, false, " ")]
+    [Arguments(false, false, "Hello World!")]
     public void NotNullOrEmpty_Theory_Expected(bool throwExceptionNull, bool throwException, string? value)
     {
         if (throwExceptionNull)
@@ -31,11 +30,11 @@ public class EnsureStringTests
         }
     }
 
-    [Theory]
-    [InlineData(true, false, null)]
-    [InlineData(false, true, "")]
-    [InlineData(false, true, " ")]
-    [InlineData(false, false, "Hello World!")]
+    [Test]
+    [Arguments(true, false, null)]
+    [Arguments(false, true, "")]
+    [Arguments(false, true, " ")]
+    [Arguments(false, false, "Hello World!")]
     public void NotNullOrWhiteSpace_Theory_Expected(bool throwExceptionNull, bool throwException, string? value)
     {
         if (throwExceptionNull)
@@ -55,13 +54,13 @@ public class EnsureStringTests
         }
     }
 
-    [Theory]
-    [InlineData(true, null)]
-    [InlineData(
+    [Test]
+    [Arguments(true, null)]
+    [Arguments(
         true,
         /*language=regex*/@"^\d+"
     )]
-    [InlineData(
+    [Arguments(
         false,
         /*language=regex*/@"^\w+"
     )]
@@ -89,14 +88,14 @@ public class EnsureStringTests
         }
     }
 
-    [Theory]
-    [InlineData(true, null, RegexOptions.IgnoreCase)]
-    [InlineData(
+    [Test]
+    [Arguments(true, null, RegexOptions.IgnoreCase)]
+    [Arguments(
         true,
         /*language=regex*/@"^[a-z]+",
         RegexOptions.None
     )]
-    [InlineData(
+    [Arguments(
         false,
         /*language=regex*/@"^[a-z]+",
         RegexOptions.IgnoreCase

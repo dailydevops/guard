@@ -2,9 +2,8 @@
 
 using System;
 using System.Diagnostics.CodeAnalysis;
-using NetEvolve.Extensions.XUnit;
+using NetEvolve.Extensions.TUnit;
 using NetEvolve.Guard;
-using Xunit;
 
 [ExcludeFromCodeCoverage]
 [UnitTest]
@@ -14,8 +13,8 @@ public sealed class EnsureInt8Tests
     private static sbyte MaxValue { get; } = sbyte.MaxValue;
     private static sbyte MinValue { get; } = sbyte.MinValue;
 
-    [Theory]
-    [MemberData(nameof(GetInBetweenData))]
+    [Test]
+    [MethodDataSource(nameof(GetInBetweenData))]
     public void InBetween_Theory_Expected(bool throwException, sbyte value, sbyte min, sbyte max)
     {
         if (throwException)
@@ -31,8 +30,8 @@ public sealed class EnsureInt8Tests
         }
     }
 
-    [Theory]
-    [MemberData(nameof(GetNotBetweenData))]
+    [Test]
+    [MethodDataSource(nameof(GetNotBetweenData))]
     public void NotBetween_Theory_Expected(bool throwException, sbyte value, sbyte min, sbyte max)
     {
         if (throwException)
@@ -48,8 +47,8 @@ public sealed class EnsureInt8Tests
         }
     }
 
-    [Theory]
-    [MemberData(nameof(GetGreaterThanData))]
+    [Test]
+    [MethodDataSource(nameof(GetGreaterThanData))]
     public void GreaterThan_Theory_Expected(bool throwException, sbyte value, sbyte compareValue)
     {
         if (throwException)
@@ -65,8 +64,8 @@ public sealed class EnsureInt8Tests
         }
     }
 
-    [Theory]
-    [MemberData(nameof(GetGreaterThanOrEqualData))]
+    [Test]
+    [MethodDataSource(nameof(GetGreaterThanOrEqualData))]
     public void GreaterThanOrEqual_Theory_Expected(bool throwException, sbyte value, sbyte compareValue)
     {
         if (throwException)
@@ -82,8 +81,8 @@ public sealed class EnsureInt8Tests
         }
     }
 
-    [Theory]
-    [MemberData(nameof(GetLessThanData))]
+    [Test]
+    [MethodDataSource(nameof(GetLessThanData))]
     public void LessThan_Theory_Expected(bool throwException, sbyte value, sbyte compareValue)
     {
         if (throwException)
@@ -99,8 +98,8 @@ public sealed class EnsureInt8Tests
         }
     }
 
-    [Theory]
-    [MemberData(nameof(GetLessThanOrEqualData))]
+    [Test]
+    [MethodDataSource(nameof(GetLessThanOrEqualData))]
     public void LessThanOrEqual_Theory_Expected(bool throwException, sbyte value, sbyte compareValue)
     {
         if (throwException)
@@ -116,61 +115,39 @@ public sealed class EnsureInt8Tests
         }
     }
 
-    public static TheoryData<bool, sbyte, sbyte, sbyte> GetInBetweenData =>
-        new TheoryData<bool, sbyte, sbyte, sbyte>
-        {
-            { true, MinValue, BaseValue, MaxValue },
-            { true, MaxValue, BaseValue, MinValue },
-            { false, MinValue, MinValue, MaxValue },
-            { false, MaxValue, MinValue, MaxValue },
-            { false, BaseValue, MinValue, MaxValue },
-            { false, BaseValue, MaxValue, MinValue },
-        };
+    public static IEnumerable<(bool, sbyte, sbyte, sbyte)> GetInBetweenData =>
+        [
+            (true, MinValue, BaseValue, MaxValue),
+            (true, MaxValue, BaseValue, MinValue),
+            (false, MinValue, MinValue, MaxValue),
+            (false, MaxValue, MinValue, MaxValue),
+            (false, BaseValue, MinValue, MaxValue),
+            (false, BaseValue, MaxValue, MinValue),
+        ];
 
-    public static TheoryData<bool, sbyte, sbyte, sbyte> GetNotBetweenData =>
-        new TheoryData<bool, sbyte, sbyte, sbyte>
-        {
-            { false, MinValue, BaseValue, MaxValue },
-            { false, MaxValue, BaseValue, MinValue },
-            { true, BaseValue, MinValue, MaxValue },
-            { true, BaseValue, MaxValue, MinValue },
-        };
+    public static IEnumerable<(bool, sbyte, sbyte, sbyte)> GetNotBetweenData =>
+        [
+            (false, MinValue, BaseValue, MaxValue),
+            (false, MaxValue, BaseValue, MinValue),
+            (true, BaseValue, MinValue, MaxValue),
+            (true, BaseValue, MaxValue, MinValue),
+        ];
 
-    public static TheoryData<bool, sbyte, sbyte> GetGreaterThanData =>
-        new TheoryData<bool, sbyte, sbyte>
-        {
-            { true, BaseValue, MaxValue },
-            { true, BaseValue, BaseValue },
-            { false, BaseValue, MinValue },
-        };
+    public static IEnumerable<(bool, sbyte, sbyte)> GetGreaterThanData =>
+        [(true, BaseValue, MaxValue), (true, BaseValue, BaseValue), (false, BaseValue, MinValue)];
 
-    public static TheoryData<bool, sbyte, sbyte> GetGreaterThanOrEqualData =>
-        new TheoryData<bool, sbyte, sbyte>
-        {
-            { true, BaseValue, MaxValue },
-            { false, BaseValue, BaseValue },
-            { false, BaseValue, MinValue },
-        };
+    public static IEnumerable<(bool, sbyte, sbyte)> GetGreaterThanOrEqualData =>
+        [(true, BaseValue, MaxValue), (false, BaseValue, BaseValue), (false, BaseValue, MinValue)];
 
-    public static TheoryData<bool, sbyte, sbyte> GetLessThanData =>
-        new TheoryData<bool, sbyte, sbyte>
-        {
-            { true, BaseValue, MinValue },
-            { true, BaseValue, BaseValue },
-            { false, BaseValue, MaxValue },
-        };
+    public static IEnumerable<(bool, sbyte, sbyte)> GetLessThanData =>
+        [(true, BaseValue, MinValue), (true, BaseValue, BaseValue), (false, BaseValue, MaxValue)];
 
-    public static TheoryData<bool, sbyte, sbyte> GetLessThanOrEqualData =>
-        new TheoryData<bool, sbyte, sbyte>
-        {
-            { true, BaseValue, MinValue },
-            { false, BaseValue, BaseValue },
-            { false, BaseValue, MaxValue },
-        };
+    public static IEnumerable<(bool, sbyte, sbyte)> GetLessThanOrEqualData =>
+        [(true, BaseValue, MinValue), (false, BaseValue, BaseValue), (false, BaseValue, MaxValue)];
 
 #if NET6_0_OR_GREATER
-    [Theory]
-    [MemberData(nameof(GetNotPow2Data))]
+    [Test]
+    [MethodDataSource(nameof(GetNotPow2Data))]
     public void NotPow2_Theory_Expected(bool throwException, sbyte value)
     {
         if (throwException)
@@ -183,6 +160,6 @@ public sealed class EnsureInt8Tests
         }
     }
 
-    public static TheoryData<bool, sbyte> GetNotPow2Data => new TheoryData<bool, sbyte> { { true, 63 }, { false, 64 } };
+    public static IEnumerable<(bool, sbyte)> GetNotPow2Data => [(true, (sbyte)63), (false, (sbyte)64)];
 #endif
 }
