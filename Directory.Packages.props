@@ -15,7 +15,7 @@
   <ItemGroup>
     <PackageVersion Include="NetEvolve.Arguments" Version="2.0.17" />
     <PackageVersion Include="NetEvolve.Extensions.TUnit" Version="3.2.3" />
-    <PackageVersion Include="Polyfill" Version="9.3.1" />
+    <PackageVersion Include="Polyfill" Version="9.3.2" />
     <PackageVersion Include="TUnit" Version="1.5.6" />
   </ItemGroup>
 </Project>
